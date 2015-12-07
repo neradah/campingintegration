@@ -56,7 +56,7 @@
     <div class="homegrid_item homegrid_item--square homegrid_item--music">
         <a href="#" class="homegrid_blocklink">
             <div class="homegrid_square-fullimage">
-                <img src="assets/uploads/{!! $images->music_image !!}" alt="Picture of a music festival" />
+                <img src="http://placehold.it/420x480?text=placeholder" alt="Picture of a music festival" />
             </div>
             <div class="homegrid_square-footer">
                 <h1 class="homegrid_square-footertitle type-sans2-b"><span class="script type-script">Music festival</span> camping</h1>
