@@ -14,6 +14,8 @@ class CreatePitchGroupsTable extends Migration
     {
         Schema::create('pitch_groups', function (Blueprint $table) {
             $table->increments('id');
+            $table->text('name');
+            $table->integer('persons');
             $table->timestamps();
         });
     }

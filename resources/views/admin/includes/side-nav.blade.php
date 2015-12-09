@@ -7,7 +7,7 @@
             <!-- logo -->
             <div class="logo">
                 <a href="index.html">
-                    <img src="assets/images/logo@2x.png" width="120" alt="" />
+                    <img src="{{asset('img/cms_logo.png')}}" width="120" alt="" />
                 </a>
             </div>
 
@@ -33,7 +33,7 @@
             <!-- add class "multiple-expanded" to allow multiple submenus to open -->
             <!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
             <li class="@if(request()->is('admin/home')) active @endif">
-                <a href="{{url('admin/home')}}" target="_blank">
+                <a href="{{url('admin/home')}}">
                     <i class="entypo-monitor"></i>
                     <span class="title">Dashboard</span>
                 </a>
@@ -41,7 +41,7 @@
 
             <!--Bookings -->
 
-            <li>
+            <li class="@if(request()->is('admin/booking')) opened @endif">
                 <a href="{{ url('admin/booking')  }}">
                     <i class="entypo-layout"></i>
                     <span class="title">Bookings</span>

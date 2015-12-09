@@ -10,6 +10,10 @@ use App\Http\Controllers\Controller;
 
 class EventController extends Controller
 {
+    public function __construct()
+    {
+        view()->share('fields', ['Status', 'Event', 'Location', 'Type', 'Date of Event']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -17,10 +21,8 @@ class EventController extends Controller
      */
     public function index(Event $event)
     {
-       // $events = $event->all();
-        $events = [];
-
-        return view('admin.event.index', compact('events'));
+        $items = $event->all();
+        return view('admin.event.index', compact('items'));
     }
 
     /**

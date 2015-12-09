@@ -2,33 +2,36 @@
 
 @section('content')
 
-<table class="table table-hover">
+    <div class="row">
+    <div class="col-md-12">
 
-    <thead>
-    <tr>
-        <td></td>
-        <td>Status</td>
-        <td>Event</td>
-        <td>Location</td>
-        <td>Type</td>
-        <td>Date of Event</td>
-    </tr>
-    </thead>
+        <table class="table table-bordered responsive">
+            <thead>
+            <tr>
+                <td></td>
+                @foreach($fields as $field)
+                    <td>{{$field}}</td>
+                @endforeach
+            </tr>
+            </thead>
+            <tbody>
+            @foreach($items as $item)
 
-    @foreach($events as $event)
+                <tr>
+                    <td>{!! Form::checkbox('checkbox') !!}</td>
+                    <td>95</td>
+                    <td>Thaddeus</td>
+                    <td>Chase</td>
+                    <td>66762</td>
+                    <td>Netherlands Antilles</td>
+                </tr>
 
-        <tr>
-            <td>{!! Form::checkbox('checkbox') !!}</td>
-            <td>{!! $event->status !!}</td>
-            <td>{!! $event->event !!}</td>
-            <td>{!! $event->location !!}</td>
-            <td>{!! $event->type !!}</td>
-            <td>{!! $event->date_of_event !!}</td>
-        </tr>
+            @endforeach
+            </tbody>
+        </table>
 
-        @endforeach
-
-</table>
+    </div>
+</div>
 
 
 

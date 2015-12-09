@@ -2,114 +2,141 @@
 
 @section('content')
 
-    <div class="jumbotron">
-        <h2>Create Event</h2>
-    </div>
-
     {!! Form::open() !!}
 
-    <h2>Event Dtails</h2>
+    <div class="row">
+        <div class="col-md-12">
 
-    <div class="form-group">
-        {!! Form::label('name', 'Event Name') !!}
-        {!! Form::text('name', null, ['class' => 'form-control']) !!}
+            <div class="panel panel-primary" data-collapsed="0">
+
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        Create Event
+                    </div>
+
+                    <div class="panel-options">
+                        <a href="#sample-modal" data-toggle="modal" data-target="#sample-modal-dialog-1" class="bg"><i class="entypo-cog"></i></a>
+                        <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+                        <a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
+                        <a href="#" data-rel="close"><i class="entypo-cancel"></i></a>
+                    </div>
+                </div>
+
+                <div class="panel-body">
+
+                    <div class="form-horizontal form-groups-bordered">
+
+                        <div class="form-group">
+                            {!! Form::label('name', 'Event Name', ['class' => 'col-sm-3 control-label']) !!}
+                            <div class="col-sm-5">
+                                {!! Form::text('name', null, ['class' => 'form-control', 'id' => 'name']) !!}
+                            </div>
+                        </div>
+
+                    <div class="form-group">
+                        {!! Form::label('slug', null, ['class' => 'col-sm-3 control-label']) !!}
+                        <div class="col-sm-5">
+                            {!! Form::text('slug', null, ['class' => 'form-control', 'id' => 'slug']) !!}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        {!! Form::label('type', null, ['class' => 'col-sm-3 control-label']) !!}
+                        <div class="col-sm-5">
+                            {!! Form::text('type', null, ['class' => 'form-control', 'id' => 'type']) !!}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        {!! Form::label('location', null, ['class' => 'col-sm-3 control-label']) !!}
+                        <div class="col-sm-5">
+                            {!! Form::text('location', null, ['class' => 'form-control', 'id' => 'location']) !!}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        {!! Form::label('start', null, ['class' => 'col-sm-3 control-label']) !!}
+                        <div class="col-sm-5">
+                            {!! Form::input('date', 'start', null, ['class' => 'form-control', 'id' => 'start']) !!}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        {!! Form::label('end', null, ['class' => 'col-sm-3 control-label']) !!}
+                        <div class="col-sm-5">
+                            {!! Form::input('date', 'end', null, ['class' => 'form-control', 'id' => 'end']) !!}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        {!! Form::label('thumbnail', null, ['class' => 'col-sm-3 control-label']) !!}
+                        <div class="col-sm-5">
+                            {!! Form::file('thumbnail', ['class' => 'form-control', 'id' => 'thumbnail']) !!}
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        {!! Form::label('banner', null, ['class' => 'col-sm-3 control-label']) !!}
+                        <div class="col-sm-5">
+                            {!! Form::file('banner', ['class' => 'form-control', 'id' => 'banner']) !!}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        {!! Form::label('discount', null, ['class' => 'col-sm-3 control-label']) !!}
+                        <div class="col-sm-5">
+                            {!! Form::text('discount', null, ['class' => 'form-control', 'id' => 'discount']) !!}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        {!! Form::label('show_homepage', null, ['class' => 'col-sm-3 control-label']) !!}
+                        <div class="col-sm-5">
+                            {!! Form::text('show_homepage', null, ['class' => 'form-control', 'id' => 'show_homepage']) !!}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        {!! Form::label('about_info', null, ['class' => 'col-sm-3 control-label']) !!}
+                        <div class="col-sm-5">
+                            {!! Form::textarea('about_info', null, ['class' => 'form-control ckeditor', 'id' => 'about_info']) !!}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        {!! Form::label('parking_info', null, ['class' => 'col-sm-3 control-label']) !!}
+                        <div class="col-sm-5">
+                            {!! Form::textarea('parking_info', null, ['class' => 'form-control ckeditor', 'id' => 'parking_info']) !!}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        {!! Form::label('arrival_info', null, ['class' => 'col-sm-3 control-label']) !!}
+                        <div class="col-sm-5">
+                            {!! Form::textarea('arrival_info', null, ['class' => 'form-control ckeditor', 'id' => 'arrival_info']) !!}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        {!! Form::label('map', null, ['class' => 'col-sm-3 control-label']) !!}
+                        <div class="col-sm-5">
+                            {!! Form::file('map', ['class' => 'form-control', 'id' => 'map']) !!}
+                        </div>
+                    </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
     </div>
-
-    <div class="form-group">
-        {!! Form::label('slug', 'Event Status') !!}
-        {!! Form::text('slug', null, ['class' => 'form-control']) !!}
-    </div>
-
-    <!-- type Form Input -->
-    <div class="form-group">
-        {!! Form::label('type') !!}
-        {!! Form::text('type', null, ['class' => 'form-control']) !!}
-    </div>
-
-    <!-- location Form Input -->
-    <div class="form-group">
-        {!! Form::label('location') !!}
-        {!! Form::text('location', null, ['class' => 'form-control']) !!}
-    </div>
-
-    <!-- start Form Input -->
-    <div class="form-group">
-        {!! Form::label('start') !!}
-        {!! Form::input('date', 'start', null, ['class' => 'form-control']) !!}
-    </div>
-
-    <!-- end Form Input -->
-    <div class="form-group">
-        {!! Form::label('end') !!}
-        {!! Form::input('date', 'end', null, ['class' => 'form-control']) !!}
-    </div>
-
-    <!-- thumbnail Form Input -->
-    <div class="form-group">
-        {!! Form::label('thumbnail') !!}
-        {!! Form::file('thumbnail') !!}
-    </div>
-
-    <!-- banner Form Input -->
-    <div class="form-group">
-        {!! Form::label('banner') !!}
-        {!! Form::file('banner') !!}
-    </div>
-
-    <h2>Discount & Options</h2>
-
-    <!-- discount Form Input -->
-    <div class="form-group">
-        {!! Form::label('discount') !!}
-        {!! Form::input('number', 'discount', null, ['class' => 'form-control']) !!}
-    </div>
-
-    <!-- show_homepage Form Input -->
-    <div class="form-group">
-        {!! Form::label('show_homepage') !!}
-        {!! Form::checkbox('show_homepage', null, ['class' => 'form-control']) !!}
-    </div>
-
-    <!-- homepage_expire Form Input -->
-    <div class="form-group">
-        {!! Form::label('homepage_expire') !!}
-        {!! Form::input('date', 'homepage_expire', null, ['class' => 'form-control']) !!}
-    </div>
-
-    <h2>Campsite & Arrival info</h2>
-
-    <!-- about_info Form Input -->
-    <div class="form-group">
-        {!! Form::label('about_info') !!}
-        {!! Form::textarea('about_info', null, ['class' => 'form-control']) !!}
-    </div>
-
-    <!-- parking_info Form Input -->
-    <div class="form-group">
-        {!! Form::label('parking_info') !!}
-        {!! Form::textarea('parking_info', null, ['class' => 'form-control']) !!}
-    </div>
-
-
-    <div class="form-group">
-        {!! Form::label('arrival_info') !!}
-        {!! Form::textarea('arrival_info', null, ['class' => 'form-control']) !!}
-    </div>
-
-    <!-- map Form Input -->
-    <div class="form-group">
-        {!! Form::label('map') !!}
-        {!! Form::file('map') !!}
-    </div>
-    
-
-
-
-
-
-
 
     {!! Form::close() !!}
-    
+
+    <script src="{{asset('admin/assets/js/ckeditor/ckeditor.js')}}"></script>
+    <script src="{{asset('admin/assets/js/ckeditor/adapters/jquery.js')}}"></script>
 
 @stop

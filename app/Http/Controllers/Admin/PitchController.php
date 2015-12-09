@@ -2,21 +2,27 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\PitchGroup;
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Mockery\Exception;
 
 class PitchController extends Controller
 {
+    public function __construct()
+    {
+        view()->share('fields', ['Name', 'Persons']);
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(PitchGroup $pitch)
     {
-        //
+        $items = $pitch->all();
+        return view('admin.pitch.index', compact('items'));
     }
 
     /**
@@ -26,7 +32,7 @@ class PitchController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.pitch.create');
     }
 
     /**
@@ -35,9 +41,11 @@ class PitchController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Requests\PitchRequest $request, PitchGroup $pitch)
     {
-        //
+        $pitch->create($request->all());
+
+       return redirect()->route('admin.pitch.index');
     }
 
     /**
@@ -48,7 +56,7 @@ class PitchController extends Controller
      */
     public function show($id)
     {
-        //
+       throw new Exception('Not Implement');
     }
 
     /**
@@ -57,9 +65,10 @@ class PitchController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, PitchGroup $pitch)
     {
-        //
+        $model = $pitch->find($id);
+        return view('admin.pitch.create', compact('model'));
     }
 
     /**
@@ -69,9 +78,10 @@ class PitchController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, PitchGroup $pitch)
     {
-        //
+        $pitch->findOrFail($id)->update($request->all());
+        return back();
     }
 
     /**
@@ -80,8 +90,9 @@ class PitchController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, PitchGroup $pitch)
     {
-        //
+        $pitch->find($id)->delete();
+        return back();
     }
 }
