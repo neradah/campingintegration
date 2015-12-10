@@ -1,0 +1,20 @@
+.faq_list {
+  background: #f5f4f3;
+  line-height: 1.5em;
+  margin: 30px 0;
+  padding: 20px 20px 0; }
+
+.faq_item {
+  padding: 0 0 20px; }
+
+.faq_q {
+  color: #574d65;
+  text-transform: uppercase; }
+
+.faq_unanswered {
+  margin: 0 0 30px;
+  padding: 0 0 0 20px; }
+  .faq_unanswered a {
+    color: #b8ae6c; }
+
+/*# sourceMappingURL=_faqs.css.map */

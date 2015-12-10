@@ -84,7 +84,7 @@
     <div class="homegrid_item homegrid_item--square homegrid_item--sport">
         <a href="#" class="homegrid_blocklink">
             <div class="homegrid_square-fullimage">
-                <img src="assets/uploads/{!! $images->sport_image !!}" alt="Picture of a sporting event" />
+                <img src="" alt="Picture of a sporting event" />
             </div>
             <div class="homegrid_square-footer">
                 <h1 class="homegrid_square-footertitle type-sans2-b"><span class="script type-script">Sport event</span> camping</h1>

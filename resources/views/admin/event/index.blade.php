@@ -18,12 +18,16 @@
                 @foreach($items as $item)
 
                     <tr>
-                        <td>{!! Form::checkbox('checkbox') !!}</td>
-                        <td>95</td>
-                        <td>Thaddeus</td>
-                        <td>Chase</td>
-                        <td>66762</td>
-                        <td>Netherlands Antilles</td>
+                        <td class="text-center">
+                            {!! Form::open(['id' => 'delete', 'method' => 'delete', 'route' => ['admin.event.destroy', $item->id]]) !!}
+                            <a href='#' onclick='this.parentNode.submit(); return false;'><i class="entypo-cancel"></i></a>
+                            {!! Form::close() !!}
+                        </td>
+                        <td><a href="{{route('admin.event.edit', [$item->id])}}">{{$item->slug}}</a></td>
+                        <td>{{$item->name}}</td>
+                        <td>{{$item->location}}</td>
+                        <td>{{$item->type}}</td>
+                        <td>{{$item->start}}</td>
                     </tr>
 
                 @endforeach

@@ -1,0 +1,21 @@
+body {
+  color: #636363;
+  font-size: 14px; }
+
+.type-sans, .type-sans-l, .type-sans-b {
+  font-family: "Roboto", sans-serif; }
+  .type-sans-l {
+    font-weight: 300; }
+  .type-sans-b {
+    font-weight: 500; }
+
+.type-sans2, .type-sans2-l, .type-sans2-b {
+  font-family: "futura-pt", sans-serif; }
+  .type-sans2-l {
+    font-weight: 300; }
+  .type-sans2-b {
+    font-weight: 600; }
+  .type-sans2 .type-script, .type-sans2-l .type-script, .type-sans2-b .type-script {
+    font-size: 1.3em; }
+
+/*# sourceMappingURL=_typography.css.map */

@@ -20,4 +20,6 @@ class Event extends Model
      */
     protected $fillable = ['name', 'slug', 'type', 'location', 'start', 'end', 'thumbnail', 'banner', 'discount', 'show_homepage', 'about_info', 'parking_info', 'arrival_info', 'map'];
 
+
+
 }

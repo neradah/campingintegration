@@ -1,0 +1,14 @@
+
+.form-group{
+
+	&.has-error{
+		color: #A94442;
+	}
+
+	.md-editor {
+		.md-preview, textarea {
+			padding: 12px;
+		}
+	}
+
+}

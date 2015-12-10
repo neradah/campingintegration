@@ -12,7 +12,7 @@ class CreatePitchGroupsTable extends Migration
      */
     public function up()
     {
-        Schema::create('pitch_groups', function (Blueprint $table) {
+        Schema::create('pitches', function (Blueprint $table) {
             $table->increments('id');
             $table->text('name');
             $table->integer('persons');
@@ -27,6 +27,6 @@ class CreatePitchGroupsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('pitch_groups');
+        Schema::drop('pitches');
     }
 }

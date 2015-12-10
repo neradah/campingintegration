@@ -1,0 +1,79 @@
+// Header
+.mainheader {
+	display: block;
+	font-family: 'Roboto', sans-serif;
+	width: 100%;
+}
+
+// Different layers within the header
+.mainheader_section {
+		background: #fff;
+	width: 100%;
+	&#{-main}{
+		height: 140px;
+	}
+	&#{-steps}{
+		background: #443c4f;
+		height: 255px;
+	}
+	&#{-search}{
+		background: #574d65;
+		height: 145px;
+	}
+}
+
+// Header content areas
+.mainheader_inner {
+	height: 100%;
+	margin: 0 auto;
+	padding: 0 15px;
+	position: relative;
+	width: 1024px;
+	// FF
+	text-align: center;
+}
+
+
+
+///////////////////////////
+// Logo
+///////////////////////////
+
+
+
+.mainheader_logo {
+	display: inline-block;
+	font-size: 0;
+	margin: 15px 0;
+}
+
+
+
+///////////////////////////
+// Navigation
+///////////////////////////
+
+
+
+.mainheader_mainnav {
+	bottom: 0;
+	font-size: 13px;
+	padding: 15px 0;
+	position: absolute;
+	right: 15px;
+	text-transform: uppercase;
+}
+
+.mainheader_mainnav-item {
+	display: inline-block;
+	margin: 0 0 0 20px;
+	// The nav links
+	& a {
+		color: #40646a;
+		padding: 5px;
+		transition: color 250ms linear;
+		&:hover {
+			color: #443c4f;
+		}
+	}
+}

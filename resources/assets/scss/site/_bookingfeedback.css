@@ -1,0 +1,19 @@
+.orderfeedback_header {
+  height: 148px; }
+
+.orderfeedback {
+  line-height: 1.75em;
+  padding: 50px 0;
+  text-align: center; }
+
+.orderfeedback_title {
+  font-size: 22px;
+  letter-spacing: 0.1em;
+  margin: 0 0 30px;
+  text-transform: uppercase; }
+
+.orderfeedback_failed-link {
+  color: #685c79;
+  text-decoration: underline; }
+
+/*# sourceMappingURL=_bookingfeedback.css.map */

@@ -1,0 +1,17 @@
+.tsandcs_list {
+  background: #f5f4f3;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+  columns: 2;
+  -webkit-column-gap: 20px;
+  -moz-column-gap: 20px;
+  column-gap: 20px;
+  line-height: 1.5em;
+  margin: 0 0 40px;
+  padding: 20px; }
+  .tsandcs_list dt {
+    padding: 20px 0 5px; }
+    .tsandcs_list dt:first-child {
+      padding: 0 0 5px; }
+
+/*# sourceMappingURL=_tsandcs.css.map */

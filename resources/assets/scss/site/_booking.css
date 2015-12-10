@@ -1,0 +1,173 @@
+.bookingheader_info {
+  height: 145px; }
+
+.bookingheader_title {
+  color: #fff;
+  font-size: 28px;
+  letter-spacing: 0.1em;
+  line-height: 30px;
+  margin: 20px 0 0;
+  text-transform: uppercase;
+  width: calc(100% - 165px); }
+  .bookingheader_title span {
+    display: inline-block;
+    width: 100%; }
+
+.bookingheader_date {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 300;
+  margin: 5px 0; }
+
+.bookingheader_earlybadge {
+  background: orange;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 145px;
+  width: 145px; }
+
+.bookingheader_facilities {
+  color: #fff;
+  font-size: 0;
+  padding: 10px 0; }
+
+.bookingheader_facility {
+  display: inline-block;
+  font-size: 13px;
+  line-height: 36px;
+  margin: 5px 0;
+  padding: 0 0 0 46px;
+  width: 25%;
+  width: 20%; }
+  .bookingheader_facility.toilets {
+    background: url("/assets/images/event_header_toilets.png") no-repeat left center/contain; }
+  .bookingheader_facility.security {
+    background: url("/assets/images/event_header_security.png") no-repeat left center/contain; }
+  .bookingheader_facility.parking {
+    background: url("/assets/images/event_header_parking.png") no-repeat left center/contain; }
+  .bookingheader_facility.showers {
+    background: url("/assets/images/event_header_showers.png") no-repeat left center/contain; }
+  .bookingheader_facility.meet, .bookingheader_facility.disabled {
+    background: url("/assets/images/event_header_disabled.png") no-repeat left center/contain; }
+  .bookingheader_facility.catering {
+    background: url("/assets/images/event_header_catering.png") no-repeat left center/contain; }
+  .bookingheader_facility.water {
+    background: url("/assets/images/event_header_water.png") no-repeat left center/contain; }
+
+.eventinfo_img {
+  margin: 0 0 -1px;
+  width: 100%; }
+
+.eventinfo_navlist {
+  font-size: 0;
+  width: 100%; }
+
+.eventinfo_navitem {
+  background: #a09552;
+  border-right: 2px solid #fff;
+  box-sizing: border-box;
+  color: #fff;
+  display: inline-block;
+  font-size: 16px;
+  width: 25%;
+  width: 33.33%; }
+  .eventinfo_navitem:last-child {
+    border-right: none; }
+  .eventinfo_navitem.active {
+    background: #807742; }
+
+.eventinfo_navbtn {
+  background: none;
+  border: none;
+  display: inline-block;
+  height: 100%;
+  padding: 15px 20px;
+  text-align: left;
+  width: 100%; }
+
+.eventinfo_contentlist {
+  background: #f5f4f3;
+  margin: 2px 0 0;
+  overflow-y: hidden; }
+
+.eventinfo_contentitem {
+  display: none; }
+  .eventinfo_contentitem.active {
+    display: block; }
+  .eventinfo_contentitem p {
+    line-height: 1.4em;
+    padding: 20px 20px 0; }
+    .eventinfo_contentitem p:last-child {
+      padding: 20px; }
+
+.bookingform_title {
+  background: #807742;
+  color: #fff;
+  letter-spacing: 0.05em;
+  margin: 20px 0;
+  padding: 20px 0;
+  width: 100%; }
+  .bookingform_title span {
+    display: block;
+    margin: 0 auto;
+    width: 992px; }
+  .bookingform_title .title {
+    font-size: 27px;
+    text-transform: uppercase; }
+  .bookingform_title .subtitle {
+    font-size: 17px;
+    padding: 10px 0 0; }
+
+.bookingform {
+  font-size: 0; }
+  .bookingform .form-group:nth-of-type(1), .bookingform .form-group:nth-of-type(2), .bookingform .form-group:nth-of-type(3) {
+    display: inline-block;
+    font-size: 1rem;
+    margin: 0 22px 0 0;
+    vertical-align: top;
+    width: 316px; }
+  .bookingform .form-group:nth-of-type(3) {
+    margin: 0; }
+  .bookingform .form-group .control-label {
+    color: #807742;
+    font-size: 21px;
+    margin: 0 0 20px;
+    text-transform: uppercase; }
+  .bookingform .form-group .radio-container {
+    display: inline-block;
+    height: 48px;
+    width: 100%; }
+    .bookingform .form-group .radio-container.fixed-price {
+      border: 1px solid #ccc;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075);
+      line-height: 48px;
+      padding: 0 10px;
+      vertical-align: middle; }
+  .bookingform .form-group .product-wrap {
+    height: 100%; }
+  .bookingform .form-group .bootstrap-select {
+    font-family: 'Roboto', sans-serif;
+    width: 100% !important; }
+  .bookingform .form-group .bootstrap-select > .dropdown-toggle {
+    height: 48px; }
+  .bookingform .disclaimer {
+    font-size: 16px;
+    margin: 0 0 20px;
+    text-decoration: underline;
+    text-transform: uppercase; }
+  .bookingform .total {
+    background: #a09552;
+    color: #fff;
+    display: inline-block;
+    font-size: 27px;
+    letter-spacing: 0.1em;
+    margin: 20px 0;
+    padding: 15px 20px;
+    text-transform: uppercase; }
+  .bookingform .btn-primary {
+    background: #574d65;
+    font-size: 22px;
+    margin: 0 0 20px; }
+
+/*# sourceMappingURL=_booking.css.map */

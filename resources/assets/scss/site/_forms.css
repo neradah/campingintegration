@@ -1,0 +1,14 @@
+.btn-primary {
+  background: #b8ae6c;
+  border: none;
+  color: #fff;
+  font-family: "futura-pt", sans-serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase; }
+  .btn-primary:hover, .btn-primary:focus {
+    background: #b8ae6c; }
+
+.form-horizontal .form-group {
+  margin: 0; }
+
+/*# sourceMappingURL=_forms.css.map */

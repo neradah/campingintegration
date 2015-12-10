@@ -35,7 +35,6 @@
                             {!! Form::label('name', null, ['class' => 'col-sm-3 control-label']) !!}
                             <div class="col-sm-5">
                                 {!! Form::text('name', null, ['class' => 'form-control', 'id' => 'name']) !!}
-                                <div class="bg-danger">Donec ullamcorper nulla non metus auctor fringilla.</div>
                             </div>
                         </div>
 
@@ -45,6 +44,17 @@
                             {!! Form::text('price', null, ['class' => 'form-control', 'id' => 'price']) !!}
                         </div>
                     </div>
+
+                        @foreach($pitches as $pitch)
+
+                            <div class="form-group">
+                                {!! Form::label($pitch->name, null, ['class' => 'col-sm-3 control-label']) !!}
+                                <div class="col-sm-5">
+                                    {!! Form::checkbox('pitches[]', $pitch->id, isset($model)?$model->pitchgroups->contains($pitch->id):null, ['class' => 'form-control', 'id' => 'price']) !!}
+                                </div>
+                            </div>
+
+                            @endforeach
 
                         <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-5">

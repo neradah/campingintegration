@@ -1,0 +1,67 @@
+
+body, #wrap{
+	min-width: 1000px;
+}
+
+.navbar{
+	.container-fluid{
+		max-width: 1174px;
+	}
+}
+
+.side-panel{
+	width: 25%;
+	margin-top: 40px;
+	padding-right: 30px;
+
+	.navbar{
+
+		border-radius: 0;
+		border: 0;
+		padding: 0;
+		background: #312D35;
+
+		#main-nav{
+			@include scut-clearfix;
+		}
+
+		li{
+
+			width: 100%;
+			text-transform: uppercase;
+			border-bottom: 2px solid white;
+
+
+			a{
+				color: white;
+				padding: 20px;
+			}
+
+			&:hover, &.active{
+				background: #222;
+				a{
+					color: #eeeeee;
+				}
+			}
+
+		}
+
+	}
+
+
+}
+.cms-content{
+	width: 75%;
+
+	.list-row{
+		width: 100%;
+		padding: 10px;
+		h2, p{
+			margin: 0;
+		}
+
+		&.odd{
+			background: #F5F5F5;
+		}
+	}
+}

@@ -15,21 +15,21 @@ class CreateEventsTable extends Migration
         Schema::create('events', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->text('name');
-            $table->text('slug');
-            $table->text('type');
-            $table->text('location');
-            $table->date('start');
-            $table->date('end');
-            $table->date('homepage_expire');
-            $table->text('thumbnail');
-            $table->text('banner');
-            $table->integer('discount');
-            $table->boolean('show_homepage');
-            $table->longText('about_info');
-            $table->longText('parking_info');
-            $table->longText('arrival_info');
-            $table->text('map');
+            $table->text('name')->nullable();
+            $table->text('slug')->nullable();
+            $table->text('type')->nullable();
+            $table->text('location')->nullable();
+            $table->date('start')->nullable();
+            $table->date('end')->nullable();
+            $table->date('homepage_expire')->nullable();
+            $table->text('thumbnail')->nullable();
+            $table->text('banner')->nullable();
+            $table->integer('discount')->nullable();
+            $table->boolean('show_homepage')->nullable();
+            $table->longText('about_info')->nullable();
+            $table->longText('parking_info')->nullable();
+            $table->longText('arrival_info')->nullable();
+            $table->text('map')->nullable();
         });
     }
 

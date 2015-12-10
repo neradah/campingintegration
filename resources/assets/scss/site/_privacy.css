@@ -1,0 +1,30 @@
+.privacy_list {
+  background: #f5f4f3;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+  columns: 2;
+  -webkit-column-gap: 20px;
+  -moz-column-gap: 20px;
+  column-gap: 20px;
+  line-height: 1.5em;
+  margin: 0 0 40px;
+  padding: 20px; }
+  .privacy_list h2 {
+    margin: 20px 0 0; }
+  .privacy_list p {
+    margin: 0 0 10px; }
+
+.privacycontact_title {
+  margin: 20px 0 0; }
+  .privacycontact_title.email {
+    display: inline-block; }
+  .privacycontact_title.phone {
+    display: inline-block;
+    margin: 0; }
+
+.privacycontact_content {
+  display: inline-block; }
+  .privacycontact_content.address {
+    width: 100%; }
+
+/*# sourceMappingURL=_privacy.css.map */

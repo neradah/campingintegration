@@ -1,0 +1,538 @@
+///////////////////////////
+// FF here
+///////////////////////////
+.foo-fighters-banner {
+	margin: 0 0 20px;
+}
+///////////////////////////
+// End FF
+///////////////////////////
+
+// Different layers within the header
+.pageheader_section {
+	background: #fff;
+	width: 100%;
+	&#{-main}{
+		height: 140px;
+	}
+	&#{-steps}{
+		height: 255px;
+	}
+	&#{-search}{
+		height: 145px;
+	}
+}
+
+
+///////////////////////////
+// Instruction steps
+///////////////////////////
+
+// Homeheader steps title
+.homeheader_steps-title {
+	color: #fff;
+	font-size: 21px;
+	position: absolute;
+	top: 25px; left: 0; right: 0;
+	text-align: center;
+	text-transform: uppercase;
+	& span {
+		margin: 0 5px;
+		text-transform: none;
+	}
+}
+
+// Steps list
+.homeheader_steps {
+	font-size: 0;
+	margin: 80px 0 30px;
+	position: relative;
+	text-align: justify;
+	// Distribute list items across full width
+	&:after {
+		content: '';
+		display: inline-block;
+		height: 0;
+		width: 100%;
+	}
+}
+
+// Step items
+.homeheader_stepitem {
+	box-sizing: border-box;
+	display: inline-block;
+	height: 148px;
+	width: 148px;
+	&:nth-child(1){
+		background: url('/assets/images/home_header_event.png') no-repeat center / 100%;
+	}
+	&:nth-child(2){
+		background: url('/assets/images/home_header_pitch.png') no-repeat center / 100%;
+	}
+	&:nth-child(3){
+		background: url('/assets/images/home_header_extras.png') no-repeat center / 100%;
+	}
+	&:nth-child(4){
+		background: url('/assets/images/home_header_booking.png') no-repeat center / 100%;
+	}
+//	&:nth-child(5){
+//		background: url('/assets/images/home_header_zone.png') no-repeat center / 100%;
+//	}
+}
+
+
+
+///////////////////////////
+// Search steps
+///////////////////////////
+
+.homeheader_search-title {
+	color: #fff;
+	font-size: 19px;
+	font-weight: 300;
+	letter-spacing: 0.1em;
+	line-height: 20px;
+	padding: 25px 0;
+	text-align: center;
+}
+
+#homeheader_search-form {
+	font-size: 0;
+	margin: 0 0 30px;
+}
+
+.homeheader_search-select {
+	height: 40px;
+	margin: 0 9px 0 0;
+	width: 285px !important;
+	& .btn {
+		height: 100%;
+	}
+}
+
+.homeheader_search-submit {
+	background: #c0b365;
+	border: none;
+	color: #fff;
+	display: inline-block;
+	font-size: 12px;
+	height: 40px;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	vertical-align: middle;
+	width: 110px;
+}
+
+
+
+///////////////////////////
+// 2x2 grid of CTAs
+///////////////////////////
+
+.homegrid {
+	margin-bottom: 40px;
+	&:after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+}
+
+// Homegrid items
+.homegrid_item {
+	display: block;
+	margin: 0 0 20px;
+	position: relative;
+	width: 486px;
+	// Short grid items (1h x 2w)
+	&#{--short}{
+		height: 243px;
+	}
+	// Square grid items (1h x 1w)
+	&#{--square}{
+		height: 486px;
+	}
+	// Left-hand column
+	&#{--music},
+	&#{--recent}{
+		float: left;
+	}
+	// Right-hand column
+	&#{--early},
+	&#{--sport}{
+		float: right;
+	}
+	// Recent grid item
+	&#{--recent}{
+		background: #b8af6c;
+	}
+	// Earlybird grid item
+	&#{--early}{
+		background: #e2793f;
+	}
+}
+
+// Link that fills available space
+.homegrid_blocklink {
+	display: block;
+	height: 100%;
+	width: 100%;
+}
+
+// Square grid-item image
+.homegrid_square-fullimage {
+	display: block;
+	height: 100%;
+	width: 100%;
+	& img {
+		display: block;
+		height: 100%;
+		width: 100%;
+	}
+}
+
+// Square grid-item text footer
+.homegrid_square-footer {
+	background: #fff;
+	bottom: 0;
+	left: 0;
+	padding: 10px 0;
+	position: absolute;
+	right: 0;
+}
+
+// Square grid-item footer title
+.homegrid_square-footertitle {
+	color: #40646a;
+	font-size: 21px;
+	letter-spacing: 0.1em;
+	padding: 0 0 10px;
+	text-transform: uppercase;
+	& span {
+		color: #e1793e;
+		letter-spacing: 0;
+		text-transform: none;
+	}
+}
+
+// Square grid-item footer copy
+.homegrid_square-footercopy {
+	color: #636363;
+	font-size: 11px;
+}
+
+// View all Early Deals link
+.homegrid_earlydeals {
+	color: #fff;
+	position: absolute;
+	left: 0; right: 50%; bottom: 15px;
+	text-align: center;
+}
+
+// Short grid-item right-hand CTA
+.homegrid_short-link {
+	position: absolute;
+	top: 0; left: 50%; right: 0; bottom: 0;
+}
+
+// Short grid-item right-hand image
+.homegrid_short-img {
+	height: 173px;
+	width: 100%;
+}
+
+// Short grid-item right-hand footer
+.homegrid_short-footer {
+	display: table;
+	height: 70px;
+	position: absolute;
+	left: 0; right: 0; bottom: 0;
+	width: 100%;
+}
+
+// Short grid-item event name and dates container
+.homegrid_short-whatwhen {
+	background: #fff;
+	display: table-cell;
+	padding: 10px;
+	vertical-align: middle;
+}
+
+// Short grid-item event name
+.homegrid_short-what {
+	color: #40646a;
+	font-size: 14px;
+	padding: 0 0 5px;
+	text-transform: uppercase;
+}
+
+// Short grid-item event date
+.homegrid_short-when {
+	color: #636363;
+	font-size: 10px;
+}
+
+// Short grid-item event price container
+.homegrid_short-howmuch {
+	color: #fff;
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	width: 70px;
+	.homegrid_item--early & {
+		background: #685c79;
+	}
+	.homegrid_item--recent & {
+		background: #40646a;
+	}
+	&:before {
+		content: 'from';
+		font-family: "Roboto", sans-serif;
+		font-size: 10px;
+	}
+}
+
+// Short grid-item event price
+.homegrid_short-cost {
+	font-size: 32px;
+	line-height: 20px;
+	padding: 0 0 10px;
+}
+
+
+
+///////////////////////////
+// Highlights list
+///////////////////////////
+
+.homehl {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.homehl_title {
+	color: #40646a;
+	font-size: 21px;
+	letter-spacing: 0.1em;
+	padding: 0 0 10px;
+	text-transform: uppercase;
+	span {
+		color: #e1793e;
+		letter-spacing: 0;
+		text-transform: none;
+	}
+}
+
+.homehl_nav {
+	position: absolute;
+	top: 20px; right: 0;
+}
+
+.homehl_nav-btn {
+	background: #b8af6c;
+	border: none;
+	color: #fff;
+	display: inline-block;
+	height: 30px;
+	width: 30px;
+	&#{--prev}{
+		cursor: default;
+		opacity: 0.5;
+		.more & {
+			cursor: pointer;
+			opacity: 1;
+		}
+	}
+	&#{--next}{
+		opacity: 1;
+		.more & {
+			cursor: default;
+			opacity: 0.5;
+		}
+	}
+}
+
+.homehl_wrapper {
+	margin: 30px 0;
+	overflow-x: hidden;
+}
+
+.homehl_list {
+	border-collapse: separate;
+	border-spacing: 20px 0;
+	display: table;
+	font-size: 0;
+	left: -20px;
+	position: relative;
+	transform: translateX(0);
+	transition: transform 750ms cubic-bezier(0.645, 0.045, 0.355, 1.000);
+	width: 100%;
+	.more & {
+		transform: translateX(-1012px);
+	}
+}
+
+.homehl_item {
+	background: #b8af6c;
+	display: table-cell;
+	padding: 3px;
+	position: relative;
+	text-align: center;
+	transition: background 150ms ease-in-out;
+	vertical-align: top;
+	&.earlybird {
+		background: #e1793e;
+	}
+	&:first-child {
+		margin: 0 10px 0 0;
+	}
+	&:last-child {
+		margin: 0 0 0 10px;
+	}
+	&:hover {
+		background: #695c7a;
+		& .homehl_discount,
+		& .homehl_tentsleft,
+		& .homehl_pitchesleft{
+			background: #695c7a;
+		}
+	}
+}
+
+.homehl_overview {
+	background: #fff;
+	display: inline-block;
+	height: 100%;
+	width: 227px;
+}
+
+.homehl_link {
+	color: #40646a;
+	display: block;
+	height: 100%;
+	padding: 15px 10px 50px;
+	position: relative;
+}
+
+.homehl_img {
+	width: calc(100% + 20px);
+	position: relative;
+	left: -10px;
+	top: -15px;
+}
+
+.homehl_discount {
+	background: #e1793e;
+	color: #fff;
+	content: '10% Early Bird Discount';
+	display: block;
+	font-size: 12px;
+	letter-spacing: 0.1em;
+	padding: 10px;
+	position: absolute;
+	top: -2px; left: 0; right: 0;
+	text-transform: uppercase;
+	transition: background 150ms ease-in-out;
+	z-index: 10;
+}
+
+.homehl_name {
+	font-size: 20px;
+	letter-spacing: 0.1em;
+	padding: 0 0 5px;
+	text-transform: uppercase;
+}
+
+.homehl_location,
+.homehl_cost {
+	font-size: 13px;
+	padding: 0 0 10px;
+}
+
+.homehl_price {
+	font-size: 20px;
+	display: inline-block;
+	margin: 5px 0 0;
+	width: 100%;
+	.earlybird & {
+		color: #e1793e;
+	}
+}
+
+.homehl_dates {
+	font-size: 11px;
+}
+
+.homehl_tentsleft,
+.homehl_pitchesleft {
+	background: #b8af6c;
+	bottom: 0;
+	color: #fff;
+	font-size: 11px;
+	padding: 10px 0;
+	position: absolute;
+	transition: background 150ms ease-in-out;
+	width: 112px;
+	.earlybird & {
+		background: #e1793e;
+	}
+}
+
+.homehl_tentsleft {
+	left: 0;
+}
+
+.homehl_pitchesleft {
+	right: 0;
+}
+
+.homehl_viewall {
+	background: #b8af6c;
+	color: #fff;
+	display: block;
+	margin: 20px auto;
+	padding: 10px 0;
+	text-align: center;
+	text-transform: uppercase;
+	transition: background 150ms ease-in-out;
+	width: 150px;
+	&:hover {
+		background: #695c7a;
+		color: #fff;
+	}
+}
+
+
+
+///////////////////////////
+// Lower links
+///////////////////////////
+
+.homelowlnks {
+	margin-top: 40px;
+	margin-bottom: 60px;
+}
+
+.homelowlnks_list {
+	font-size: 0;
+}
+
+.homelowlnks_item {
+	display: inline-block;
+	height: 233px;
+	&.included {
+		margin: 0 20px 0 0;
+		width: 486px;
+	}
+	&.instagram {
+		margin: 0 20px 0 0;
+		width: 233px;
+	}
+	&.faqs {
+		width: 233px;
+	}
+	& img {
+		height: 100%;
+		width: 100%;
+	}
+}

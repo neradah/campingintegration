@@ -1,0 +1,18 @@
+.tsandcs_list {
+	background: #f5f4f3;
+	-webkit-columns: 2;
+	   -moz-columns: 2;
+			columns: 2;
+	-webkit-column-gap: 20px;
+	   -moz-column-gap: 20px;
+			column-gap: 20px;
+	line-height: 1.5em;
+	margin: 0 0 40px;
+	padding: 20px;
+	& dt {
+		padding: 20px 0 5px;
+		&:first-child {
+			padding: 0 0 5px;
+		}
+	}
+}

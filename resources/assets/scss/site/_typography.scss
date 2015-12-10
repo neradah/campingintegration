@@ -1,0 +1,37 @@
+body {
+	color: #636363;
+	font-size: 14px;
+}
+
+.type-sans {
+	font-family: "Roboto", sans-serif;
+	// Light
+	&#{-l}{
+		@extend .type-sans;
+		font-weight: 300;
+	}
+	// Bold
+	&#{-b}{
+		@extend .type-sans;
+		font-weight: 500;
+	}
+}
+
+// Futura
+.type-sans2 {
+	font-family: "futura-pt", sans-serif;
+	// Light
+	&#{-l}{
+		@extend .type-sans2;
+		font-weight: 300;
+	}
+	// Bold
+	&#{-b}{
+		@extend .type-sans2;
+		font-weight: 600;
+	}
+	// With Bello nested
+	& .type-script {
+		font-size: 1.3em;
+	}
+}

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Event;
+use App\PitchGroup;
 use App\Product;
 use Illuminate\Http\Request;
 
@@ -31,9 +33,10 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(PitchGroup $pitch)
     {
-        return view('admin.product.create');
+        $pitches = $pitch->all();
+        return view('admin.product.create', compact('pitches'));
     }
 
     /**
@@ -44,7 +47,9 @@ class ProductController extends Controller
      */
     public function store(Requests\CreateProductRequest $request, Product $product)
     {
-        $product->create($request->all());
+        $product->create($request->all())->pitchgroups()->sync($request->get('pitches', []));
+
+
 
         return redirect()->route('admin.product.index');
     }
@@ -66,10 +71,13 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id, Product $product)
+    public function edit($id, Product $product, PitchGroup $pitch)
     {
+        $pitches = $pitch->all();
+
         $model = $product->find($id);
-        return view('admin.product.create', compact('model'));
+
+        return view('admin.product.create', compact('model', 'pitches'));
     }
 
     /**
@@ -81,7 +89,10 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id, Product $product)
     {
-        $product->findOrFail($id)->update($request->all());
+        $prd = $product->findOrFail($id);
+        $prd->update($request->all());
+        $prd->pitchgroups()->sync($request->get('pitches', []));
+
         return back();
     }
 

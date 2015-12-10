@@ -1,0 +1,135 @@
+///////////////////////////
+// Footer sections
+///////////////////////////
+
+.mainfooter_lightpurple {
+	background: #574d65;
+	padding: 40px 0;
+}
+
+.mainfooter_darkpurple {
+	background: #443c4f;
+}
+
+.mainfooter_contactleft,
+.mainfooter_contactmiddle {
+	float: left;
+	width: 30%;
+}
+
+.mainfooter_contactright {
+	float: left;
+	width: 40%;
+	.error-message {
+		color: red;
+		font-size: 11px;
+		margin: 5px 0;
+	}
+}
+
+
+
+///////////////////////////
+// Footer content
+///////////////////////////
+
+.mainfooter_title {
+	color: #fff;
+	font-size: 13px;
+	letter-spacing: 0.1em;
+	padding: 0 0 5px;
+	text-transform: uppercase;
+}
+
+.mainfooter_subtitle {
+	color: #fff;
+	font-size: 11px;
+	padding: 0 0 10px;
+}
+
+// Contact
+.mainfooter_contactlist,
+.mainfooter_contactlist a {
+	color: #fff;
+	font-size: 11px;
+	line-height: 1.4em;
+}
+
+.mainfooter_contactitem {
+	&.address {
+		padding: 10px 0 0;
+	}
+}
+
+// Social
+.mainfooter_socialitem {
+	display: inline-block;
+	height: 30px;
+	margin: 0 10px 0 0;
+	width: 30px;
+	&.twitter {
+		background: url('/assets/images/footer_twitter.png') no-repeat center;
+	}
+	&.facebook {
+		background: url('/assets/images/footer_facebook.png') no-repeat center;
+	}
+	&.instagram {
+		background: url('/assets/images/footer_instagram.png') no-repeat center;
+	}
+}
+
+.mainfooter_sociallink {
+	display: inline-block;
+	height: 30px;
+	width: 30px;
+	& span {
+		display: none;
+	}
+}
+
+// Signup form
+.mainfooter_contactright {
+	& .form-group {
+		margin: 0;
+	}
+	& .signup {
+		font-size: 0;
+	}
+	& #email {
+		border-radius: 0;
+		display: inline-block;
+		height: 40px;
+		margin: 0 10px 0 0;
+		vertical-align: middle;
+		width: 290px;
+	}
+	& .btn {
+		display: inline-block;
+		font-size: 12px;
+		height: 40px;
+		width: 96px;
+	}
+}
+
+
+///////////////////////////
+// Footer lower
+///////////////////////////
+
+.mainfooter_smallprint,
+.mainfooter_credits {
+	color: #fff;
+	font-size: 11px;
+	padding: 20px 0;
+}
+
+.mainfooter_smallprint {
+	float: left;
+	& a {
+		color: #fff;
+	}
+}
+
+.mainfooter_credits {
+	float: right;
+}

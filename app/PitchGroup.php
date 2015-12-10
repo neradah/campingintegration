@@ -6,7 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class PitchGroup extends Model
 {
-    protected $table = 'pitch_groups';
+    protected $table = 'pitches';
 
     protected $fillable = ['name', 'persons'];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function products()
+    {
+        return $this->belongsToMany('App\Products');
+    }
 }

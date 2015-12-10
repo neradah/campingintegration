@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Event;
+use App\PitchGroup;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -30,9 +31,11 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(PitchGroup $pitch)
     {
-        return view('admin.event.create');
+        $pitches = $pitch->all();
+
+        return view('admin.event.create', compact('pitches'));
     }
 
     /**
@@ -41,9 +44,15 @@ class EventController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Requests\CreateEventRequest $request, Event $event)
     {
-        //
+        //Move this to model
+        $pitch = serialize($request->get('pitch', []));
+        $request->merge(['pitch' => $pitch]);
+
+        $event->create($request->all());
+
+        return redirect()->route('admin.event.index');
     }
 
     /**
