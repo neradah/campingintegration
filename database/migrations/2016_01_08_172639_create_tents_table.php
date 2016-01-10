@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePitchGroupsTable extends Migration
+class CreateTentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,13 @@ class CreatePitchGroupsTable extends Migration
      */
     public function up()
     {
-        Schema::create('pitches', function (Blueprint $table) {
+        Schema::create('tents', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('name');
             $table->timestamps();
+            $table->text('name');
+            $table->text('youtube')->nullable();
+            $table->text('image');
+            $table->integer('capacity');
         });
     }
 
@@ -26,6 +29,6 @@ class CreatePitchGroupsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('pitches');
+        Schema::drop('tents');
     }
 }

@@ -12,7 +12,7 @@ class PitchController extends Controller
 {
     public function __construct()
     {
-        view()->share('fields', ['Name', 'Persons']);
+        view()->share('fields', ['Name']);
     }
     /**
      * Display a listing of the resource.

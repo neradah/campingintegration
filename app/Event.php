@@ -22,4 +22,9 @@ class Event extends Model
 
 
 
+    public function campsites()
+    {
+        return $this->belongsToMany('App\CampSite');
+    }
 }
+

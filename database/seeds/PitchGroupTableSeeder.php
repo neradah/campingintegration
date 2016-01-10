@@ -13,10 +13,10 @@ class PitchGroupTableSeeder extends Seeder
     public function run()
     {
         DB::table('pitches')->insert([
-            ['name' => '2 Persons Pitched Tent', 'persons' => '2', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
-            ['name' => '4 Persons Pitched Tent', 'persons' => 4, 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
-            ['name' => '6 Persons Pitched Tent', 'persons' => 6, 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
-            ['name' => '8 Persons Pitched Tent', 'persons' => 8, 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()]
+            ['name' => 'Pre Pitched', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['name' => 'Glamping', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['name' => 'Pitch Tent', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['name' => 'Pitch Camper-van', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()]
         ]);
 
     }

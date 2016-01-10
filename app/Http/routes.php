@@ -1,6 +1,7 @@
 <?php
 
-Route::get('/', 'PageController@getHome');
+//Route::controller('/', 'PageController');
+Route::get('event/{name}', 'EventController@getIndex');
 
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
@@ -13,6 +14,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::resource('booking', 'BookingController');
     Route::resource('pitch', 'PitchController');
     Route::resource('user', 'UserController');
+    Route::resource('zone', 'ZoneController');
+    Route::resource('campsite', 'CampsiteController');
+    Route::resource('tent', 'TentController');
 
 });
 

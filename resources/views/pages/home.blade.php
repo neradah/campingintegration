@@ -21,26 +21,14 @@
     <div class="pageheader_purple">
         <div class="container">
             <p class="homeheader_search-title type-sans-b">Start by choosing an event below to book your accommodation</p>
-            <form id="homeheader_search-form" class="type-sans">
-                <select class="homeheader_search-select selectpicker" data-search-type="country" title="Select a Country">
-                    <option>United Kingdom</option>
-                    <option>France</option>
-                    <option>Iceland</option>
-                    <option>Spain</option>
-                    <option>Denmark</option>
-                </select>
-                <select class="homeheader_search-select selectpicker" data-search-type="category" title="Select Event Category">
-                    <option>Music</option>
-                    <option>Sport</option>
-                    <option>Other</option>
-                </select>
-                <select class="homeheader_search-select selectpicker" data-search-type="event" title="Select Event">
-                    <option>A Festival</option>
-                    <option>Concert</option>
-                    <option>Grand Prix</option>
-                </select>
-                <button type="submit" form="homeheader_searchform" class="homeheader_search-submit">Search</button>
-            </form>
+           {!! Form::open(['id' => '', 'class' => 'type-sans']) !!}
+           {!! Form::select('catagory', ['music', 'sport', 'other'], ['class' => 'homeheader_search-select selectpicker', 'title' => 'Select Event Category']) !!}
+
+
+
+
+                {!! Form::submit('Search') !!}
+            {!! Form::close() !!}
         </div>
     </div>
 </header>
@@ -64,6 +52,9 @@
             </div>
         </a>
     </div>
+
+
+    @if($earlybird)
     <!-- Selected earlybird deal -->
     <div class="homegrid_item homegrid_item--short homegrid_item--early">
         <a href="#" class="homegrid_earlydeals type-sans">View all Early Bird Deals</a>
@@ -71,8 +62,8 @@
             <img src="http://placehold.it/243x173?text=placeholder" alt="Alternative text" class="homegrid_recent-img" />
             <div class="homegrid_short-footer">
                 <div class="homegrid_short-whatwhen type-sans">
-                    <h2 class="homegrid_short-what">Event Title Here</h2>
-                    <p class="homegrid_short-when">Day 1st Jan &ndash; Day 31st Dec 2015</p>
+                    <h2 class="homegrid_short-what">{{$earlybird->name}}</h2>
+                    <p class="homegrid_short-when">{{$earlybird->start}} &ndash; {{$earlybird->end}}</p>
                 </div>
                 <div class="homegrid_short-howmuch">
                     <p class="homegrid_short-cost type-script">Â£123</p>
@@ -80,6 +71,10 @@
             </div>
         </a>
     </div>
+    @endif
+
+
+
     <!-- Sport CTA -->
     <div class="homegrid_item homegrid_item--square homegrid_item--sport">
         <a href="#" class="homegrid_blocklink">

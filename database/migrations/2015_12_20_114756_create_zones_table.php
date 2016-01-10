@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePitchGroupsTable extends Migration
+class CreateZonesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,10 @@ class CreatePitchGroupsTable extends Migration
      */
     public function up()
     {
-        Schema::create('pitches', function (Blueprint $table) {
+        Schema::create('zones', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('name');
             $table->timestamps();
+            $table->text('name');
         });
     }
 
@@ -26,6 +26,6 @@ class CreatePitchGroupsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('pitches');
+        Schema::drop('zones');
     }
 }

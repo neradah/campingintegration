@@ -2,18 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\CampSite;
-use App\Event;
-use App\PitchGroup;
-use App\Zone;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class EventController extends Controller
+class CampSiteController extends Controller
 {
-    public function __construct()
+
+    function __construct()
     {
         view()->share('fields', ['Status', 'Event', 'Location', 'Type', 'Date of Event']);
     }
@@ -22,10 +19,10 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Event $event)
+    public function index()
     {
-        $items = $event->all();
-        return view('admin.event.index', compact('items'));
+        $items = new \stdClass();
+        return view('admin.campsite.index', compact('items'));
     }
 
     /**
@@ -33,13 +30,9 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(PitchGroup $pitch, CampSite $campsites, Zone $zones)
+    public function create()
     {
-        $pitches = $pitch->all();
-        $campsites = $campsites->all();
-        $zones = $zones->all();
-
-        return view('admin.event.create', compact('pitches', 'campsites', 'zones'));
+        return view('admin.campsite.create');
     }
 
     /**
@@ -48,15 +41,9 @@ class EventController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Requests\CreateEventRequest $request, Event $event)
+    public function store(Request $request)
     {
-        //Move this to model
-        $pitch = serialize($request->get('pitch', []));
-        $request->merge(['pitch' => $pitch]);
-
-        $event->create($request->all());
-
-        return redirect()->route('admin.event.index');
+        //
     }
 
     /**
@@ -78,7 +65,7 @@ class EventController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.event.create');
+        //
     }
 
     /**

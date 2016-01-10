@@ -2,30 +2,24 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\CampSite;
-use App\Event;
 use App\PitchGroup;
-use App\Zone;
+use App\Tent;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class EventController extends Controller
+class TentController extends Controller
 {
-    public function __construct()
-    {
-        view()->share('fields', ['Status', 'Event', 'Location', 'Type', 'Date of Event']);
-    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Event $event)
+    public function index(Tent $tent)
     {
-        $items = $event->all();
-        return view('admin.event.index', compact('items'));
+        $items = $tent->all();
+        return view('admin.tent.index', compact('items'));
     }
 
     /**
@@ -33,13 +27,10 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(PitchGroup $pitch, CampSite $campsites, Zone $zones)
+    public function create(PitchGroup $pitch)
     {
         $pitches = $pitch->all();
-        $campsites = $campsites->all();
-        $zones = $zones->all();
-
-        return view('admin.event.create', compact('pitches', 'campsites', 'zones'));
+        return view('admin.tent.create', compact('pitches'));
     }
 
     /**
@@ -48,15 +39,11 @@ class EventController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Requests\CreateEventRequest $request, Event $event)
+    public function store(Requests\CreateTentRequest $request, Tent $tent)
     {
-        //Move this to model
-        $pitch = serialize($request->get('pitch', []));
-        $request->merge(['pitch' => $pitch]);
+        $tent->create($request->all())->pitchgroups()->sync($request->get('pitches', []));
 
-        $event->create($request->all());
-
-        return redirect()->route('admin.event.index');
+        return redirect()->route('admin.tent.index');
     }
 
     /**
@@ -78,7 +65,7 @@ class EventController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.event.create');
+        //
     }
 
     /**

@@ -15,6 +15,15 @@ class PitchGroup extends Model
      */
     public function products()
     {
-        return $this->belongsToMany('App\Products');
+        return $this->belongsToMany('App\Product');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function tents()
+    {
+        return $this->belongsToMany('App\Tent');
     }
 }
+

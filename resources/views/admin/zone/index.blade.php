@@ -19,11 +19,11 @@
 
                     <tr>
                        <td class="text-center">
-                           {!! Form::open(['id' => 'delete', 'method' => 'delete', 'route' => ['admin.pitch.destroy', $item->id]]) !!}
+                           {!! Form::open(['id' => 'delete', 'method' => 'delete', 'route' => ['admin.zone.destroy', $item->id]]) !!}
                            <a href='#' onclick='this.parentNode.submit(); return false;'><i class="entypo-cancel"></i></a>
                            {!! Form::close() !!}
                        </td>
-                        <td><a href="{{route('admin.pitch.edit', [$item->id])}}">{{$item->name}}</a></td>
+                        <td><a href="{{route('admin.zone.edit', [$item->id])}}">{{$item->name}}</a></td>
                     </tr>
 
                 @endforeach

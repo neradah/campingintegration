@@ -146,6 +146,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Illuminate\Html\HtmlServiceProvider::class,
+        Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
 
     ],
 
@@ -197,6 +198,7 @@ return [
 
         'HTML'      => Illuminate\Html\HtmlFacade::class,
         'Form'      => Illuminate\Html\FormFacade::class,
+        'Cart'      => Gloudemans\Shoppingcart\Facades\Cart::class,
 
     ],
 

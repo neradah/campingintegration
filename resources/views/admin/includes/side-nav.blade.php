@@ -39,126 +39,38 @@
                 </a>
             </li>
 
-            <!--Bookings -->
 
-            <li class="@if(request()->is('admin/booking')) opened @endif">
-                <a href="{{ url('admin/booking')  }}">
+
+
+            @foreach(['event', 'booking', 'product', 'pitch', 'campsite', 'zone', 'tent', 'user'] as $name)
+
+                    <!-- {{$name}} -->
+
+            <li class="@if(request()->is('admin/'.$name.'*')) opened @endif">
+                <a href="{{ url('admin/'.$name)  }}">
                     <i class="entypo-layout"></i>
-                    <span class="title">Bookings</span>
+                    <span class="title">{{str_plural($name)}}</span>
                 </a>
                 <ul>
-                    <li>
-                        <a href="{{ url('admin/booking')  }}">
+                    <li class="@if(request()->is('admin/'.$name)) active open multiple-expanded @endif">
+                        <a href="{{ url('admin/'.$name)  }}">
                             <span class="title">View</span>
                         </a>
                     </li>
 
-                    <li>
-                        <a href="{{ url('admin/booking/create')  }}">
+                    <li class="@if(request()->is('admin/'.$name.'/create'))  active  @endif">
+                        <a href="{{ url('admin/'.$name.'/create')  }}">
                             <span class="title">Create</span>
                         </a>
                     </li>
                 </ul>
             </li>
 
-            <!-- Booking End -->
+            <!-- {{$name}} End -->
 
-            <!--Events -->
-
-            <li class="@if(request()->is('admin/event')) opened @endif">
-                <a href="{{ url('admin/event')  }}">
-                    <i class="entypo-layout"></i>
-                    <span class="title">Events</span>
-                </a>
-                <ul>
-                    <li class="@if(request()->is('admin/event')) active open multiple-expanded @endif">
-                        <a href="{{ url('admin/event')  }}">
-                            <span class="title">View</span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="{{ url('admin/event/create')  }}">
-                            <span class="title">Create</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-
-            <!-- Events End -->
+            @endforeach
 
 
-            <!-- Products -->
-
-            <li class="@if(request()->is('admin/product')) opened @endif">
-                <a href="{{ url('admin/product')  }}">
-                    <i class="entypo-layout"></i>
-                    <span class="title">Products</span>
-                </a>
-                <ul>
-                    <li>
-                        <a href="{{ url('admin/product')  }}">
-                            <span class="title">View</span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="{{ url('admin/product/create')  }}">
-                            <span class="title">Create</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-
-            <!-- Products End -->
-
-            <!-- Pitch Groups -->
-
-            <li class="@if(request()->is('admin/pitch')) opened @endif">
-                <a href="{{ url('admin/pitch')  }}">
-                    <i class="entypo-layout"></i>
-                    <span class="title">Pitch Groups</span>
-                </a>
-                <ul>
-                    <li>
-                        <a href="{{ url('admin/pitch')  }}">
-                            <span class="title">View</span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="{{ url('admin/pitch/create')  }}">
-                            <span class="title">Create</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-
-            <!-- Pitch Groups End -->
-
-            <!-- Users -->
-
-            <li>
-                <a href="{{ url('admin/user')  }}">
-                    <i class="entypo-layout"></i>
-                    <span class="title">Users</span>
-                </a>
-                <ul>
-                    <li>
-                        <a href="{{ url('admin/user')  }}">
-                            <span class="title">View</span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="{{ url('admin/user/create')  }}">
-                            <span class="title">Create</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-
-            <!-- Users -->
 
         </ul>
 
