@@ -27,7 +27,7 @@ class CreateTentRequest extends Request
             'name' => 'required',
             'capacity' => 'required',
             'pitches' => 'required',
-            'image' => 'required|image'
+            'image_upload' => 'required|image'
         ];
     }
 }

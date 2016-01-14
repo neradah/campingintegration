@@ -23,11 +23,12 @@
                             <a href='#' onclick='this.parentNode.submit(); return false;'><i class="entypo-cancel"></i></a>
                             {!! Form::close() !!}
                         </td>
-                        <td><a href="{{route('admin.event.edit', [$item->id])}}">{{$item->slug}}</a></td>
-                        <td>{{$item->name}}</td>
-                        <td>{{$item->location}}</td>
-                        <td>{{$item->type}}</td>
-                        <td>{{$item->start}}</td>
+                        <td><a href="{{route('admin.campsite.edit', [$item->id])}}">{{$item->name}}</a></td>
+                        <td>{{$item->address}}</td>
+                        <td>{{$item->check_in_time}}</td>
+                        <td>{{$item->check_out_time}}</td>
+
+
                     </tr>
 
                 @endforeach

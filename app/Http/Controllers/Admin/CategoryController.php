@@ -2,28 +2,27 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\CampSite;
+use App\Category;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class CampSiteController extends Controller
+class CategoryController extends Controller
 {
-
     function __construct()
     {
-        view()->share('fields', ['name', 'address', 'check in time', 'check out time']);
+        view()->share('fields', ['Name']);
     }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(CampSite $campSite)
+    public function index(Category $category)
     {
-        $items = $campSite->all();
-        return view('admin.campsite.index', compact('items'));
+        $items = $category->all();
+        return view('admin.category.index', compact('items'));
     }
 
     /**
@@ -33,7 +32,7 @@ class CampSiteController extends Controller
      */
     public function create()
     {
-        return view('admin.campsite.create');
+        return view('admin.category.create');
     }
 
     /**
@@ -42,10 +41,10 @@ class CampSiteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, CampSite $campSite)
+    public function store(Request $request, Category $category)
     {
-        $campSite->create($request->all());
-        return redirect()->route('admin.campsite.index');
+        $category->create($request->all());
+        return redirect()->route('admin.category.index');
     }
 
     /**
@@ -65,9 +64,10 @@ class CampSiteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, Category $category)
     {
-        //
+        $model = $category->find($id);
+        return view('admin.category.create', compact('model'));
     }
 
     /**
@@ -88,8 +88,9 @@ class CampSiteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, Category $category)
     {
-        //
+        $category->find($id)->delete();
+        return back();
     }
 }

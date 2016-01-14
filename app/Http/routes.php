@@ -1,7 +1,7 @@
 <?php
 
-//Route::controller('/', 'PageController');
-Route::get('event/{name}', 'EventController@getIndex');
+Route::get('/', 'HomeController@getIndex');
+Route::get('event/{slug}', 'EventController@getShow');
 
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
@@ -17,6 +17,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::resource('zone', 'ZoneController');
     Route::resource('campsite', 'CampsiteController');
     Route::resource('tent', 'TentController');
+    Route::resource('category', 'CategoryController');
 
 });
 

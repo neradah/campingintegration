@@ -1,3 +1,4 @@
+{{-- */$random = str_random(10);/* --}}
 @extends('admin.layout')
 
 @section('content')
@@ -31,9 +32,10 @@
                                 @foreach($campsites as $campsite)
 
                                     <div class="form-group">
-                                        {!! Form::label($campsite->name, null, ['class' => 'col-sm-3 control-label']) !!}
+                                        {!! Form::label($random, $campsite->name, ['class' => 'col-sm-3 control-label']) !!}
                                         <div class="col-sm-5">
-                                            {!! Form::text('campsite['.$campsite->id.']', null, ['class' => 'form-control', 'id' => $campsite->name]) !!}
+                                            {!! Form::checkbox('campsites[]', $campsite->id, isset($model)?$model->campsites->contains($campsite->id):null, ['class' => 'form-control', 'id' => $random]) !!}
+                                            {!! $errors->first('campsites', '<p class="bg-danger">:message</p>') !!}
                                         </div>
                                     </div>
 
@@ -96,7 +98,7 @@
                     <div class="form-group">
                         {!! Form::label('catagory', null, ['class' => 'col-sm-3 control-label']) !!}
                         <div class="col-sm-5">
-                            {!! form::select('catagory', ['music', 'sport', 'other']) !!}
+                            {!! form::select('catagory', $categories) !!}
                         </div>
                     </div>
 
@@ -107,19 +109,6 @@
                             </div>
                         </div>
 
-                    <div class="form-group">
-                        {!! Form::label('type', null, ['class' => 'col-sm-3 control-label']) !!}
-                        <div class="col-sm-5">
-                            {!! Form::text('type', null, ['class' => 'form-control', 'id' => 'type']) !!}
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        {!! Form::label('location', null, ['class' => 'col-sm-3 control-label']) !!}
-                        <div class="col-sm-5">
-                            {!! Form::text('location', null, ['class' => 'form-control', 'id' => 'location']) !!}
-                        </div>
-                    </div>
 
                     <div class="form-group">
                         {!! Form::label('start', null, ['class' => 'col-sm-3 control-label']) !!}
@@ -185,33 +174,11 @@
                             </div>
                         </div>
 
-                    <div class="form-group">
-                        {!! Form::label('about_info', null, ['class' => 'col-sm-3 control-label']) !!}
-                        <div class="col-sm-5">
-                            {!! Form::textarea('about_info', null, ['class' => 'form-control ckeditor', 'id' => 'about_info']) !!}
-                        </div>
-                    </div>
 
-                    <div class="form-group">
-                        {!! Form::label('parking_info', null, ['class' => 'col-sm-3 control-label']) !!}
-                        <div class="col-sm-5">
-                            {!! Form::textarea('parking_info', null, ['class' => 'form-control ckeditor', 'id' => 'parking_info']) !!}
-                        </div>
-                    </div>
 
-                    <div class="form-group">
-                        {!! Form::label('arrival_info', null, ['class' => 'col-sm-3 control-label']) !!}
-                        <div class="col-sm-5">
-                            {!! Form::textarea('arrival_info', null, ['class' => 'form-control ckeditor', 'id' => 'arrival_info']) !!}
-                        </div>
-                    </div>
 
-                    <div class="form-group">
-                        {!! Form::label('map', null, ['class' => 'col-sm-3 control-label']) !!}
-                        <div class="col-sm-5">
-                            {!! Form::file('map', ['class' => 'form-control', 'id' => 'map']) !!}
-                        </div>
-                    </div>
+
+
 
                     </div>
 
@@ -245,14 +212,16 @@
 
                    <div class="row">
                        <div class="col-sm-12">
-                           <h2>Tents</h2>
-                           <div class="form-horizontal form-groups-bordered">
+                           <div class="form-horizontal">
 
-                             @foreach($pitch->tents() as $tent)
+                             @foreach($pitch->tents()->get() as $tent)
 
-                                 <div>{{$tent->name}}</div>
+                                   <p class="help-block">{{$tent->name}}</p>
 
-                                 @endforeach
+                                   @include('admin.includes.form.number', ['name' => 'pitch['.$pitch->id.'][tent]['.$tent->id.'][qty]', 'label' => 'Qty'])
+                                   @include('admin.includes.form.text', ['name' => 'pitch['.$pitch->id.'][tent]['.$tent->id.'][cost]', 'label' => 'Cost'])
+
+                               @endforeach
 
                            </div>
 
@@ -263,13 +232,15 @@
 
                     <div class="row">
                         <div class="col-sm-12">
-                            <h2>Products</h2>
+
                             <div class="form-horizontal form-groups-bordered">
 
-                            @foreach($pitch->products as $product)
+                            @foreach($pitch->products()->get() as $product)
+
+                                    <p class="help-block">{{$product->name}}</p>
 
                                     <div class="form-group">
-                                        {!! Form::label('product'.$product->id, $product->name, ['class' => 'col-sm-3 control-label']) !!}
+                                        {!! Form::label('product'.$product->id, 'Cost', ['class' => 'col-sm-3 control-label']) !!}
                                         <div class="col-sm-5">
                                             {!! Form::text('product['.$product->id.']', $product->price, ['class' => 'form-control', 'id' => 'product'.$product->id]) !!}
                                         </div>

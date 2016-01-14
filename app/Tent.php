@@ -8,6 +8,8 @@ class Tent extends Model
 {
     protected $table = 'tents';
 
+    protected $fillable = ['name', 'youtube', 'capacity', 'pitches', 'image'];
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */

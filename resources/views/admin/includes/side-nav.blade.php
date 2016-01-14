@@ -42,7 +42,7 @@
 
 
 
-            @foreach(['event', 'booking', 'product', 'pitch', 'campsite', 'zone', 'tent', 'user'] as $name)
+            @foreach(['event', 'booking', 'product', 'pitch', 'campsite', 'zone', 'tent', 'user', 'category'] as $name)
 
                     <!-- {{$name}} -->
 

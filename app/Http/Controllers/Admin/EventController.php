@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\CampSite;
+use App\Category;
 use App\Event;
 use App\PitchGroup;
 use App\Zone;
@@ -33,13 +34,14 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(PitchGroup $pitch, CampSite $campsites, Zone $zones)
+    public function create(PitchGroup $pitch, CampSite $campsites, Zone $zones, Category $category)
     {
-        $pitches = $pitch->all();
+        $pitches = $pitch->get();
         $campsites = $campsites->all();
         $zones = $zones->all();
+        $categories = $category::lists('name', 'id');
 
-        return view('admin.event.create', compact('pitches', 'campsites', 'zones'));
+        return view('admin.event.create', compact('pitches', 'campsites', 'zones', 'categories'));
     }
 
     /**
@@ -48,13 +50,9 @@ class EventController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Requests\CreateEventRequest $request, Event $event)
+    public function store(Request $request, Event $event)
     {
-        //Move this to model
-        $pitch = serialize($request->get('pitch', []));
-        $request->merge(['pitch' => $pitch]);
-
-        $event->create($request->all());
+        $event->create($request->all())->campsites()->sync($request->get('campsites', []));
 
         return redirect()->route('admin.event.index');
     }

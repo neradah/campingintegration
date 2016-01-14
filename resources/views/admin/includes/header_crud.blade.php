@@ -1,7 +1,7 @@
 @if(isset($model))
-    {!! Form::model($model, array('method' => 'PATCH', 'route' => array($route.'.update', $model->id))) !!}
+    {!! Form::model($model, array('method' => 'PATCH', 'files' => true, 'route' => array($route.'.update', $model->id))) !!}
 @else
-    {!! Form::open(['route'=> $route.'.store']) !!}
+    {!! Form::open(['route'=> $route.'.store', 'files' => true]) !!}
 @endif
 
 <div class="row">

@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Event;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Response;
+use App;
 
 class EventController extends Controller
 {
@@ -14,9 +17,12 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getIndex()
+    public function getShow($slug, Event $event)
     {
 
+        $event = $event->where('slug', $slug)->first();
+
+        return ($event) ? view('pages.event', compact('event')) : App::abort(404, 'No Event Found');
     }
 
 }

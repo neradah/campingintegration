@@ -11,6 +11,11 @@ use App\Http\Controllers\Controller;
 
 class TentController extends Controller
 {
+
+    function __construct()
+    {
+        view()->share('fields', ['Name', 'Capacity', 'image']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -41,7 +46,9 @@ class TentController extends Controller
      */
     public function store(Requests\CreateTentRequest $request, Tent $tent)
     {
-        $tent->create($request->all())->pitchgroups()->sync($request->get('pitches', []));
+        $name = $this->upload($request->file('image_upload'));
+        $request->merge(['image' => $name]);
+        $tent->create($request->only(['name', 'youtube', 'capacity', 'image']))->pitchgroups()->sync($request->get('pitches', []));
 
         return redirect()->route('admin.tent.index');
     }

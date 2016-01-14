@@ -7,7 +7,7 @@
 
     @include('admin.includes.form.text', ['name' => 'name', 'label' => 'Name'])
     @include('admin.includes.form.text', ['name' => 'youtube', 'label' => 'You Tube Url'])
-    @include('admin.includes.form.file', ['name' => 'image'])
+    @include('admin.includes.form.file', ['name' => 'image_upload'])
     @include('admin.includes.form.number', ['name' => 'capacity'])
 
     @foreach($pitches as $pitch)
