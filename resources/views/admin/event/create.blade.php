@@ -3,7 +3,7 @@
 
 @section('content')
 
-    {!! Form::open(['route'=> 'admin.event.store']) !!}
+    {!! Form::open(['route'=> 'admin.event.store', 'files' => true]) !!}
 
 
     <div class="row">
@@ -127,7 +127,7 @@
                     <div class="form-group">
                         {!! Form::label('thumbnail', null, ['class' => 'col-sm-3 control-label']) !!}
                         <div class="col-sm-5">
-                            {!! Form::file('thumbnail', ['class' => 'form-control', 'id' => 'thumbnail']) !!}
+                            {!! Form::file('thumbnail_upload', ['class' => 'form-control', 'id' => 'thumbnail']) !!}
                         </div>
                     </div>
 
@@ -135,7 +135,7 @@
                     <div class="form-group">
                         {!! Form::label('banner', null, ['class' => 'col-sm-3 control-label']) !!}
                         <div class="col-sm-5">
-                            {!! Form::file('banner', ['class' => 'form-control', 'id' => 'banner']) !!}
+                            {!! Form::file('banner_upload', ['class' => 'form-control', 'id' => 'banner']) !!}
                         </div>
                     </div>
 
@@ -218,8 +218,8 @@
 
                                    <p class="help-block">{{$tent->name}}</p>
 
-                                   @include('admin.includes.form.number', ['name' => 'pitch['.$pitch->id.'][tent]['.$tent->id.'][qty]', 'label' => 'Qty'])
-                                   @include('admin.includes.form.text', ['name' => 'pitch['.$pitch->id.'][tent]['.$tent->id.'][cost]', 'label' => 'Cost'])
+                                   @include('admin.includes.form.number', ['name' => 'pitch['.$pitch->id.']['.$tent->id.'][qty]', 'label' => 'Qty'])
+                                   @include('admin.includes.form.text', ['name' => 'pitch['.$pitch->id.']['.$tent->id.'][cost]', 'label' => 'Cost'])
 
                                @endforeach
 
@@ -242,7 +242,7 @@
                                     <div class="form-group">
                                         {!! Form::label('product'.$product->id, 'Cost', ['class' => 'col-sm-3 control-label']) !!}
                                         <div class="col-sm-5">
-                                            {!! Form::text('product['.$product->id.']', $product->price, ['class' => 'form-control', 'id' => 'product'.$product->id]) !!}
+                                            @include('admin.includes.form.text', ['name' => 'product['.$pitch->id.']['.$product->id.'][cost]', 'label' => 'Cost'])
                                         </div>
                                     </div>
 

@@ -19,5 +19,18 @@ class PitchGroupTableSeeder extends Seeder
             ['name' => 'Pitch Camper-van', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()]
         ]);
 
+        DB::table('zones')->insert([
+            ['name' => 'Quiet Zone', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['name' => 'Family Zone', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['name' => 'Party Zone', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['name' => 'Drunk Zone', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()]
+        ]);
+
+        DB::table('categories')->insert([
+            ['name' => 'Music', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['name' => 'Sport', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['name' => 'Other', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+        ]);
+
     }
 }

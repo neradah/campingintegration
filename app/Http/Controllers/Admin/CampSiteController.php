@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\CampSite;
+use App\Zone;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -31,9 +32,11 @@ class CampSiteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Zone $zone)
     {
-        return view('admin.campsite.create');
+        $zones = $zone->all();
+
+        return view('admin.campsite.create', compact('zones'));
     }
 
     /**
@@ -44,7 +47,7 @@ class CampSiteController extends Controller
      */
     public function store(Request $request, CampSite $campSite)
     {
-        $campSite->create($request->all());
+        $campSite->create($request->all())->zones()->sync($request->get('zones', []));
         return redirect()->route('admin.campsite.index');
     }
 

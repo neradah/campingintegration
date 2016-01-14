@@ -8,6 +8,7 @@ use App\Event;
 use App\PitchGroup;
 use App\Zone;
 use Illuminate\Http\Request;
+use DB;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -52,7 +53,44 @@ class EventController extends Controller
      */
     public function store(Request $request, Event $event)
     {
-        $event->create($request->all())->campsites()->sync($request->get('campsites', []));
+        $banner = $this->upload($request->file('banner_upload'));
+        $thumbnail = $this->upload($request->file('thumbnail_upload'));
+
+        $request->merge(compact('thumbnail', 'banner'));
+
+
+        $event =  $event->create($request->all());
+        $event->campsites()->sync($request->get('campsites', []));
+
+
+
+
+        foreach($request->get('pitch') as $pitchId => $value){
+
+            //each tent under that pitch
+            foreach($value as $tentId => $tent){
+
+                $tentsInsertDB[] = ['pitch_id' => $pitchId, 'event_id' => $event->id, 'tent_id' => $tentId, 'qty' => $tent['qty'], 'cost' => $tent['cost']];
+
+            }
+
+        }
+
+        foreach($request->get('product') as $pitchId => $value){
+
+            //each tent under that pitch
+            foreach($value as $productId => $product){
+
+                $productsInsertDB[] = ['pitch_id' => $pitchId, 'event_id' => $event->id, 'product_id' => $productId, 'cost' => $product['cost']];
+
+            }
+
+        }
+
+
+        DB::table('event_tent_qty_cost')->insert($tentsInsertDB);
+        DB::table('event_product_qty_cost')->insert($productsInsertDB);
+
 
         return redirect()->route('admin.event.index');
     }

@@ -10,4 +10,10 @@ class Zone extends Model
 
     protected $fillable = ['name'];
 
+
+    public function zones()
+    {
+        return $this->belongsToMany('App\CampSite');
+    }
+
 }
