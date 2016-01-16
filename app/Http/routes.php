@@ -1,6 +1,19 @@
 <?php
 
-Route::get('/', 'HomeController@getIndex');
+Route::post('test', function(\Illuminate\Http\Request $request){
+   dd($request->all());
+});
+
+Route::get('/', function(){
+
+    dd(  DB::table('event_product_qty_cost')
+        ->where('event_product_qty_cost.event_id', 9)
+        ->where('event_product_qty_cost.pitch_id', 3)
+        ->join('products', 'event_product_qty_cost.product_id', '=', 'products.id')
+        ->get());
+
+
+});
 Route::get('event/{slug}', 'EventController@getShow');
 
 

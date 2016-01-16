@@ -17,21 +17,13 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getShow($slug, Event $event)
+    public function getShow($event, App\PitchGroup $pitchGroup)
     {
-
-        $event = $event->where('slug', $slug)->first();
-
-        return ($event) ? view('pages.event', compact('event')) : App::abort(404, 'No Event Found');
+        $pitchGroups = $pitchGroup->all();
+        return view('demo_event', compact('event', 'pitchGroups'));
     }
 
-    private function __getProductsPitch($eventID, $pitchID)
-    {
-       return  DB::table('event_product_qty_cost')
-            ->where('event_id', $eventID)
-            ->where('pitch_id', $pitchID)
-            ->get();
-    }
+
 
 }
 

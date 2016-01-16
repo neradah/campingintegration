@@ -27,6 +27,12 @@ class RouteServiceProvider extends ServiceProvider
         //
 
         parent::boot($router);
+
+        \Route::bind('slug', function($value)
+        {
+            return \App\Event::where('slug', $value)->firstOrFail();
+        });
+
     }
 
     /**

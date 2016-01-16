@@ -239,12 +239,9 @@
 
                                     <p class="help-block">{{$product->name}}</p>
 
-                                    <div class="form-group">
-                                        {!! Form::label('product'.$product->id, 'Cost', ['class' => 'col-sm-3 control-label']) !!}
-                                        <div class="col-sm-5">
+
                                             @include('admin.includes.form.text', ['name' => 'product['.$pitch->id.']['.$product->id.'][cost]', 'label' => 'Cost'])
-                                        </div>
-                                    </div>
+
 
                                 @endforeach
 

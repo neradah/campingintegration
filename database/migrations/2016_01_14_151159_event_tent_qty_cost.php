@@ -18,7 +18,7 @@ class EventTentQtyCost extends Migration
             $table->integer('pitch_id');  
             $table->integer('event_id');
             $table->integer('tent_id');
-            $table->integer('qty');
+            $table->integer('qty')->default(0);
             $table->integer('cost');
         });
     }
