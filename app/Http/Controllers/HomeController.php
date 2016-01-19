@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Event;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -16,17 +17,31 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getIndex(Event $event, Carbon $carbon)
+    public function getIndex(Category $category, Event $event)
     {
-        $earlybird = $event
-            ->where('show_homepage', true)
-            ->where('homepage_expire', '>', $carbon->now())
-            ->orderBy('created_at', 'DESC')
+        $carousel = $event->where('show_carousel', true)->get();
+        $categories = $category->lists('name', 'id');
+        $earlyBird = $event
+            ->where('early_bird_start', '<',  Carbon::now()) //its started
+            ->where('early_bird_end', '>', Carbon::now()) //not finised
             ->first();
 
-        $images = new \stdClass();
+        $mostRecent = $event->orderBy('created_at', 'DESC')->first();
 
-        return view('pages.home', compact('earlybird', 'images'));
 
+
+        return view('demo_home', compact('categories', 'carousel', 'earlyBird', 'mostRecent'));
+    }
+
+    /**
+     * @param Category $category
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function postSearch(Category $category, Request $request)
+    {
+        $results = $category->findOrFail($request->get('id'))->events()->get();
+
+        return view('demo_results', compact('results'));
     }
 }
