@@ -42,7 +42,6 @@
     <div class="row">
         <div class="col-sm-6 ">
 
-
             <h2>Select a Zone</h2>
 
             <ul>

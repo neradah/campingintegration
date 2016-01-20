@@ -21,6 +21,8 @@ class EventController extends Controller
     {
         $pitchGroups = $pitchGroup->all();
         return view('demo_event', compact('event', 'pitchGroups'));
+
+
     }
 
 
