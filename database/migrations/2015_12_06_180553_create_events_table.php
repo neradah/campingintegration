@@ -26,6 +26,7 @@ class CreateEventsTable extends Migration
             $table->text('banner')->nullable();
             $table->integer('discount')->nullable();
             $table->boolean('show_homepage')->nullable();
+            $table->boolean('show_carousel')->nullable();
             $table->longText('about_info')->nullable();
             $table->longText('parking_info')->nullable();
             $table->longText('arrival_info')->nullable();
