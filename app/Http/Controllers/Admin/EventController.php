@@ -13,7 +13,7 @@ use DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class EventController extends Controller
+class EventController extends AdminController
 {
     public function __construct()
     {
@@ -51,7 +51,7 @@ class EventController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Event $event)
+    public function store(Requests\CreateEventRequest $request, Event $event)
     {
         $banner = $this->upload($request->file('banner_upload'));
         $thumbnail = $this->upload($request->file('thumbnail_upload'));
@@ -112,9 +112,16 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, Event $event, PitchGroup $pitch, CampSite $campSite, Zone $zones, Category $category)
     {
-        return view('admin.event.create');
+
+        $pitches = $pitch->get();
+        $campsites = $campSite->all();
+        $categories = $category::lists('name', 'id');
+        $model = $event->find($id)->firstOrFail();
+
+
+        return view('admin.event.create', compact('pitches', 'campsites', 'zones', 'categories', 'model'));
     }
 
     /**

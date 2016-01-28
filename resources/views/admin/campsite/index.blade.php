@@ -19,7 +19,7 @@
 
                     <tr>
                         <td class="text-center">
-                            {!! Form::open(['id' => 'delete', 'method' => 'delete', 'route' => ['admin.event.destroy', $item->id]]) !!}
+                            {!! Form::open(['id' => 'delete', 'method' => 'delete', 'route' => ['admin.campsite.destroy', $item->id]]) !!}
                             <a href='#' onclick='this.parentNode.submit(); return false;'><i class="entypo-cancel"></i></a>
                             {!! Form::close() !!}
                         </td>

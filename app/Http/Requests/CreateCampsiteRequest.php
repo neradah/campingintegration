@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class CreateProductRequest extends Request
+class CreateCampsiteRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,8 +25,13 @@ class CreateProductRequest extends Request
     {
         return [
             'name' => 'required',
-            'price' => 'required|numeric',
-            'pitches' => 'required|array'
+            'address' => 'required',
+            'about' => 'required',
+            'arrival_info' => 'required',
+            'check_in_time' => 'required',
+            'check_out_time' => 'required',
+            'parking_info' => 'required',
+            'zones' => 'required|array'
         ];
     }
 }

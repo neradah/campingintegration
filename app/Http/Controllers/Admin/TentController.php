@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class TentController extends Controller
+class TentController extends AdminController
 {
 
     function __construct()
@@ -70,9 +70,11 @@ class TentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, Tent $tent, PitchGroup $group)
     {
-        //
+        $pitches = $group->all();
+        $model = $tent->find($id)->firstOrFail();
+        return view('admin.tent.create', compact('model', 'pitches'));
     }
 
     /**

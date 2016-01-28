@@ -3,13 +3,17 @@
 
 @section('content')
 
-    {!! Form::open(['route'=> 'admin.event.store', 'files' => true]) !!}
+    @if(isset($model))
+        {!! Form::model($model, array('method' => 'PATCH', 'files' => true, 'route' => array('admin.event.update', $model->id))) !!}
+    @else
+        {!! Form::open(['route'=> 'admin.event.store', 'files' => true]) !!}
+    @endif
 
 
     <div class="row">
         <div class="col-md-12">
 
-            <div class="panel panel-primary" data-collapsed="1">
+            <div class="panel panel-primary" data-collapsed="0">
 
                 <div class="panel-heading">
                     <div class="panel-title">
@@ -30,6 +34,8 @@
                             <div class="form-horizontal form-groups-bordered">
 
                                 @foreach($campsites as $campsite)
+
+
 
                                     <div class="form-group">
                                         {!! Form::label($random, $campsite->name, ['class' => 'col-sm-3 control-label']) !!}
@@ -62,7 +68,7 @@
 
 
 
-            <div class="panel panel-primary" data-collapsed="0">
+            <div class="panel panel-primary" data-collapsed="1">
 
                 <div class="panel-heading">
                     <div class="panel-title">
@@ -81,84 +87,42 @@
 
                     <div class="form-horizontal form-groups-bordered">
 
-                        <div class="form-group">
-                            {!! Form::label('name', 'Event Name', ['class' => 'col-sm-3 control-label']) !!}
-                            <div class="col-sm-5">
-                                {!! Form::text('name', null, ['class' => 'form-control', 'id' => 'name']) !!}
-                            </div>
-                        </div>
+                        @include('admin.includes.form.text', ['name' => 'name', 'label' => 'Event Name'])
 
-                        <div class="form-group">
-                            {!! Form::label('city', null, ['class' => 'col-sm-3 control-label']) !!}
-                            <div class="col-sm-5">
-                                {!! Form::text('city', null, ['class' => 'form-control', 'id' => 'city']) !!}
-                            </div>
-                        </div>
+
+                        @include('admin.includes.form.text', ['name' => 'city'])
 
                     <div class="form-group">
-                        {!! Form::label('catagory', null, ['class' => 'col-sm-3 control-label']) !!}
+                        {!! Form::label('category', null, ['class' => 'col-sm-3 control-label']) !!}
                         <div class="col-sm-5">
-                            {!! form::select('catagory', $categories) !!}
-                        </div>
-                    </div>
-
-                        <div class="form-group">
-                            {!! Form::label('slug', null, ['class' => 'col-sm-3 control-label']) !!}
-                            <div class="col-sm-5">
-                                {!! Form::text('slug', null, ['class' => 'form-control', 'id' => 'slug']) !!}
-                            </div>
-                        </div>
-
-
-                    <div class="form-group">
-                        {!! Form::label('start', null, ['class' => 'col-sm-3 control-label']) !!}
-                        <div class="col-sm-5">
-                            {!! Form::input('date', 'start', null, ['class' => 'form-control', 'id' => 'start']) !!}
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        {!! Form::label('end', null, ['class' => 'col-sm-3 control-label']) !!}
-                        <div class="col-sm-5">
-                            {!! Form::input('date', 'end', null, ['class' => 'form-control', 'id' => 'end']) !!}
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        {!! Form::label('thumbnail', null, ['class' => 'col-sm-3 control-label']) !!}
-                        <div class="col-sm-5">
-                            {!! Form::file('thumbnail_upload', ['class' => 'form-control', 'id' => 'thumbnail']) !!}
+                            {!! form::select('category', $categories) !!}
                         </div>
                     </div>
 
 
-                    <div class="form-group">
-                        {!! Form::label('banner', null, ['class' => 'col-sm-3 control-label']) !!}
-                        <div class="col-sm-5">
-                            {!! Form::file('banner_upload', ['class' => 'form-control', 'id' => 'banner']) !!}
-                        </div>
-                    </div>
+                        @include('admin.includes.form.text', ['name' => 'slug'])
 
-                    <div class="form-group">
-                        {!! Form::label('discount', 'early bird discount', ['class' => 'col-sm-3 control-label']) !!}
-                        <div class="col-sm-5">
-                            {!! Form::text('discount', null, ['class' => 'form-control', 'id' => 'discount']) !!}
-                        </div>
-                    </div>
 
-                        <div class="form-group">
-                            {!! Form::label('early_bird_start', null, ['class' => 'col-sm-3 control-label']) !!}
-                            <div class="col-sm-5">
-                                {!! Form::input('date', 'early_bird_start', null, ['class' => 'form-control', 'id' => 'early_bird_start']) !!}
-                            </div>
-                        </div>
 
-                        <div class="form-group">
-                            {!! Form::label('early_bird_end', null, ['class' => 'col-sm-3 control-label']) !!}
-                            <div class="col-sm-5">
-                                {!! Form::input('date', 'early_bird_end', null, ['class' => 'form-control', 'id' => 'early_bird_end']) !!}
-                            </div>
-                        </div>
+                        @include('admin.includes.form.date', ['name' => 'start',])
+
+
+                        @include('admin.includes.form.date', ['name' => 'end'])
+
+
+                        @include('admin.includes.form.file', ['name' => 'thumbnail_upload', 'label' => 'Thumbnail'])
+
+
+
+                        @include('admin.includes.form.file', ['name' => 'banner_upload', 'label' => 'Banner'])
+
+
+
+                        @include('admin.includes.form.text', ['name' => 'discount', 'label' => 'early bird discount'])
+
+                        @include('admin.includes.form.date', ['name' => 'early_bird_start', 'label' => 'Early Bird Start'])
+
+                        @include('admin.includes.form.date', ['name' => 'early_bird_end', 'label' => 'Early Bird End'])
 
                     <div class="form-group">
                         {!! Form::label('show_homepage', null, ['class' => 'col-sm-3 control-label']) !!}
@@ -228,24 +192,26 @@
                        </div>
                    </div>
 
+                    <hr><h2>Products</h2></hr>
+
                     <div style="width:100%;height:20px;"></div>
 
                     <div class="row">
                         <div class="col-sm-12">
 
-                            <div class="form-horizontal form-groups-bordered">
+                            <div class="form-horizontal ">
 
-                            @foreach($pitch->products()->get() as $product)
+                                @forelse($pitch->products()->get() as $product)
 
                                     <p class="help-block">{{$product->name}}</p>
 
+                                    @include('admin.includes.form.text', ['name' => 'product['.$pitch->id.']['.$product->id.'][cost]', 'value' => $product->price, 'label' => 'Cost'])
 
-                                            @include('admin.includes.form.text', ['name' => 'product['.$pitch->id.']['.$product->id.'][cost]', 'label' => 'Cost'])
+                                    @empty
+                                       <div class="text-center"> No Products</div>
+                                @endforelse
 
-
-                                @endforeach
-
-                                </div>
+                            </div>
 
                         </div>
                     </div>
@@ -270,7 +236,11 @@
 
     {!! Form::close() !!}
 
+    @push('scripts')
     <script src="{{asset('admin/assets/js/ckeditor/ckeditor.js')}}"></script>
     <script src="{{asset('admin/assets/js/ckeditor/adapters/jquery.js')}}"></script>
+    @endpush
+
+
 
 @stop

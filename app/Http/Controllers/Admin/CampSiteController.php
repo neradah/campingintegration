@@ -3,13 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\CampSite;
+use App\Category;
 use App\Zone;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class CampSiteController extends Controller
+class CampSiteController extends AdminController
 {
 
     function __construct()
@@ -45,7 +46,7 @@ class CampSiteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, CampSite $campSite)
+    public function store(Requests\CreateCampsiteRequest $request, CampSite $campSite)
     {
         $campSite->create($request->all())->zones()->sync($request->get('zones', []));
         return redirect()->route('admin.campsite.index');
@@ -68,9 +69,12 @@ class CampSiteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, CampSite $campSite, Zone $zone)
     {
-        //
+        $zones = $zone->all();
+        $model = $campSite->find($id)->firstOrFail();
+        return view('admin.campsite.create', compact('model', 'zones'));
+
     }
 
     /**
@@ -91,8 +95,9 @@ class CampSiteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, CampSite $campSite)
     {
-        //
+        $campSite->destroy($id);
+        return back();
     }
 }

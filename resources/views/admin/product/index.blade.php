@@ -41,36 +41,6 @@
 
     </div>
 
-    <script>
-
-        var $ = jQuery;
-
-        $('#destroy_selected').on('click', function(){
-
-            $('.destroy:checked').each(function(){
-
-                var selectform = this.form;
-
-                $.ajax({
-                    url: this.form.action,
-                    method: this.form.method,
-                    data: $(this.form).serialize(),
-                    error: function (request, status, error) {
-                        $(selectform).submit();
-                    },
-                    success: function(){
-                        $(selectform).closest('tr').hide();
-                    }
-                });
-
-
-            });
-
-
-        });
-
-    </script>
-
 
 
 @stop

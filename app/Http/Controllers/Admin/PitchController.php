@@ -8,7 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Mockery\Exception;
 
-class PitchController extends Controller
+class PitchController extends AdminController
 {
     public function __construct()
     {

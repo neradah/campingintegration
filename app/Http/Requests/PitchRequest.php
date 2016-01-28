@@ -24,8 +24,7 @@ class PitchRequest extends Request
     public function rules()
     {
         return [
-            'name' => 'required',
-            'persons' => 'required'
+            'name' => 'required'
         ];
     }
 }

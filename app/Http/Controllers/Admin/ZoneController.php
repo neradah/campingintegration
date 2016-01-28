@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class ZoneController extends Controller
+class ZoneController extends AdminController
 {
     public function __construct()
     {
@@ -42,9 +42,10 @@ class ZoneController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Zone $zone)
     {
-        //
+        $zone->create($request->all());
+        return redirect()->route('admin.zone.index');
     }
 
     /**
@@ -64,9 +65,10 @@ class ZoneController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, Zone $zone)
     {
-        //
+        $model = $zone->find($id)->firstOrFail();
+        return view('admin.zone.create', compact('model'));
     }
 
     /**
@@ -87,8 +89,9 @@ class ZoneController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, Zone $zone)
     {
-        //
+        $zone->destroy($id);
+        return back();
     }
 }

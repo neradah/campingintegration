@@ -8,13 +8,14 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class BookingController extends Controller
+class BookingController extends AdminController
 {
     /**
      * Set the table fields
      */
     public function __construct()
     {
+
         view()->share('fields', ['Status', 'Event', 'Location', 'Type', 'Date of Event']);
     }
     /**

@@ -42,7 +42,7 @@
 
 
 
-            @foreach(['event', 'booking', 'product', 'pitch', 'campsite', 'zone', 'tent', 'user', 'category'] as $name)
+            @foreach(['event', 'booking', 'product', 'pitch', 'campsite', 'zone', 'tent', 'category'] as $name)
 
                     <!-- {{$name}} -->
 
@@ -58,7 +58,7 @@
                         </a>
                     </li>
 
-                    <li class="@if(request()->is('admin/'.$name.'/create'))  active  @endif">
+                    <li class="@if(request()->is('admin/'.$name.'/create'))  active  @endif {{$name}}-create">
                         <a href="{{ url('admin/'.$name.'/create')  }}">
                             <span class="title">Create</span>
                         </a>
@@ -77,3 +77,9 @@
     </div>
 
 </div>
+
+<style>
+    .booking-create{
+        display:none;
+    }
+</style>

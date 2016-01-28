@@ -24,21 +24,20 @@ class CreateEventRequest extends Request
     public function rules()
     {
         return [
-            "name" => "required",
-            "slug" => "required",
-            "type" => "required",
-            "location" => "required",
-            "start" => "required",
-            "end" => "required",
-            "thumbnail" => "",
-            "banner" => "",
-            "discount" => "",
-            "show_homepage" => "",
-            "about_info" => "required",
-            "parking_info" => "required",
-            "arrival_info" => "required",
-            "map" => "",
-            "pitch" => ""
+            'campsites' => 'required|array',
+            'name' => 'required',
+            'city' => 'required',
+            'category' => 'required',
+            'slug' => 'required',
+            'start' => 'required|date',
+            'end' => 'required|date',
+            'thumbnail_upload' => 'required|image',
+            'banner_upload' => 'required|image',
+            'discount' => 'numeric',
+            'early_bird_start' => 'date',
+            'early_bird_end' => 'date',
+            'pitch' => 'required|array',
+            'product' => 'required|array'
         ];
     }
 }

@@ -30,9 +30,11 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    @stack('scripts')
+
 
 </head>
-<body class="page-body  page-fade" data-url="http://neon.dev">
+<body class="page-body  page-fade">
 
 <div class="page-container"><!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
 
@@ -42,441 +44,13 @@
 
         <div class="row">
 
-            <!-- Profile Info and Notifications -->
-            <div class="col-md-6 col-sm-8 clearfix">
-
-                <ul class="user-info pull-left pull-none-xsm">
-
-                    <!-- Profile Info -->
-                    <li class="profile-info dropdown"><!-- add class "pull-right" if you want to place this from right -->
-
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="/admin/assets/images/thumb-1@2x.png" alt="" class="img-circle" width="44" />
-                            John Henderson
-                        </a>
-
-                        <ul class="dropdown-menu">
-
-                            <!-- Reverse Caret -->
-                            <li class="caret"></li>
-
-                            <!-- Profile sub-links -->
-                            <li>
-                                <a href="extra-timeline.html">
-                                    <i class="entypo-user"></i>
-                                    Edit Profile
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="mailbox.html">
-                                    <i class="entypo-mail"></i>
-                                    Inbox
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="extra-calendar.html">
-                                    <i class="entypo-calendar"></i>
-                                    Calendar
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#">
-                                    <i class="entypo-clipboard"></i>
-                                    Tasks
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-
-                </ul>
-
-                <ul class="user-info pull-left pull-right-xs pull-none-xsm">
-
-                    <!-- Raw Notifications -->
-                    <li class="notifications dropdown">
-
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                            <i class="entypo-attention"></i>
-                            <span class="badge badge-info">6</span>
-                        </a>
-
-                        <ul class="dropdown-menu">
-                            <li class="top">
-                                <p class="small">
-                                    <a href="#" class="pull-right">Mark all Read</a>
-                                    You have <strong>3</strong> new notifications.
-                                </p>
-                            </li>
-
-                            <li>
-                                <ul class="dropdown-menu-list scroller">
-                                    <li class="unread notification-success">
-                                        <a href="#">
-                                            <i class="entypo-user-add pull-right"></i>
-
-											<span class="line">
-												<strong>New user registered</strong>
-											</span>
-
-											<span class="line small">
-												30 seconds ago
-											</span>
-                                        </a>
-                                    </li>
-
-                                    <li class="unread notification-secondary">
-                                        <a href="#">
-                                            <i class="entypo-heart pull-right"></i>
-
-											<span class="line">
-												<strong>Someone special liked this</strong>
-											</span>
-
-											<span class="line small">
-												2 minutes ago
-											</span>
-                                        </a>
-                                    </li>
-
-                                    <li class="notification-primary">
-                                        <a href="#">
-                                            <i class="entypo-user pull-right"></i>
-
-											<span class="line">
-												<strong>Privacy settings have been changed</strong>
-											</span>
-
-											<span class="line small">
-												3 hours ago
-											</span>
-                                        </a>
-                                    </li>
-
-                                    <li class="notification-danger">
-                                        <a href="#">
-                                            <i class="entypo-cancel-circled pull-right"></i>
-
-											<span class="line">
-												John cancelled the event
-											</span>
-
-											<span class="line small">
-												9 hours ago
-											</span>
-                                        </a>
-                                    </li>
-
-                                    <li class="notification-info">
-                                        <a href="#">
-                                            <i class="entypo-info pull-right"></i>
-
-											<span class="line">
-												The server is status is stable
-											</span>
-
-											<span class="line small">
-												yesterday at 10:30am
-											</span>
-                                        </a>
-                                    </li>
-
-                                    <li class="notification-warning">
-                                        <a href="#">
-                                            <i class="entypo-rss pull-right"></i>
-
-											<span class="line">
-												New comments waiting approval
-											</span>
-
-											<span class="line small">
-												last week
-											</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="external">
-                                <a href="#">View all notifications</a>
-                            </li>
-                        </ul>
-
-                    </li>
-
-                    <!-- Message Notifications -->
-                    <li class="notifications dropdown">
-
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                            <i class="entypo-mail"></i>
-                            <span class="badge badge-secondary">10</span>
-                        </a>
-
-                        <ul class="dropdown-menu">
-                            <li>
-                                <form class="top-dropdown-search">
-
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Search anything..." name="s" />
-                                    </div>
-
-                                </form>
-
-                                <ul class="dropdown-menu-list scroller">
-                                    <li class="active">
-                                        <a href="#">
-											<span class="image pull-right">
-												<img src="/admin/assets/images/thumb-1.png" alt="" class="img-circle" />
-											</span>
-
-											<span class="line">
-												<strong>Luc Chartier</strong>
-												- yesterday
-											</span>
-
-											<span class="line desc small">
-												This ain’t our first item, it is the best of the rest.
-											</span>
-                                        </a>
-                                    </li>
-
-                                    <li class="active">
-                                        <a href="#">
-											<span class="image pull-right">
-												<img src="/admin/assets/images/thumb-1.png" alt="" class="img-circle" />
-											</span>
-
-											<span class="line">
-												<strong>Salma Nyberg</strong>
-												- 2 days ago
-											</span>
-
-											<span class="line desc small">
-												Oh he decisively impression attachment friendship so if everything.
-											</span>
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#">
-											<span class="image pull-right">
-												<img src="/admin/assets/images/thumb-1.png" alt="" class="img-circle" />
-											</span>
-
-											<span class="line">
-												Hayden Cartwright
-												- a week ago
-											</span>
-
-											<span class="line desc small">
-												Whose her enjoy chief new young. Felicity if ye required likewise so doubtful.
-											</span>
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#">
-											<span class="image pull-right">
-												<img src="/admin/assets/images/thumb-1.png" alt="" class="img-circle" />
-											</span>
-
-											<span class="line">
-												Sandra Eberhardt
-												- 16 days ago
-											</span>
-
-											<span class="line desc small">
-												On so attention necessary at by provision otherwise existence direction.
-											</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="external">
-                                <a href="mailbox.html">All Messages</a>
-                            </li>
-                        </ul>
-
-                    </li>
-
-                    <!-- Task Notifications -->
-                    <li class="notifications dropdown">
-
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                            <i class="entypo-list"></i>
-                            <span class="badge badge-warning">1</span>
-                        </a>
-
-                        <ul class="dropdown-menu">
-                            <li class="top">
-                                <p>You have 6 pending tasks</p>
-                            </li>
-
-                            <li>
-                                <ul class="dropdown-menu-list scroller">
-                                    <li>
-                                        <a href="#">
-											<span class="task">
-												<span class="desc">Procurement</span>
-												<span class="percent">27%</span>
-											</span>
-
-											<span class="progress">
-												<span style="width: 27%;" class="progress-bar progress-bar-success">
-													<span class="sr-only">27% Complete</span>
-												</span>
-											</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-											<span class="task">
-												<span class="desc">App Development</span>
-												<span class="percent">83%</span>
-											</span>
-
-											<span class="progress progress-striped">
-												<span style="width: 83%;" class="progress-bar progress-bar-danger">
-													<span class="sr-only">83% Complete</span>
-												</span>
-											</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-											<span class="task">
-												<span class="desc">HTML Slicing</span>
-												<span class="percent">91%</span>
-											</span>
-
-											<span class="progress">
-												<span style="width: 91%;" class="progress-bar progress-bar-success">
-													<span class="sr-only">91% Complete</span>
-												</span>
-											</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-											<span class="task">
-												<span class="desc">Database Repair</span>
-												<span class="percent">12%</span>
-											</span>
-
-											<span class="progress progress-striped">
-												<span style="width: 12%;" class="progress-bar progress-bar-warning">
-													<span class="sr-only">12% Complete</span>
-												</span>
-											</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-											<span class="task">
-												<span class="desc">Backup Create Progress</span>
-												<span class="percent">54%</span>
-											</span>
-
-											<span class="progress progress-striped">
-												<span style="width: 54%;" class="progress-bar progress-bar-info">
-													<span class="sr-only">54% Complete</span>
-												</span>
-											</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-											<span class="task">
-												<span class="desc">Upgrade Progress</span>
-												<span class="percent">17%</span>
-											</span>
-
-											<span class="progress progress-striped">
-												<span style="width: 17%;" class="progress-bar progress-bar-important">
-													<span class="sr-only">17% Complete</span>
-												</span>
-											</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="external">
-                                <a href="#">See all tasks</a>
-                            </li>
-                        </ul>
-
-                    </li>
-
-                </ul>
-
-            </div>
+       <div class="col-md-6"></div>
 
 
             <!-- Raw Links -->
             <div class="col-md-6 col-sm-4 clearfix hidden-xs">
 
                 <ul class="list-inline links-list pull-right">
-
-                    <!-- Language Selector -->
-                    <li class="dropdown language-selector">
-
-                        Language: &nbsp;
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-close-others="true">
-                            <img src="/admin/assets/images/flag-uk.png" />
-                        </a>
-
-                        <ul class="dropdown-menu pull-right">
-                            <li>
-                                <a href="#">
-                                    <img src="/admin/assets/images/flag-de.png" />
-                                    <span>Deutsch</span>
-                                </a>
-                            </li>
-                            <li class="active">
-                                <a href="#">
-                                    <img src="/admin/assets/images/flag-uk.png" />
-                                    <span>English</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="/admin/assets/images/flag-fr.png" />
-                                    <span>François</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="assets/images/flag-al.png" />
-                                    <span>Shqip</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="/admin/assets/images/flag-es.png" />
-                                    <span>Español</span>
-                                </a>
-                            </li>
-                        </ul>
-
-                    </li>
-
-                    <li class="sep"></li>
-
-
-                    <li>
-                        <a href="#" data-toggle="chat" data-collapse-sidebar="1">
-                            <i class="entypo-chat"></i>
-                            Chat
-
-                            <span class="badge badge-success chat-notifications-badge is-hidden">0</span>
-                        </a>
-                    </li>
-
-                    <li class="sep"></li>
 
                     <li>
                         <a href="extra-login.html">
@@ -498,25 +72,7 @@
                 @endforeach
         </ol>
 
-        @if (count($errors) > 0)
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="alert alert-danger alert-dismissible text-center" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-                                    aria-hidden="true">&times;</span></button>
 
-                        @foreach ($errors->all() as $error)
-
-                            <div>
-                                {!! $error !!}
-                            </div>
-
-                        @endforeach
-
-                    </div>
-                </div>
-            </div>
-            @endif
 
 @section('content')
 @show
@@ -532,190 +88,48 @@
 </div>
 
 
-<div id="chat" class="fixed" data-current-user="Art Ramadani" data-order-by-status="1" data-max-chat-history="25">
 
-    <div class="chat-inner">
-
-
-        <h2 class="chat-header">
-            <a href="#" class="chat-close"><i class="entypo-cancel"></i></a>
-
-            <i class="entypo-users"></i>
-            Chat
-            <span class="badge badge-success is-hidden">0</span>
-        </h2>
+<script>
 
 
-        <div class="chat-group" id="group-1">
-            <strong>Favorites</strong>
+    var $ = jQuery;
 
-            <a href="#" id="sample-user-123" data-conversation-history="#sample_history"><span class="user-status is-online"></span> <em>Catherine J. Watkins</em></a>
-            <a href="#"><span class="user-status is-online"></span> <em>Nicholas R. Walker</em></a>
-            <a href="#"><span class="user-status is-busy"></span> <em>Susan J. Best</em></a>
-            <a href="#"><span class="user-status is-offline"></span> <em>Brandon S. Young</em></a>
-            <a href="#"><span class="user-status is-idle"></span> <em>Fernando G. Olson</em></a>
-        </div>
+    $('[name=select_all]').on('click', function(){
 
+        if($(this).is(":checked")){
+            $('.destroy').prop('checked', true);
+            return;
+        }
 
-        <div class="chat-group" id="group-2">
-            <strong>Work</strong>
+        $('.destroy').prop('checked', false);
 
-            <a href="#"><span class="user-status is-offline"></span> <em>Robert J. Garcia</em></a>
-            <a href="#" data-conversation-history="#sample_history_2"><span class="user-status is-offline"></span> <em>Daniel A. Pena</em></a>
-            <a href="#"><span class="user-status is-busy"></span> <em>Rodrigo E. Lozano</em></a>
-        </div>
+    });
 
+    $('#destroy_selected').on('click', function(){
 
-        <div class="chat-group" id="group-3">
-            <strong>Social</strong>
+        $('.destroy:checked').each(function(){
 
-            <a href="#"><span class="user-status is-busy"></span> <em>Velma G. Pearson</em></a>
-            <a href="#"><span class="user-status is-offline"></span> <em>Margaret R. Dedmon</em></a>
-            <a href="#"><span class="user-status is-online"></span> <em>Kathleen M. Canales</em></a>
-            <a href="#"><span class="user-status is-offline"></span> <em>Tracy J. Rodriguez</em></a>
-        </div>
+            var selectform = this.form;
 
-    </div>
-
-    <!-- conversation template -->
-    <div class="chat-conversation">
-
-        <div class="conversation-header">
-            <a href="#" class="conversation-close"><i class="entypo-cancel"></i></a>
-
-            <span class="user-status"></span>
-            <span class="display-name"></span>
-            <small></small>
-        </div>
-
-        <ul class="conversation-body">
-        </ul>
-
-        <div class="chat-textarea">
-            <textarea class="form-control autogrow" placeholder="Type your message"></textarea>
-        </div>
-
-    </div>
-
-</div>
+            $.ajax({
+                url: this.form.action,
+                method: this.form.method,
+                data: $(this.form).serialize(),
+                error: function (request, status, error) {
+                    $(selectform).submit();
+                },
+                success: function(){
+                    $(selectform).closest('tr').hide();
+                }
+            });
 
 
-<!-- Chat Histories -->
-<ul class="chat-history" id="sample_history">
-    <li>
-        <span class="user">Art Ramadani</span>
-        <p>Are you here?</p>
-        <span class="time">09:00</span>
-    </li>
-
-    <li class="opponent">
-        <span class="user">Catherine J. Watkins</span>
-        <p>This message is pre-queued.</p>
-        <span class="time">09:25</span>
-    </li>
-
-    <li class="opponent">
-        <span class="user">Catherine J. Watkins</span>
-        <p>Whohoo!</p>
-        <span class="time">09:26</span>
-    </li>
-
-    <li class="opponent unread">
-        <span class="user">Catherine J. Watkins</span>
-        <p>Do you like it?</p>
-        <span class="time">09:27</span>
-    </li>
-</ul>
+        });
 
 
+    });
 
-
-<!-- Chat Histories -->
-<ul class="chat-history" id="sample_history_2">
-    <li class="opponent unread">
-        <span class="user">Daniel A. Pena</span>
-        <p>I am going out.</p>
-        <span class="time">08:21</span>
-    </li>
-
-    <li class="opponent unread">
-        <span class="user">Daniel A. Pena</span>
-        <p>Call me when you see this message.</p>
-        <span class="time">08:27</span>
-    </li>
-</ul>
-
-
-</div>
-
-<!-- Sample Modal (Default skin) -->
-<div class="modal fade" id="sample-modal-dialog-1">
-    <div class="modal-dialog">
-        <div class="modal-content">
-
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Widget Options - Default Modal</h4>
-            </div>
-
-            <div class="modal-body">
-                <p>Now residence dashwoods she excellent you. Shade being under his bed her. Much read on as draw. Blessing for ignorant exercise any yourself unpacked. Pleasant horrible but confined day end marriage. Eagerness furniture set preserved far recommend. Did even but nor are most gave hope. Secure active living depend son repair day ladies now.</p>
-            </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Sample Modal (Skin inverted) -->
-<div class="modal invert fade" id="sample-modal-dialog-2">
-    <div class="modal-dialog">
-        <div class="modal-content">
-
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Widget Options - Inverted Skin Modal</h4>
-            </div>
-
-            <div class="modal-body">
-                <p>Now residence dashwoods she excellent you. Shade being under his bed her. Much read on as draw. Blessing for ignorant exercise any yourself unpacked. Pleasant horrible but confined day end marriage. Eagerness furniture set preserved far recommend. Did even but nor are most gave hope. Secure active living depend son repair day ladies now.</p>
-            </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Sample Modal (Skin gray) -->
-<div class="modal gray fade" id="sample-modal-dialog-3">
-    <div class="modal-dialog">
-        <div class="modal-content">
-
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Widget Options - Gray Skin Modal</h4>
-            </div>
-
-            <div class="modal-body">
-                <p>Now residence dashwoods she excellent you. Shade being under his bed her. Much read on as draw. Blessing for ignorant exercise any yourself unpacked. Pleasant horrible but confined day end marriage. Eagerness furniture set preserved far recommend. Did even but nor are most gave hope. Secure active living depend son repair day ladies now.</p>
-            </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
+</script>
 
 <!-- Imported styles on this page -->
 <link rel="stylesheet" href="/admin/assets/js/jvectormap/jquery-jvectormap-1.2.2.css">

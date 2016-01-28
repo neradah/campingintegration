@@ -8,7 +8,7 @@
             <table class="table table-bordered responsive table-hover">
                 <thead>
                 <tr>
-                    <td width="5%"></td>
+                    <td width="5%" class="text-center"> {!! Form::checkbox('select_all', null) !!} </td>
                     @foreach($fields as $field)
                         <td>{{$field}}</td>
                     @endforeach
@@ -20,7 +20,7 @@
                     <tr>
                         <td class="text-center">
                             {!! Form::open(['id' => 'delete', 'method' => 'delete', 'route' => ['admin.tent.destroy', $item->id]]) !!}
-                            <a href='#' onclick='this.parentNode.submit(); return false;'><i class="entypo-cancel"></i></a>
+                            {!! Form::checkbox('destroy[]', null, false, ['class' => 'destroy']) !!}
                             {!! Form::close() !!}
                         </td>
                         <td><a href="{{route('admin.tent.edit', [$item->id])}}">{{$item->name}}</a></td>
@@ -31,6 +31,11 @@
                 @endforeach
                 </tbody>
             </table>
+
+        </div>
+        <div class="col-sm-3">
+
+            {!! Form::button('Delete', ['id' => 'destroy_selected']) !!}
 
         </div>
     </div>
