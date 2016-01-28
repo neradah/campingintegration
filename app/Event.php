@@ -32,7 +32,12 @@ class Event extends Model
     public function scopeProducts($query)
     {
         return $query
-            ->join('event_product_qty_cost', $this->id, '=', 'event_product_qty_cost.event_id')
+            //->join('event_product_qty_cost', $this->id, '=', 'event_product_qty_cost.event_id')
+
+            ->join('event_product_qty_cost', function ($join) {
+                $join->where('event_product_qty_cost.event_id', '=', $this->id);
+            })
+
             ->join('products', 'event_product_qty_cost.product_id', '=', 'products.id')
             ->select('event_product_qty_cost.cost', 'products.name', 'products.id', 'event_product_qty_cost.pitch_id')
             ->groupBy('event_product_qty_cost.id');
@@ -41,7 +46,12 @@ class Event extends Model
     public function scopeTents($query)
     {
         return $query
-            ->join('event_tent_qty_cost', $this->id, '=', 'event_tent_qty_cost.event_id')
+            //->join('event_tent_qty_cost', 'event_tent_qty_cost.event_id', '=', $this->id)
+
+            ->join('event_tent_qty_cost', function ($join) {
+                $join->where('event_tent_qty_cost.event_id', '=', $this->id);
+                    })
+
             ->join('pitches', 'event_tent_qty_cost.pitch_id', '=', 'pitches.id')
             ->join('tents', 'event_tent_qty_cost.tent_id', '=', 'tents.id')
             ->where('event_tent_qty_cost.qty', '>', 0)
