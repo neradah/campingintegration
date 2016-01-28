@@ -22,6 +22,8 @@ class CreateEventsTable extends Migration
             $table->date('start')->nullable();
             $table->date('end')->nullable();
             $table->date('homepage_expire')->nullable();
+            $table->date('early_bird_start')->nullable();
+            $table->date('early_bird_end')->nullable();
             $table->text('thumbnail')->nullable();
             $table->text('banner')->nullable();
             $table->integer('discount')->nullable();
