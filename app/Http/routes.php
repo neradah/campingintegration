@@ -18,7 +18,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::resource('pitch', 'PitchController');
     Route::resource('user', 'UserController');
     Route::resource('zone', 'ZoneController');
-    Route::resource('campsite', 'CampsiteController');
+    Route::resource('campsite', 'CampSiteController');
     Route::resource('tent', 'TentController');
     Route::resource('category', 'CategoryController');
 
