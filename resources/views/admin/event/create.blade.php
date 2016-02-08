@@ -67,7 +67,6 @@
         <div class="col-md-12">
 
 
-
             <div class="panel panel-primary" data-collapsed="1">
 
                 <div class="panel-heading">
@@ -76,7 +75,7 @@
                     </div>
 
                     <div class="panel-options">
-                 
+
                         <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
                         <a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
                         <a href="#" data-rel="close"><i class="entypo-cancel"></i></a>
@@ -92,12 +91,12 @@
 
                         @include('admin.includes.form.text', ['name' => 'city'])
 
-                    <div class="form-group">
-                        {!! Form::label('category', null, ['class' => 'col-sm-3 control-label']) !!}
-                        <div class="col-sm-5">
-                            {!! form::select('category', $categories) !!}
+                        <div class="form-group">
+                            {!! Form::label('category', null, ['class' => 'col-sm-3 control-label']) !!}
+                            <div class="col-sm-5">
+                                {!! form::select('category', $categories) !!}
+                            </div>
                         </div>
-                    </div>
 
 
                         @include('admin.includes.form.text', ['name' => 'slug'])
@@ -109,12 +108,32 @@
 
                         @include('admin.includes.form.date', ['name' => 'end'])
 
+                        @if(isset($model))
 
-                        @include('admin.includes.form.file', ['name' => 'thumbnail_upload', 'label' => 'Thumbnail'])
+                            <div class="form-group">
+                                {!! Form::label('Thumbnail', null, ['class' => 'col-sm-3 control-label']) !!}
+                                <div class="col-sm-5">
+                                    {!! link_to_asset('/uploads/'.$model->thumbnail, 'View Image') !!}
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                {!! Form::label('Banner', null, ['class' => 'col-sm-3 control-label']) !!}
+                                <div class="col-sm-5">
+                                    {!! link_to_asset('/uploads/'.$model->banner, 'View Image') !!}
+                                </div>
+                            </div>
 
 
 
-                        @include('admin.includes.form.file', ['name' => 'banner_upload', 'label' => 'Banner'])
+                        @else
+                            @include('admin.includes.form.file', ['name' => 'thumbnail_upload', 'label' => 'Thumbnail'])
+                            @include('admin.includes.form.file', ['name' => 'banner_upload', 'label' => 'Banner'])
+                        @endif
+
+
+
+
 
 
 
@@ -124,12 +143,12 @@
 
                         @include('admin.includes.form.date', ['name' => 'early_bird_end', 'label' => 'Early Bird End'])
 
-                    <div class="form-group">
-                        {!! Form::label('show_homepage', null, ['class' => 'col-sm-3 control-label']) !!}
-                        <div class="col-sm-5">
-                            {!! Form::checkbox('show_homepage', true, null,['class' => 'form-control', 'id' => 'show_homepage']) !!}
+                        <div class="form-group">
+                            {!! Form::label('show_homepage', null, ['class' => 'col-sm-3 control-label']) !!}
+                            <div class="col-sm-5">
+                                {!! Form::checkbox('show_homepage', true, null,['class' => 'form-control', 'id' => 'show_homepage']) !!}
+                            </div>
                         </div>
-                    </div>
 
                         <div class="form-group">
                             {!! Form::label('show_carousel', null, ['class' => 'col-sm-3 control-label']) !!}
@@ -137,11 +156,6 @@
                                 {!! Form::checkbox('show_carousel', true, null,['class' => 'form-control', 'id' => 'show_carousel']) !!}
                             </div>
                         </div>
-
-
-
-
-
 
 
                     </div>
@@ -155,82 +169,101 @@
 
     @foreach($pitches as $pitch)
 
-    <div class="row">
-        <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-12">
 
-            <div class="panel panel-primary" data-collapsed="1">
+                <div class="panel panel-primary" data-collapsed="1">
 
-                <div class="panel-heading">
-                    <div class="panel-title">
-                        {{$pitch->name}}
-                    </div>
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            {{$pitch->name}}
+                        </div>
 
-                    <div class="panel-options">
-                        <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
-                        <a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
-                        <a href="#" data-rel="close"><i class="entypo-cancel"></i></a>
-                    </div>
-                </div>
-
-                <div class="panel-body">
-
-                   <div class="row">
-                       <div class="col-sm-12">
-                           <div class="form-horizontal">
-
-                             @foreach($pitch->tents()->get() as $tent)
-
-                                   <p class="help-block">{{$tent->name}}</p>
-
-                                   @include('admin.includes.form.number', ['name' => 'pitch['.$pitch->id.']['.$tent->id.'][qty]', 'label' => 'Qty'])
-                                   @include('admin.includes.form.text', ['name' => 'pitch['.$pitch->id.']['.$tent->id.'][cost]', 'label' => 'Cost'])
-
-                               @endforeach
-
-                           </div>
-
-                       </div>
-                   </div>
-
-                    <hr><h2>Products</h2></hr>
-
-                    <div style="width:100%;height:20px;"></div>
-
-                    <div class="row">
-                        <div class="col-sm-12">
-
-                            <div class="form-horizontal ">
-
-                                @forelse($pitch->products()->get() as $product)
-
-                                    <p class="help-block">{{$product->name}}</p>
-
-                                    @include('admin.includes.form.text', ['name' => 'product['.$pitch->id.']['.$product->id.'][cost]', 'value' => $product->price, 'label' => 'Cost'])
-
-                                    @empty
-                                       <div class="text-center"> No Products</div>
-                                @endforelse
-
-                            </div>
-
+                        <div class="panel-options">
+                            <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+                            <a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
+                            <a href="#" data-rel="close"><i class="entypo-cancel"></i></a>
                         </div>
                     </div>
 
+                    <div class="panel-body">
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-horizontal">
+
+                                    @foreach($pitch->tents()->get() as $tent)
+
+                                        <p class="help-block">{{$tent->name}}</p>
+
+                                        @include('admin.includes.form.number', ['name' => 'pitch['.$pitch->id.']['.$tent->id.'][qty]', 'label' => 'Qty'])
+                                        @include('admin.includes.form.text', ['name' => 'pitch['.$pitch->id.']['.$tent->id.'][cost]', 'label' => 'Cost'])
+
+                                    @endforeach
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <hr>
+                        <h2>Products</h2></hr>
+
+                        <div style="width:100%;height:20px;"></div>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+
+                                <div class="form-horizontal ">
+
+                                    @forelse($pitch->products()->get() as $product)
+
+                                        <p class="help-block">{{$product->name}}</p>
+
+                                        {!! Form::label('Cost', 'Cost', ['class' => 'col-sm-3 control-label']) !!}
+                                        <div class="col-sm-5">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                    {!! Form::checkbox('product['.$pitch->id.']['.$product->id.'][status]', 1, get_event_product_status($pitch->id, $product->id)) !!}
+                                                   </span>
+
+
+                                                {!! Form::text('product['.$pitch->id.']['.$product->id.'][cost]', isset($model) ? get_event_product_cost($pitch->id, $product->id, $product->price) : $product->price, ['class' => 'form-control'] ) !!}
+                                            </div>
+                                        </div>
+
+
+
+
+
+                                    @empty
+                                        <div class="text-center"> No Products</div>
+                                    @endforelse
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </div>
 
                 </div>
 
             </div>
-
         </div>
-    </div>
     @endforeach
 
 
-    <div class="row">  <div class="col-sm-12"> <div class="form-group">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
                 <div class="col-sm-offset-9 col-sm-3">
-                    {!! Form::submit('Create', ['class' => 'btn btn-default']) !!}
+                    {!! Form::submit(isset($model) ? 'Update' : 'Create', ['class' => 'btn btn-default']) !!}
                 </div>
-            </div></div> </div>
+            </div>
+        </div>
+    </div>
 
 
 

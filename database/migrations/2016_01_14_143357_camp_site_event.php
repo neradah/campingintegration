@@ -16,7 +16,10 @@ class CampSiteEvent extends Migration
         {
             $table->increments('id');
             $table->integer('camp_site_id');
-            $table->integer('event_id');
+
+
+            $table->integer('event_id')->unsigned();
+            $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
         });
     }
 

@@ -63,14 +63,9 @@
 
         </div>
 
-        <hr />
 
 
-        <ol class="breadcrumb bc-3" >
-            @foreach(Request::segments() as $segment)
-            <li><a href="{{url($segment)}}">{{$segment}}</a></li>
-                @endforeach
-        </ol>
+
 
 
 

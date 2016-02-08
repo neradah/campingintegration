@@ -12,6 +12,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('/home', function(){
         return view('admin.home');
     });
+
+
     Route::resource('event', 'EventController');
     Route::resource('product', 'ProductController');
     Route::resource('booking', 'BookingController');
@@ -32,5 +34,10 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 // Registration routes...
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
+
+
+Route::get('/contact', function(){
+    return view('contact');
+});
 
 Route::controller('/', 'HomeController');

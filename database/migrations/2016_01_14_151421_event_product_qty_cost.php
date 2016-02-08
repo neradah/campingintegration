@@ -16,9 +16,18 @@ class EventProductQtyCost extends Migration
         {
             $table->increments('id');
             $table->integer('pitch_id');
-            $table->integer('event_id');
-            $table->integer('product_id');
-            $table->integer('cost');
+
+
+            $table->integer('event_id')->unsigned();
+            $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
+
+            $table->integer('product_id')->unsigned();
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+
+
+            $table->boolean('active')->default(false);
+            $table->decimal('cost', 5, 2);
+
         });
     }
 

@@ -7,6 +7,8 @@
 
     @include('admin.includes.form.text', ['name' => 'name', 'label' => 'Name'])
 
+    @include('admin.includes.form.textarea', ['name' => 'description', 'label' => 'Description'])
+
     @include('admin.includes.footer_crud')
 
 @stop

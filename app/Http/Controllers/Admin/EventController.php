@@ -53,6 +53,8 @@ class EventController extends AdminController
      */
     public function store(Requests\CreateEventRequest $request, Event $event)
     {
+
+
         $banner = $this->upload($request->file('banner_upload'));
         $thumbnail = $this->upload($request->file('thumbnail_upload'));
 
@@ -81,7 +83,9 @@ class EventController extends AdminController
             //each tent under that pitch
             foreach($value as $productId => $product){
 
-                $productsInsertDB[] = ['pitch_id' => $pitchId, 'event_id' => $event->id, 'product_id' => $productId, 'cost' => $product['cost']];
+
+
+                $productsInsertDB[] = ['pitch_id' => $pitchId, 'event_id' => $event->id, 'product_id' => $productId, 'cost' => $product['cost'], 'active' => isset($product['status']) ? true : false ];
 
             }
 
@@ -131,9 +135,11 @@ class EventController extends AdminController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, Event $event)
     {
-        //
+        $event->find($id)->firstOrFail()->update($request->all());
+
+        return redirect()->route('admin.event.index');
     }
 
     /**

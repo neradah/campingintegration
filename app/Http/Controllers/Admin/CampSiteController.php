@@ -48,6 +48,10 @@ class CampSiteController extends AdminController
      */
     public function store(Requests\CreateCampsiteRequest $request, CampSite $campSite)
     {
+        $image = $this->upload($request->file('image_upload'));
+
+        $request->merge(compact('image'));
+
         $campSite->create($request->all())->zones()->sync($request->get('zones', []));
         return redirect()->route('admin.campsite.index');
     }
@@ -84,9 +88,14 @@ class CampSiteController extends AdminController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, CampSite $campSite)
     {
-        //
+        $campsite = $campSite->find($id)->firstOrFail();
+        $campsite->update($request->all());
+        $campsite->zones()->sync($request->get('zones', []));
+
+
+        return redirect()->route('admin.campsite.index');
     }
 
     /**
@@ -97,7 +106,7 @@ class CampSiteController extends AdminController
      */
     public function destroy($id, CampSite $campSite)
     {
-        $campSite->destroy($id);
+        $campSite->find($id)->delete();
         return back();
     }
 }

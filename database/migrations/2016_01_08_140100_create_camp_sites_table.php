@@ -18,6 +18,7 @@ class CreateCampSitesTable extends Migration
             $table->text('name');
             $table->text('address');
             $table->text('about');
+            $table->text('image');
             $table->text('arrival_info');
             $table->text('check_in_time');
             $table->text('check_out_time');

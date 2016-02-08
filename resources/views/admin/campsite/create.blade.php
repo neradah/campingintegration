@@ -35,6 +35,8 @@
                             </div>
                         </div>
 
+    @include('admin.includes.form.file', ['name' => 'image_upload', 'label' => 'Image Upload'])
+
     @foreach($zones as $zone)
 
         <div class="form-group">
