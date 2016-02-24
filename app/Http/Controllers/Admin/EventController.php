@@ -9,6 +9,7 @@ use App\PitchGroup;
 use App\Zone;
 use Illuminate\Http\Request;
 use DB;
+use Carbon\Carbon;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -17,7 +18,7 @@ class EventController extends AdminController
 {
     public function __construct()
     {
-        view()->share('fields', ['Status', 'Event', 'Location', 'Type', 'Date of Event']);
+        view()->share('fields', ['Slug', 'Name', 'Location', 'Date of Event']);
     }
     /**
      * Display a listing of the resource.
@@ -53,7 +54,6 @@ class EventController extends AdminController
      */
     public function store(Requests\CreateEventRequest $request, Event $event)
     {
-
 
         $banner = $this->upload($request->file('banner_upload'));
         $thumbnail = $this->upload($request->file('thumbnail_upload'));
@@ -91,6 +91,8 @@ class EventController extends AdminController
 
         }
 
+        DB::table('event_tent_qty_cost')->where('event_id', '=', $event->id)->delete();
+        DB::table('event_tent_qty_cost')->where('event_id', '=', $event->id)->delete();
 
         DB::table('event_tent_qty_cost')->insert($tentsInsertDB);
         DB::table('event_product_qty_cost')->insert($productsInsertDB);
@@ -137,7 +139,42 @@ class EventController extends AdminController
      */
     public function update(Request $request, $id, Event $event)
     {
-        $event->find($id)->firstOrFail()->update($request->all());
+        $event = $event->find($id)->firstOrFail();
+
+        $event->update($request->all());
+
+        $event->campsites()->sync($request->get('campsites', []));
+
+
+        foreach($request->get('pitch') as $pitchId => $value){
+
+            //each tent under that pitch
+            foreach($value as $tentId => $tent){
+
+                $tentsInsertDB[] = ['pitch_id' => $pitchId, 'event_id' => $event->id, 'tent_id' => $tentId, 'qty' => $tent['qty'], 'cost' => $tent['cost']];
+
+            }
+
+        }
+
+        foreach($request->get('product') as $pitchId => $value){
+
+            //each tent under that pitch
+            foreach($value as $productId => $product){
+
+                $productsInsertDB[] = ['pitch_id' => $pitchId, 'event_id' => $event->id, 'product_id' => $productId, 'cost' => $product['cost'], 'active' => isset($product['status']) ? true : false ];
+
+            }
+
+        }
+
+
+        DB::table('event_tent_qty_cost')->where('event_id', '=', $event->id)->delete();
+        DB::table('event_product_qty_cost')->where('event_id', '=', $event->id)->delete();
+
+        DB::table('event_tent_qty_cost')->insert($tentsInsertDB);
+        DB::table('event_product_qty_cost')->insert($productsInsertDB);
+
 
         return redirect()->route('admin.event.index');
     }

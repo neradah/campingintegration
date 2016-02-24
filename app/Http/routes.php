@@ -1,8 +1,8 @@
 <?php
 
-
-
-
+Route::get('/test', function(){
+   return get_event_product_status($pitch->id, $product->id);
+});
 
 Route::get('event/{slug}', 'EventController@getShow');
 
@@ -37,7 +37,20 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 
 Route::get('/contact', function(){
-    return view('contact');
+    return view('pages.contact');
 });
+
+Route::get('/about', function(){
+    return view('pages.about');
+});
+
+Route::get('/faqs', function(){
+    return view('pages.faqs');
+});
+
+Route::get('/how-to', function(){
+    return view('pages.how-to');
+});
+
 
 Route::controller('/', 'HomeController');

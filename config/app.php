@@ -196,7 +196,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
 
-        'HTML'      => Illuminate\Html\HtmlFacade::class,
+        'Html'      => Illuminate\Html\HtmlFacade::class,
         'Form'      => Illuminate\Html\FormFacade::class,
         'Cart'      => Gloudemans\Shoppingcart\Facades\Cart::class,
 

@@ -77,9 +77,10 @@ class CategoryController extends AdminController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, Category $category)
     {
-        //
+        $category->find($id)->update($request->all());
+        return back();
     }
 
     /**

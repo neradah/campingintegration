@@ -6,7 +6,7 @@
                 <p class="mainfooter_subtitle type-sans">For all enquiries you can contact us here.</p>
                 <ul class="mainfooter_contactlist type-sans">
                     <li class="mainfooter_contactitem tel"><a href="tel:01234567890">T: 01234 567 890</a></li>
-                    <li class="mainfooter_contactitem email"><a href="mailto:enquiries@eventglamping.co.uk">E: enquiries@eventglamping.co.uk</a></li>
+                    <li class="mainfooter_contactitem email"><a href="mailto:enquirieseventglamping.co.uk">E: enquirieseventglamping.co.uk</a></li>
                     <li class="mainfooter_contactitem address">Event Glamping, 11 Address Street<br/>Address County, AB1 2CD</li>
                 </ul>
             </div>
@@ -18,7 +18,7 @@
                         <a href="https://twitter.com/eventcampsites" target="_blank" class="mainfooter_sociallink"><span>Twitter</span></a>
                     </li>
                     <li class="mainfooter_socialitem facebook">
-                        <a href="https://www.facebook.com/eventcampsites" class="mainfooter_sociallink"><span>Facebook</span></a>
+                        <a href="" class="mainfooter_sociallink"><span>Facebook</span></a>
                     </li>
                     <li class="mainfooter_socialitem instagram">
                         <a href="https://instagram.com/eventcampsites" target="_blank" class="mainfooter_sociallink"><span>Instagram</span></a>
@@ -45,7 +45,9 @@
 </footer>
 
 <script>
-    BASE_PATH = "{{ URL::to('/') }}";
+    BASE_PATH = "{{ url('/') }}";
 </script>
 
 <script src="{{ asset('assets/scripts/script.js') }}"></script>
+<script src="{{ asset('assets/scripts/jquery.mixitup.min.js') }}"></script>
+

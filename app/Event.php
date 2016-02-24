@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Carbon\Carbon;
 class Event extends Model
 {
     /**
@@ -20,8 +20,22 @@ class Event extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'slug', 'type', 'location', 'start', 'end', 'thumbnail', 'banner', 'discount', 'show_homepage', 'about_info', 'parking_info', 'arrival_info', 'map'];
-
+    protected $fillable = [
+        'name',
+        'slug',
+        'type',
+        'location',
+        'start',
+        'end',
+        'thumbnail',
+        'banner',
+        'discount',
+        'show_homepage',
+        'about_info',
+        'parking_info',
+        'arrival_info',
+        'map'
+    ];
 
 
     public function campsites()
@@ -37,7 +51,6 @@ class Event extends Model
             ->join('event_product_qty_cost', function ($join) {
                 $join->where('event_product_qty_cost.event_id', '=', $this->id);
             })
-
             ->join('products', 'event_product_qty_cost.product_id', '=', 'products.id')
             ->select('event_product_qty_cost.cost', 'products.name', 'products.id', 'event_product_qty_cost.pitch_id')
             ->groupBy('event_product_qty_cost.id');
@@ -50,14 +63,36 @@ class Event extends Model
 
             ->join('event_tent_qty_cost', function ($join) {
                 $join->where('event_tent_qty_cost.event_id', '=', $this->id);
-                    })
-
+            })
             ->join('pitches', 'event_tent_qty_cost.pitch_id', '=', 'pitches.id')
             ->join('tents', 'event_tent_qty_cost.tent_id', '=', 'tents.id')
             ->where('event_tent_qty_cost.qty', '>', 0)
             ->groupBy('event_tent_qty_cost.id')
-            ->select('event_tent_qty_cost.cost', 'tents.name', 'tents.id', 'event_tent_qty_cost.qty', 'pitches.id as pitch_id');
+            ->select('event_tent_qty_cost.cost', 'tents.name', 'tents.id', 'event_tent_qty_cost.qty',
+                'pitches.id as pitch_id');
     }
+
+
+    function setStartAttribute($value)
+    {
+        $this->attributes['start'] = Carbon::createFromTimeStamp(strtotime($value));
+    }
+
+    function setEndAttribute($value)
+    {
+        $this->attributes['end'] = Carbon::createFromTimeStamp(strtotime($value));
+    }
+
+    function setEarlyBirdStartAttribute($value)
+    {
+        $this->attributes['early_bird_start'] = Carbon::createFromTimeStamp(strtotime($value));
+    }
+
+    function setEarlyBirdEndAttribute($value)
+    {
+        $this->attributes['early_bird_end'] = Carbon::createFromTimeStamp(strtotime($value));
+    }
+
 
 
 

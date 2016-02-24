@@ -11205,7 +11205,7 @@ html, body {
   display: none; }
 
 .image-container {
-  width: 220px;
+  width: 186px;
   float: right; }
   .image-container img {
     width: 100%; }
@@ -11269,16 +11269,28 @@ ul.file-list li.working span {
 ul.file-list li.error p {
   color: red; }
 
-body, #wrap {
-  min-width: 1000px; }
+h3 {
+  margin: 40px 0; }
 
-.navbar .container-fluid {
-  max-width: 1174px; }
+body, #wrap {
+  min-width: 1000px;
+  padding: 54px 0 60px; }
+
+.main-container {
+  padding: 0 8px 0 0; }
+
+.navbar-brand {
+  height: auto; }
+
+.navbar-default {
+  border: 0;
+  background: white;
+  box-shadow: none; }
 
 .side-panel {
-  width: 25%;
-  margin-top: 40px;
-  padding-right: 30px; }
+  width: 22%;
+  padding-right: 8px;
+  position: fixed; }
   .side-panel .navbar {
     border-radius: 0;
     border: 0;
@@ -11301,16 +11313,57 @@ body, #wrap {
           color: #eeeeee; }
 
 .cms-content {
-  width: 75%; }
+  width: 78%; }
   .cms-content .list-row {
     width: 100%;
     padding: 10px; }
     .cms-content .list-row h2, .cms-content .list-row p {
       margin: 0; }
-    .cms-content .list-row.odd {
-      background: #F5F5F5; }
 
 .form-group.has-error {
   color: #A94442; }
 .form-group .md-editor .md-preview, .form-group .md-editor textarea {
   padding: 12px; }
+
+table {
+  width: 100%; }
+  table th {
+    background: #85C0E3;
+    color: white; }
+    table th.th_date {
+      width: 132px; }
+    table th.th_box {
+      width: 30px; }
+    table th.th_cost {
+      width: 118px; }
+    table th.th_ref {
+      width: 130px; }
+  table th, table td {
+    padding: 10px; }
+  table tr.odd {
+    background: #F5F5F5; }
+
+.options-bar {
+  background: #392C39;
+  margin-bottom: 16px;
+  color: white;
+  padding: 4px 18px; }
+  .options-bar h4 {
+    float: left; }
+  .options-bar:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .options-bar .buttons {
+    float: right; }
+  .options-bar a, .options-bar button {
+    float: left;
+    background: white;
+    color: #392C39;
+    border-radius: 4px;
+    padding: 8px;
+    margin-left: 10px; }
+    .options-bar a:hover, .options-bar button:hover {
+      text-decoration: none; }
+    .options-bar a.sent, .options-bar button.sent {
+      color: green; }

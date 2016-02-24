@@ -89,7 +89,7 @@
                         @include('admin.includes.form.text', ['name' => 'name', 'label' => 'Event Name'])
 
 
-                        @include('admin.includes.form.text', ['name' => 'city'])
+                        @include('admin.includes.form.text', ['name' => 'location'])
 
                         <div class="form-group">
                             {!! Form::label('category', null, ['class' => 'col-sm-3 control-label']) !!}
@@ -137,7 +137,7 @@
 
 
 
-                        @include('admin.includes.form.text', ['name' => 'discount', 'label' => 'early bird discount'])
+                        @include('admin.includes.form.text', ['name' => 'discount', 'label' => 'early bird discount %'])
 
                         @include('admin.includes.form.date', ['name' => 'early_bird_start', 'label' => 'Early Bird Start'])
 
@@ -196,8 +196,8 @@
 
                                         <p class="help-block">{{$tent->name}}</p>
 
-                                        @include('admin.includes.form.number', ['name' => 'pitch['.$pitch->id.']['.$tent->id.'][qty]', 'label' => 'Qty'])
-                                        @include('admin.includes.form.text', ['name' => 'pitch['.$pitch->id.']['.$tent->id.'][cost]', 'label' => 'Cost'])
+                                        @include('admin.includes.form.number', ['name' => 'pitch['.$pitch->id.']['.$tent->id.'][qty]', 'label' => 'Qty', 'value' => get_tent_qty($pitch->id,$tent->id )])
+                                        @include('admin.includes.form.text', ['name' => 'pitch['.$pitch->id.']['.$tent->id.'][cost]', 'label' => 'Cost', 'value' => get_tent_cost($pitch->id,$tent->id)])
 
                                     @endforeach
 

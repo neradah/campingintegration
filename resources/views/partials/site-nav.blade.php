@@ -3,7 +3,7 @@
     <div class="mainheader_section mainheader_section-main">
         <div class="mainheader_inner">
             <a class="mainheader_logo" href="/">
-                <img src="http://placehold.it/270x110" alt="{{ Config::get('core.name') }}" />
+                <img src="http://placehold.it/270x110"  />
             </a>
             <nav class="mainheader_mainnav">
                 <ul class="mainheader_mainnav-list">

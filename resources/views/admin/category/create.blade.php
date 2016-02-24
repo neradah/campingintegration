@@ -6,6 +6,8 @@
 
  @include('admin.includes.form.text', ['name' => 'name', 'label' => 'Category Name'])
 
+ @include('admin.includes.form.file', ['name' => 'image_upload', 'label' => 'Image'])
+
  @include('admin.includes.footer_crud')
 
 @stop

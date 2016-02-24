@@ -26,8 +26,7 @@
                         <td><a href="{{route('admin.event.edit', [$item->id])}}">{{$item->slug}}</a></td>
                         <td>{{$item->name}}</td>
                         <td>{{$item->location}}</td>
-                        <td>{{$item->type}}</td>
-                        <td>{{$item->start}}</td>
+                        <td>{{$item->start->toFormattedDateString()  }}</td>
                     </tr>
 
                 @endforeach

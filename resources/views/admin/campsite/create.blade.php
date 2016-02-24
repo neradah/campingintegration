@@ -9,31 +9,32 @@
 
     @include('admin.includes.form.text', ['name' => 'name'])
     @include('admin.includes.form.text', ['name' => 'address'])
+    @include('admin.includes.form.text', ['name' => 'postcode'])
 
-                        <div class="form-group">
-                            {!! Form::label('about', null, ['class' => 'col-sm-3 control-label']) !!}
-                            <div class="col-sm-5">
-                                {!! Form::textarea('about', null, ['class' => 'form-control', 'id' => 'about']) !!}
-                            </div>
-                        </div>
+    <div class="form-group">
+        {!! Form::label('about', null, ['class' => 'col-sm-3 control-label']) !!}
+        <div class="col-sm-5">
+            {!! Form::textarea('about', null, ['class' => 'form-control', 'id' => 'about']) !!}
+        </div>
+    </div>
 
-                        <div class="form-group">
-                            {!! Form::label('arrival_info', null, ['class' => 'col-sm-3 control-label']) !!}
-                            <div class="col-sm-5">
-                                {!! Form::textarea('arrival_info', null, ['class' => 'form-control', 'id' => 'arrival_info']) !!}
-                            </div>
-                        </div>
+    <div class="form-group">
+        {!! Form::label('arrival_info', null, ['class' => 'col-sm-3 control-label']) !!}
+        <div class="col-sm-5">
+            {!! Form::textarea('arrival_info', null, ['class' => 'form-control', 'id' => 'arrival_info']) !!}
+        </div>
+    </div>
     @include('admin.includes.form.text', ['name' => 'check_in_time', 'label' => 'Check in time'])
     @include('admin.includes.form.text', ['name' => 'check_out_time', 'label' => 'Check out time'])
 
 
 
-                        <div class="form-group">
-                            {!! Form::label('parking_info', null, ['class' => 'col-sm-3 control-label']) !!}
-                            <div class="col-sm-5">
-                                {!! Form::textarea('parking_info', null, ['class' => 'form-control', 'id' => 'parking_info']) !!}
-                            </div>
-                        </div>
+    <div class="form-group">
+        {!! Form::label('parking_info', null, ['class' => 'col-sm-3 control-label']) !!}
+        <div class="col-sm-5">
+            {!! Form::textarea('parking_info', null, ['class' => 'form-control', 'id' => 'parking_info']) !!}
+        </div>
+    </div>
 
     @include('admin.includes.form.file', ['name' => 'image_upload', 'label' => 'Image Upload'])
 

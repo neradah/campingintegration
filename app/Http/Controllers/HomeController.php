@@ -21,16 +21,19 @@ class HomeController extends Controller
     {
         $carousel = $event->where('show_carousel', true)->get();
         $categories = $category->lists('name', 'id');
-        $earlyBird = $event
+        $earlyBirdFeature = $event
             ->where('early_bird_start', '<',  Carbon::now()) //its started
             ->where('early_bird_end', '>', Carbon::now()) //not finised
             ->first();
 
-        $mostRecent = $event->orderBy('created_at', 'DESC')->first();
+        $recentlyAdded = $event->orderBy('created_at', 'DESC')->first();
+
+        $highlightsList = [];
+
+        dd($earlyBirdFeature);
 
 
-
-        return view('demo_home', compact('categories', 'carousel', 'earlyBird', 'mostRecent'));
+        return view('pages.home', compact('categories', 'carousel', 'earlyBirdFeature', 'recentlyAdded', 'highlightsList'));
     }
 
     /**
@@ -42,6 +45,6 @@ class HomeController extends Controller
     {
         $results = $category->findOrFail($request->get('id'))->events()->get();
 
-        return view('demo_results', compact('results'));
+        return view('pages.home', compact('results'));
     }
 }

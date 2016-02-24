@@ -14,7 +14,7 @@ class CampSite extends Model
      */
     protected $table = 'camp_sites';
 
-    protected $fillable = ['name', 'address', 'about', 'arrival_info', 'check_in_time', 'check_out_time', 'parking_info', 'image'];
+    protected $fillable = ['name', 'address', 'about', 'arrival_info', 'check_in_time', 'check_out_time', 'parking_info', 'image', 'postcode'];
 
 
     public function zones()
