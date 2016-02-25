@@ -6,6 +6,7 @@
         <div class="pageheader_purple">
             <div class="container">
                 <h1 class="shoppingheader_title type-sans2-l">Let Us Help To Answer Your<br/><span class="type-sans2-b">Frequently Asked Questions</span></h1>
+                <img src="/assets/images/home_lower_faq.png" alt="Tent Icon" class="faq_tent">
             </div>
         </div>
     </header>
@@ -120,7 +121,6 @@
             </div>
     </div>
 </div>
-<script src="{{ asset('assets/scripts/libs/jquery-1.12.1.min.js') }}"></script>
 <script>
      // Dropdown for FAQ page
         $(document).ready(function() {

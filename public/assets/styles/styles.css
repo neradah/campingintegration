@@ -10,7 +10,17 @@
   src: url('../fonts/fontawesome-webfont.eot?#iefix&v=4.3.0') format('embedded-opentype'), url('../fonts/fontawesome-webfont.woff2?v=4.3.0') format('woff2'), url('../fonts/fontawesome-webfont.woff?v=4.3.0') format('woff'), url('../fonts/fontawesome-webfont.ttf?v=4.3.0') format('truetype'), url('../fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular') format('svg');
   font-weight: normal;
   font-style: normal; }
-
+  
+  @font-face {
+      font-family: 'bello-pro';
+      src: url('../fonts/Bello-Pro.ttf') format('truetype');
+      font-weight:normal;
+      font-style:normal;
+  }
+  
+.type-script {
+    font-family:'bello-pro', sans-serif;
+}
 body.no-fa .fa {
   display: none; }
 
@@ -12552,7 +12562,7 @@ body {
   padding: 20px 20px 0; }
 
 .faq_item {
-  padding: 0 0 20px; }
+  padding: 0 0 10px; }
 
 .faq_q {
   color: #574d65;
@@ -12710,6 +12720,8 @@ body {
 
 .pageheader_darkpurple img,.pageheader_purple img {
     float:right;
+    height:140px;
+    max-width:100%;
 }
 
 .pageheader .pageheader_purple .shoppingheader_title {

@@ -35,12 +35,24 @@
 	                    <option>Denmark</option>
 	                </select>-->
                     <div class="row">
+                        <!--<div class="col-xs-5">
+                            {!! Form::select(null, $categories, null, ['title' => 'Select Event Category', 'class' => 'eventsearch_select selectpicker', 'data-search-type' => 'category']) !!}
+
+                        </div>-->
                         <div class="col-xs-5">
-
-							{!! Form::select(null, $categories, null, ['title' => 'Select Event Category', 'class' => 'eventsearch_select selectpicker', 'data-search-type' => 'category']) !!}
-
+                            <select class="eventsearch_select selectpicker bs-select-hidden" data-search-type="category" title="Select Event Category"><option class="bs-title-option" value="">Select Event Category</option>
+                                <option>Music</option>
+                                <option>Sport</option>
+                                <option>Other</option>
+                            </select><div class="btn-group bootstrap-select eventsearch_select"><button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" title="Select Event Category"><span class="filter-option pull-left">Select Event Category</span>&nbsp;<span class="bs-caret"><span class="caret"></span></span></button><div class="dropdown-menu open"><ul class="dropdown-menu inner" role="menu"><li data-original-index="1"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Music</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Sport</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="3"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Other</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div></div>
                         </div>
-
+                        <div class="col-xs-5">
+                            <select class="eventsearch_select selectpicker bs-select-hidden" data-search-type="event" title="Select Event"><option class="bs-title-option" value="">Select Event</option>
+                                <option>A Festival</option>
+                                <option>Concert</option>
+                                <option>Grand Prix</option>
+                            </select><div class="btn-group bootstrap-select eventsearch_select"><button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" title="Select Event"><span class="filter-option pull-left">Select Event</span>&nbsp;<span class="bs-caret"><span class="caret"></span></span></button><div class="dropdown-menu open"><ul class="dropdown-menu inner" role="menu"><li data-original-index="1"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">A Festival</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Concert</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="3"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Grand Prix</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div></div>
+                        </div>
                         <div class="col-xs-2">
                             <button type="submit" for="eventsearch_form" class="eventsearch_submit">Search all events</button>
                         </div>
@@ -69,7 +81,6 @@
 				</div>
 			</a>
 		</div>
-
 		<!-- Selected earlybird deal -->
 		<div class="homegrid_item homegrid_item--short homegrid_item--early">
 			<a href="#" class="homegrid_earlydeals type-sans">View all Early Bird Deals</a>
