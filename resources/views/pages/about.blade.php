@@ -1,5 +1,6 @@
 @extends('layout')
 @section('content')
+@include('partials.site-nav')
 <header class="pageheader">
     <div class="pageheader_purple">
         <div class="container">
@@ -9,7 +10,7 @@
 </header>
 <div class="about container">
         <div class="about_banner">
-            <img src="/assets/images/contact-bg.jpg" />
+            <img src="/assets/images/contact-header.jpg"
         </div>
         <div class="about_content">
             <h1 class="type-sans2">WELCOME TO EVENT CAMPSITES</h1>

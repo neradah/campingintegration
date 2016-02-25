@@ -44,10 +44,10 @@
     </div>
 </footer>
 
+<script src="{{ asset('assets/scripts/libs/jquery.mixitup.js') }}"></script>
 <script>
     BASE_PATH = "{{ url('/') }}";
 </script>
 
-<script src="{{ asset('assets/scripts/script.js') }}"></script>
-<script src="{{ asset('assets/scripts/jquery.mixitup.min.js') }}"></script>
+
 

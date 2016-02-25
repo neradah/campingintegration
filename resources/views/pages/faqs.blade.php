@@ -2,15 +2,20 @@
 @section('content')
         <!-- HOMEPAGE-SPECIFIC HEADER -->
 @include('partials.site-nav')
+<header class="pageheader">
+        <div class="pageheader_purple">
+            <div class="container">
+                <h1 class="shoppingheader_title type-sans2-l">Let Us Help To Answer Your<br/><span class="type-sans2-b">Frequently Asked Questions</span></h1>
+            </div>
+        </div>
+    </header>
     <div class="faq container">
         <div class="row">
             <div class="col-xs-12">
                 <div class="faq_banner">
-                    <img src="/assets/images/contact-bg.jpg" />
+                    <img src="/assets/images/contact-header.jpg" />
                 </div>
             </div>
-        </div>
-        <div class="row">
             <div class="col-xs-12">
                 <div class="faq_content">
                     <ul>
@@ -110,18 +115,22 @@
                 </div>
             </div>
         </div>
+            <div class="faq_disclaimer">
+                <p>If your question has still been unanswered, for all other enquiries please contact us at : <a href="mailto:enquiries@eventcampsites.co.uk">enquiries@eventcampsites.co.uk</p>
+            </div>
     </div>
 </div>
+<script src="{{ asset('assets/scripts/libs/jquery-1.12.1.min.js') }}"></script>
 <script>
      // Dropdown for FAQ page
-$(document).ready(function() {
-    $('.faq_q').on('click', function() {
-        $(this).next().slideToggle(250);
-        $(this).find('.chevron::before').animate({
-            transform: 'rotate(-45deg)'
+        $(document).ready(function() {
+            $('.faq_q').on('click', function() {
+                $(this).next().slideToggle(250);
+                $(this).find('.chevron').animate({
+                    transform: 'rotate(-45deg)'
+                });
+            });
         });
-    });
-});
 
 </script>
 @stop

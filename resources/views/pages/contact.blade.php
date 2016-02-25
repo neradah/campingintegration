@@ -1,5 +1,7 @@
 @extends('layout')
 @section('content')
+
+@include('partials.site-nav')
 <header class="pageheader">
         <div class="pageheader_purple">
             <div class="container">

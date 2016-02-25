@@ -1,6 +1,7 @@
 @extends('layout')
 
 @section('content')
+@include('partials.site-nav')
    <header class="pageheader">
         <div class="pageheader_purple">
             <div class="container">
@@ -22,14 +23,14 @@
             </div>
         </div>
         <div class="how-banner-footer">
-            <div class="third-column type-sans2">
-                <h2>Pre-pitched Tents</h2>
+            <div class="third-column">
+                <h2 class="type-sans2-b">Pre-pitched Tents</h2>
+            </div>
+            <div class="third-column">
+                <h2 class="type-sans2-b">All luxury Amenities You Need</h2>
             </div>
             <div class="third-column type-sans2">
-                <h2>All luxury Amenities You Need</h2>
-            </div>
-            <div class="third-column type-sans2">
-                <h2>On-Site Security</h2>
+                <h2 class="type-sans2-b">On-Site Security</h2>
             </div>
             <div style="clear:both;"></div>
         </div>
@@ -44,7 +45,7 @@
                     <h1>What’s included in the packages?</h1>
                     <div class="row">
                         <div class="col-xs-12 col-md-4 orange-column">
-                            <h1>Pitch Only:</h1>
+                            <h1 class="type-sans2-b">Pitch Only:</h1>
                             <ul>
                                 <li class="orange-item">Pitch spaces for 2, 4, 6 and 8 man tents or caravanas</li>
                                 <li class="orange-item">toilets</li>
@@ -61,7 +62,7 @@
                             </ul>
                         </div>
                         <div class="col-xs-12 col-md-4 green-column">
-                            <h1>Pre-pitched tent:</h1>
+                            <h1 class="type-sans2-b">Pre-pitched tent:</h1>
                             <ul>
                                 <li class="green-item">Choice of 2, 4, 6 and 8 man tents</li>
                                 <li class="green-item">single and double airbeds included</li>
@@ -80,7 +81,7 @@
                             </ul>
                         </div>
                         <div class="col-xs-12 col-md-4 purple-column">
-                            <h1>Glamping:</h1>
+                            <h1 class="type-sans2-b">Glamping:</h1>
                             <ul>
                                 <li class="purple-item">2, 4, 6 and 8 man luxury tents with single and/or double beds</li>
                                 <li class="purple-item">bed linen</li>
