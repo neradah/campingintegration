@@ -85,9 +85,9 @@
 		<div class="homegrid_item homegrid_item--short homegrid_item--early">
 			<a href="#" class="homegrid_earlydeals type-sans">View all Early Bird Deals</a>
             <div class="rounded"><span>£</span><br><p class="type-sans2">Earlybird Discount</p></div>
-			<p class="small-rounded"> Save Up To <span> {{$earlyBirdFeature['discount']}} %</span></p>
+			<p class="small-rounded"> Save Up To <span>{{$earlyBirdFeature['discount']}}%</span></p>
 			<a href="#" class="homegrid_short-link">
-				<img src="{{  asset($earlyBirdFeature['thumbnail']) }}" alt="{{$earlyBirdFeature['name']}}  header image" style="width: 100%;" class="homegrid_recent-img" />
+				<img src="/uploads/{{  $earlyBirdFeature['thumbnail'] }}" alt="{{$earlyBirdFeature['name']}}  header image" style="width: 100%;" class="homegrid_recent-img" />
 				<div class="homegrid_short-footer">
 					<div class="homegrid_short-whatwhen type-sans">
 						<h2 class="homegrid_short-what"> {{$earlyBirdFeature['name']}}</h2>
@@ -97,7 +97,8 @@
 							{{$earlyBirdFeature['end']}} </p>
 					</div>
 					<div class="homegrid_short-howmuch">
-						<p class="homegrid_short-cost type-script">&pound;{{$earlyBirdFeature['saving']}} </p>
+                        <p class="how-much-text type-sans">SAVE</p>
+						<p class="homegrid_short-cost type-script">&pound;{{$earlyBirdFeature['saving']}}</p>
 					</div>
 				</div>
 			</a>
@@ -122,7 +123,7 @@
                 <img src="/assets/images/recent-star.svg" alt="Recent Star" />
                 <p class="type-sans2">Recently Added</p></div>
 			<a href="#" class="homegrid_short-link">
-				<img src="{{asset($recentlyAdded['thumbnail'])}} " alt="{{$recentlyAdded['name']}}" style ="width: 100%;" class="homegrid_recent-img" />
+				<img src="/uploads/{{$recentlyAdded['thumbnail']}} " alt="{{$recentlyAdded['name']}}" style ="width: 100%;" class="homegrid_recent-img" />
 				<div class="homegrid_short-footer">
 					<div class="homegrid_short-whatwhen type-sans">
 						<h2 class="homegrid_short-what">{{$recentlyAdded['name']}}</h2>
@@ -159,8 +160,8 @@
 
 						<li class="eventcard {!! $event['discount'] ? 'earlybird' : '' !!}">
 							<div class="eventcard_overview">
-								<a href="" class="eventcard_link">
-									<img src="{{asset($event['thumbnail'])}}" alt="alt text" class="eventcard_img" />
+								<a href="/events{!! $event['slug'] !!}" class="eventcard_link">
+									<img src="/uploads/{{$event['thumbnail']}}" alt="alt text" class="eventcard_img" />
 									<h3 class="eventcard_name type-sans-b">{!! $event['name'] !!}</h3>
 									<p class="eventcard_location type-sans">{!! $event['location'] !!}</p>
 									<p class="eventcard_cost type-sans-b">1 nights from <span class="eventcard_price type-sans-b">&pound;{!!$event['cheapest']!!}</span></p>
