@@ -1,8 +1,3 @@
-@extends(Config::get('core.cms'))
-
-@section('title')
-Events
-@stop
 
 @section('top')
 <div class="page-header">

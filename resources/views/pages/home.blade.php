@@ -85,19 +85,19 @@
 		<div class="homegrid_item homegrid_item--short homegrid_item--early">
 			<a href="#" class="homegrid_earlydeals type-sans">View all Early Bird Deals</a>
             <div class="rounded"><span>£</span><br><p class="type-sans2">Earlybird Discount</p></div>
-			<p class="small-rounded"> Save Up To <span> $ebDiscountInPercentage %</span></p>
+			<p class="small-rounded"> Save Up To <span> {{$earlyBirdFeature['discount']}} %</span></p>
 			<a href="#" class="homegrid_short-link">
-				<img src="/assets/uploads/$earlyBirdFeature->thumbnail_image " alt="$earlyBirdFeature->title  header image" style="width: 100%;" class="homegrid_recent-img" />
+				<img src="{{  asset($earlyBirdFeature['thumbnail']) }}" alt="{{$earlyBirdFeature['name']}}  header image" style="width: 100%;" class="homegrid_recent-img" />
 				<div class="homegrid_short-footer">
 					<div class="homegrid_short-whatwhen type-sans">
-						<h2 class="homegrid_short-what"> $earlyBirdFeature->title </h2>
+						<h2 class="homegrid_short-what"> {{$earlyBirdFeature['name']}}</h2>
 						<p class="homegrid_short-when">
-							date('D d', strtotime($earlyBirdFeature->start_date))
+							{{$earlyBirdFeature['start']}}
                             &ndash;
-                             date('D d M Y', strtotime($earlyBirdFeature->end_date)) </p>
+							{{$earlyBirdFeature['end']}} </p>
 					</div>
 					<div class="homegrid_short-howmuch">
-						<p class="homegrid_short-cost type-script">&pound;$ebSaving </p>
+						<p class="homegrid_short-cost type-script">&pound;{{$earlyBirdFeature['saving']}} </p>
 					</div>
 				</div>
 			</a>
@@ -122,17 +122,17 @@
                 <img src="/assets/images/recent-star.svg" alt="Recent Star" />
                 <p class="type-sans2">Recently Added</p></div>
 			<a href="#" class="homegrid_short-link">
-				<img src="/assets/uploads/$recentlyAdded->thumbnail_image " alt="$recentlyAdded->title header image" style ="width: 100%;" class="homegrid_recent-img" />
+				<img src="{{asset($recentlyAdded['thumbnail'])}} " alt="{{$recentlyAdded['name']}}" style ="width: 100%;" class="homegrid_recent-img" />
 				<div class="homegrid_short-footer">
 					<div class="homegrid_short-whatwhen type-sans">
-						<h2 class="homegrid_short-what">$recentlyAdded->title</h2>
+						<h2 class="homegrid_short-what">{{$recentlyAdded['name']}}</h2>
 						<p class="homegrid_short-when">
-							date('D d', strtotime($recentlyAdded->start_date))
+							{{$recentlyAdded['start']}}
                             &ndash;
-                             date('D d M Y', strtotime($recentlyAdded->end_date))</p>
+							{{$recentlyAdded['end']}}</p>
 					</div>
 					<div class="homegrid_short-howmuch">
-						<p class="homegrid_short-cost type-script">&pound;<span style="font-weight:700">$recentlyAdded->two_man_price </span></p>
+						<p class="homegrid_short-cost type-script">&pound;<span style="font-weight:700">{{$recentlyAdded['cheapest']}}</span></p>
 					</div>
 				</div>
 			</a>
@@ -155,21 +155,20 @@
 			</div>
 			<div class="homehl_wrapper">
 				<ul class="homehl_list">
-					@forelse($highlightsList as $event)
+					@forelse($carousel as $event)
 
-						<li class="eventcard {!! $event->has_early_bird ? 'earlybird' : '' !!}">
+						<li class="eventcard {!! $event['discount'] ? 'earlybird' : '' !!}">
 							<div class="eventcard_overview">
-								<a href="{!! URL::route('events.show', array('events' => $event->slug)) !!}" class="eventcard_link">
-									<img src="/assets/uploads/{!! $event->thumbnail_image !!}" alt="alt text" class="eventcard_img" />
-									<h3 class="eventcard_name type-sans-b">{!! $event->title !!}</h3>
-									<p class="eventcard_location type-sans">{!! $event->city !!} | {!! $event->country !!}</p>
-									<p class="eventcard_cost type-sans-b">{!! $event->nights !!} nights from <span class="eventcard_price type-sans-b">&pound;{!!$event->two_man_price!!}</span></p>
-									<p class="eventcard_dates type-sans">{!!date('d M', strtotime($event->start_date)) !!}  &ndash; {!!date('d M Y', strtotime($event->end_date)) !!}</p>
-									<span class="eventcard_tentsleft type-sans">{!! $event->tentsLeft !!} tents left</span>
-									@if($event->has_early_bird)
-										<p class="eventcard_discount type-sans-b">{!! $event->percentDiscount !!}% Early Bird Discount</p>
+								<a href="" class="eventcard_link">
+									<img src="{{asset($event['thumbnail'])}}" alt="alt text" class="eventcard_img" />
+									<h3 class="eventcard_name type-sans-b">{!! $event['name'] !!}</h3>
+									<p class="eventcard_location type-sans">{!! $event['location'] !!}</p>
+									<p class="eventcard_cost type-sans-b">1 nights from <span class="eventcard_price type-sans-b">&pound;{!!$event['cheapest']!!}</span></p>
+									<p class="eventcard_dates type-sans">{{  $event['start'] }}  &ndash; {{  $event['end'] }}</p>
+									<span class="eventcard_tentsleft type-sans">{!! $event['tentsLeft'] !!} tents left</span>
+									@if($event['discount'])
+										<p class="eventcard_discount type-sans-b">{{  $event['discount'] }} % Early Bird Discount</p>
 									@endif
-									<span class="eventcard_pitchesleft type-sans">{!! $event->pitchesLeft!!} pitches left</span>
                                     <!-- Show the Hurry Up card -->
                                     <p class="eventcard_hurry type-sans-b">Hurry Selling Fast</p>
 								</a>

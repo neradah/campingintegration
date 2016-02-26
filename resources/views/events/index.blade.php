@@ -1,11 +1,3 @@
-@extends(Config::get('core.default'))
-
-
-@section('title')
-Events
-@stop
-
-
 @section('content')
 
     <!-- - - - - - - - - - -->
