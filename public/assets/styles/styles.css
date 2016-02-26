@@ -11279,7 +11279,7 @@ body {
 .eventcard {
   background: #b8af6c;
   border: 3px solid #b8af6c;
-  display: inline-block;
+  display: table-cell;
   position: relative;
   text-align: center;
   transition: background 150ms ease-in-out;
@@ -11379,16 +11379,17 @@ body {
   font-size: 11px;
   color:#636363;
   font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", sans-serif;
-  width:135px;
+  text-align:left;
+  width:150px;
   margin:0 auto; }
 .eventcard_dates:before {
     content:'';
     display:block;
     float:left;
+    margin-right:10px;
     margin-top:-3px;
-    margin-right:-10px;
-    width: 13px;
-    height:14px;
+    width: 12px;
+    height:13px;
     background-image:url('/assets/images/calendar-icon.svg');
 }
 .eventcard_tentsleft, .eventcard_pitchesleft {

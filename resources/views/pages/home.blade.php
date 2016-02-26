@@ -35,23 +35,12 @@
 	                    <option>Denmark</option>
 	                </select>-->
                     <div class="row">
-                        <!--<div class="col-xs-5">
+                        <div class="col-xs-5">
                             {!! Form::select(null, $categories, null, ['title' => 'Select Event Category', 'class' => 'eventsearch_select selectpicker', 'data-search-type' => 'category']) !!}
 
-                        </div>-->
-                        <div class="col-xs-5">
-                            <select class="eventsearch_select selectpicker bs-select-hidden" data-search-type="category" title="Select Event Category"><option class="bs-title-option" value="">Select Event Category</option>
-                                <option>Music</option>
-                                <option>Sport</option>
-                                <option>Other</option>
-                            </select><div class="btn-group bootstrap-select eventsearch_select"><button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" title="Select Event Category"><span class="filter-option pull-left">Select Event Category</span>&nbsp;<span class="bs-caret"><span class="caret"></span></span></button><div class="dropdown-menu open"><ul class="dropdown-menu inner" role="menu"><li data-original-index="1"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Music</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Sport</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="3"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Other</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div></div>
                         </div>
                         <div class="col-xs-5">
-                            <select class="eventsearch_select selectpicker bs-select-hidden" data-search-type="event" title="Select Event"><option class="bs-title-option" value="">Select Event</option>
-                                <option>A Festival</option>
-                                <option>Concert</option>
-                                <option>Grand Prix</option>
-                            </select><div class="btn-group bootstrap-select eventsearch_select"><button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" title="Select Event"><span class="filter-option pull-left">Select Event</span>&nbsp;<span class="bs-caret"><span class="caret"></span></span></button><div class="dropdown-menu open"><ul class="dropdown-menu inner" role="menu"><li data-original-index="1"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">A Festival</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Concert</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="3"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Grand Prix</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div></div>
+                            {!! Form::select(null, $categories, null, ['title' => 'Select Your Event', 'class' => 'eventsearch_select selectpicker', 'data-search-type' => 'category']) !!}
                         </div>
                         <div class="col-xs-2">
                             <button type="submit" for="eventsearch_form" class="eventsearch_submit">Search all events</button>
@@ -86,7 +75,7 @@
 			<a href="#" class="homegrid_earlydeals type-sans">View all Early Bird Deals</a>
             <div class="rounded"><span>£</span><br><p class="type-sans2">Earlybird Discount</p></div>
 			<p class="small-rounded"> Save Up To <span>{{$earlyBirdFeature['discount']}}%</span></p>
-			<a href="#" class="homegrid_short-link">
+			<a href="/events{{$earlyBirdFeature['slug']}}" class="homegrid_short-link">
 				<img src="/uploads/{{  $earlyBirdFeature['thumbnail'] }}" alt="{{$earlyBirdFeature['name']}}  header image" style="width: 100%;" class="homegrid_recent-img" />
 				<div class="homegrid_short-footer">
 					<div class="homegrid_short-whatwhen type-sans">
@@ -122,7 +111,7 @@
             <div class="rounded">
                 <img src="/assets/images/recent-star.svg" alt="Recent Star" />
                 <p class="type-sans2">Recently Added</p></div>
-			<a href="#" class="homegrid_short-link">
+			<a href="/events{{$recentlyAdded['slug']}}" class="homegrid_short-link">
 				<img src="/uploads/{{$recentlyAdded['thumbnail']}} " alt="{{$recentlyAdded['name']}}" style ="width: 100%;" class="homegrid_recent-img" />
 				<div class="homegrid_short-footer">
 					<div class="homegrid_short-whatwhen type-sans">
@@ -202,7 +191,7 @@
                     </div>asfasdf</a>
 			</li>
 			<li class="homelowlnks_item instagram">
-				<a href="#">
+				<a href="https://www.instagram.com/eventcampsites/">
 					<img src="/assets/images/home_instagram.png" alt="Share on instagram"/>
 				</a>
 			</li>
