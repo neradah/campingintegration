@@ -7522,7 +7522,6 @@ select[multiple].form-group-lg .form-control, textarea.form-group-lg .form-contr
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  user-select: none;
   background-image: none;
   border: 1px solid transparent;
   border-radius: 4px; }
@@ -10435,7 +10434,6 @@ button.close {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  user-select: none;
   vertical-align: middle;
   -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
   -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
@@ -10826,8 +10824,7 @@ button.close {
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none; }
+  -ms-user-select: none; }
 
 .bootstrap-select.btn-group .dropdown-menu li a.opt {
   position: relative;
@@ -13165,7 +13162,7 @@ body {
   border-left: 2px solid #f5f4f3;
   border-right: 2px solid #f5f4f3;
   padding: 15px 0 20px 15px;
-  margin-bottom:-10px;
+  margin-bottom:-1px;
 }
 
 .faq .faq_disclaimer {
