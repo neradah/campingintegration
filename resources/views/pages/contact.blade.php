@@ -20,7 +20,7 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="contact_content">
-            {!! Form::open(array('url' => 'thanks')) !!}
+                        {!! Form::open(array('url' => 'foo/bar')) !!}
                         <div class="row">
                             <div class="col-xs-12 col-md-6">
                                 {!! Form::label('name','Name', array('class' => 'required')) !!}
@@ -55,5 +55,11 @@
         </div>
     </div>
 </div>
-
+<script>
+    // Prevents all non input elements from tabbing
+    $(document).ready(function() {
+       $('mainheader_mainnav-list a').attr('tabindex',-1);
+       $('footer a').attr('tabindex',-1); 
+    });
+</script>
 @stop
