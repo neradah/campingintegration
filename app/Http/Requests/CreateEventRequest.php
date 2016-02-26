@@ -26,7 +26,7 @@ class CreateEventRequest extends Request
         return [
             'campsites' => 'required|array',
             'name' => 'required',
-            'city' => 'required',
+            'location' => 'required',
             'category' => 'required',
             'slug' => 'required',
             'start' => 'required|date',

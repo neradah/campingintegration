@@ -20,7 +20,7 @@ class EventController extends Controller
     public function getShow($event, App\PitchGroup $pitchGroup)
     {
         $pitchGroups = $pitchGroup->all();
-        return view('demo_event', compact('event', 'pitchGroups'));
+        return view('pages.event', compact('event', 'pitchGroups'));
 
 
     }

@@ -218,18 +218,22 @@
 
                                     @forelse($pitch->products()->get() as $product)
 
-                                        <p class="help-block">{{$product->name}}</p>
+                                        <div class="row">
+                                        <div class="col-md-12">
+                                            <p class="help-block">{{$product->name}}</p>
 
-                                        {!! Form::label('Cost', 'Cost', ['class' => 'col-sm-3 control-label']) !!}
-                                        <div class="col-sm-5">
-                                        <div class="input-group">
+                                            {!! Form::label('Cost', 'Cost', ['class' => 'col-sm-3 control-label']) !!}
+                                            <div class="col-sm-5">
+                                                <div class="input-group">
                                             <span class="input-group-addon">
                                                     {!! Form::checkbox('product['.$pitch->id.']['.$product->id.'][status]', 1, get_event_product_status($pitch->id, $product->id)) !!}
                                                    </span>
 
 
-                                                {!! Form::text('product['.$pitch->id.']['.$product->id.'][cost]', isset($model) ? get_event_product_cost($pitch->id, $product->id, $product->price) : $product->price, ['class' => 'form-control'] ) !!}
+                                                    {!! Form::text('product['.$pitch->id.']['.$product->id.'][cost]', isset($model) ? get_event_product_cost($pitch->id, $product->id, $product->price) : $product->price, ['class' => 'form-control'] ) !!}
+                                                </div>
                                             </div>
+                                        </div>
                                         </div>
 
 

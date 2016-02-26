@@ -4,31 +4,6 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 
-    <div class="pitches" style="margin-left:40%;width:100%;height:200px;">
-
-        <h1 style="font-size:20px;">Select a Pitch</h1>
-
-        <ul>
-
-        @foreach($event->pitches() as $pitch)
-<li>
-    {!! Form::label($pitch->id, $pitch->name) !!}
-    {!! Form::radio('pitch', $pitch->id, false, ['id' => $pitch->id, 'class' => 'pitches']) !!}
-</li>
-
-        @endforeach
-
-        </ul>
-
-    </div>
-
-    <script>
-
-        $('.pitches input').on('click', function(){
-           alert();
-        });
-
-    </script>
 
 
 
@@ -77,7 +52,7 @@
     <!-- - - - - - - - - - -->
 
     <section class="eventinfo container" data-init="event-info">
-        <img src="{!! asset('uploads/'.$event->banner) !!}" alt="alt text" class="eventinfo_img" />
+        <img src="{!! asset($event->banner) !!}" alt="alt text" class="eventinfo_img" />
         <nav class="eventinfo_nav type-sans-l">
             <ul class="eventinfo_navlist">
                 <li class="eventinfo_navitem active" data-info="about"><button class="eventinfo_navbtn">About the Campsite</button></li>

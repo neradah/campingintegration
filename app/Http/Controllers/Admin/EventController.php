@@ -28,6 +28,7 @@ class EventController extends AdminController
     public function index(Event $event)
     {
         $items = $event->all();
+
         return view('admin.event.index', compact('items'));
     }
 
@@ -55,13 +56,23 @@ class EventController extends AdminController
     public function store(Requests\CreateEventRequest $request, Event $event)
     {
 
+
+
         $banner = $this->upload($request->file('banner_upload'));
         $thumbnail = $this->upload($request->file('thumbnail_upload'));
 
         $request->merge(compact('thumbnail', 'banner'));
 
+        $UpdateArray = $request->all();
 
-        $event =  $event->create($request->all());
+
+        foreach(['start', 'end', 'early_bird_start', 'early_bird_end'] as $field)
+        {
+            $UpdateArray[$field] = Carbon::createFromTimeStamp(strtotime($request->get($field)));
+        }
+
+
+        $event =  $event->create($UpdateArray);
         $event->campsites()->sync($request->get('campsites', []));
 
 
@@ -139,9 +150,21 @@ class EventController extends AdminController
      */
     public function update(Request $request, $id, Event $event)
     {
+
+        $UpdateArray = $request->all();
+
+
+        foreach(['start', 'end', 'early_bird_start', 'early_bird_end'] as $field)
+        {
+            $UpdateArray[$field] = Carbon::createFromTimeStamp(strtotime($request->get($field)));
+        }
+
+
+
+
         $event = $event->find($id)->firstOrFail();
 
-        $event->update($request->all());
+        $event->update($UpdateArray);
 
         $event->campsites()->sync($request->get('campsites', []));
 

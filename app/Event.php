@@ -13,7 +13,7 @@ class Event extends Model
      */
     protected $table = 'events';
 
-    public $dates = ['start', 'end'];
+    public $dates = ['start', 'end', 'early_bird_start', 'early_bird_end'];
 
     /**
      * The attributes that are mass assignable.
@@ -34,6 +34,8 @@ class Event extends Model
         'about_info',
         'parking_info',
         'arrival_info',
+        'early_bird_start',
+        'early_bird_end',
         'map'
     ];
 
@@ -71,29 +73,6 @@ class Event extends Model
             ->select('event_tent_qty_cost.cost', 'tents.name', 'tents.id', 'event_tent_qty_cost.qty',
                 'pitches.id as pitch_id');
     }
-
-
-    function setStartAttribute($value)
-    {
-        $this->attributes['start'] = Carbon::createFromTimeStamp(strtotime($value));
-    }
-
-    function setEndAttribute($value)
-    {
-        $this->attributes['end'] = Carbon::createFromTimeStamp(strtotime($value));
-    }
-
-    function setEarlyBirdStartAttribute($value)
-    {
-        $this->attributes['early_bird_start'] = Carbon::createFromTimeStamp(strtotime($value));
-    }
-
-    function setEarlyBirdEndAttribute($value)
-    {
-        $this->attributes['early_bird_end'] = Carbon::createFromTimeStamp(strtotime($value));
-    }
-
-
 
 
 }
