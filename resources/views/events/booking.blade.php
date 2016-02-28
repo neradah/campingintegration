@@ -1,6 +1,4 @@
-@extends(Config::get('core.default'))
-
-
+@extends('layout')
 @section('title')
 Book Your Pre-Pitched Tent And Extras For This Event Today
 @stop
@@ -88,20 +86,7 @@ Book Your Pre-Pitched Tent And Extras For This Event Today
             </div>
         </div>
     </div> 
-    <?php
-    $form = ['url' => URL::route('events-bookings-add-to-cart'),
-        'method'   => 'POST',
-        'button'   => 'Add To Basket',
-        'defaults' => [
-            'title'    => '',
-            'date_of_booking'     => '',
-            'size' => '',
-            'zone_id'  => '',
-        ], 
-        'zones' => $zones,
-        'event' => $event
-    ];
-    ?>
+
     @include('bookings.form')
 
 </section>

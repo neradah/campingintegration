@@ -12,7 +12,7 @@
             @if (count($bookings) == 0)
                 There are currently no bookings.
             @else
-                Here are the bookings for {{$event->title}}
+                Here are the bookings for {{$event->name}}
             @endif
         </p>
     </div>

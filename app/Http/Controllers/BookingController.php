@@ -19,4 +19,9 @@ class BookingController extends Controller
 
         return view('pages.campsite_loc', compact('event'));
     }
+
+    public function step2($event)
+    {
+        return view('events.booking', compact('event'));
+    }
 }
