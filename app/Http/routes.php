@@ -1,10 +1,6 @@
 <?php
 
-Route::get('/test', function(){
-   return get_event_product_status($pitch->id, $product->id);
-});
 
-Route::get('event/{slug}', 'EventController@getShow');
 
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
@@ -53,4 +49,9 @@ Route::get('/how-to', function(){
 });
 
 
-Route::controller('/', 'HomeController');
+
+
+Route::get('events', 'PageController@events');
+Route::get('event/{slug}', ['as' => 'events.show', 'uses' => 'PageController@getShow']);
+Route::get('event/{slug}/step1', ['as' => 'booking.step1', 'uses' => 'BookingController@step1']);
+Route::get('/', 'HomeController@index');

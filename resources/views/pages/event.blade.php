@@ -84,6 +84,7 @@
 
     <div class="bookingform container" data-init="booking-form">
 
+        <a href="{{route('booking.step1', $event->slug)}}"> BOOK NOW</a>
 
     </div>
 

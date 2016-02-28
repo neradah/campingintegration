@@ -21,4 +21,5 @@ class CampSite extends Model
     {
         return $this->belongsToMany('App\Zone');
     }
+
 }

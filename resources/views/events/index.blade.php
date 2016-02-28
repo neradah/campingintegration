@@ -1,3 +1,4 @@
+@extends('layout')
 @section('content')
 
     <!-- - - - - - - - - - -->
@@ -44,14 +45,7 @@
                         </div>
                     </div>
                     
-                    <!--<select class="eventsearch_select selectpicker" data-search-type="country" title="Select a Country">
-                        <option>United Kingdom</option>
-                        <option>France</option>
-                        <option>Iceland</option>
-                        <option>Spain</option>
-                        <option>Denmark</option>
-                    </select>-->
-                    <!--<button type="submit" for="eventsearch_form" class="eventsearch_submit">Search</button>-->
+
                 </form>
                 
             </div>
@@ -76,17 +70,20 @@
         @else
             @foreach($events as $event)
 
-                <li class="eventcard {!! $event->has_early_bird ? 'earlybird' : '' !!} mix">
+                <li class="eventcard @if(is_early_bird($event)) earlybird @endif mix">
                     <div class="eventcard_overview">
                         <a href="{!! URL::route('events.show', array('events' => $event->slug)) !!}" class="eventcard_link">
                             <img src="/assets/uploads/{!! $event->thumbnail_image !!}" alt="alt text" class="eventcard_img" />
-                            <h3 class="eventcard_name type-sans-b">{!! $event->title !!}</h3>
-                            <p class="eventcard_location type-sans">{!! $event->city !!} | {!! $event->country !!}</p>
-                            <p class="eventcard_cost type-sans-b">{!! $event->nights !!} nights from <span class="eventcard_price type-sans-b">&pound;{!!$event->two_man_price!!}</span></p>
-                            <p class="eventcard_dates type-sans">{!!date('d M', strtotime($event->start_date)) !!}  &ndash; {!!date('d M Y', strtotime($event->end_date)) !!}</p>
+                            <h3 class="eventcard_name type-sans-b">{!! $event->name !!}</h3>
+                            <p class="eventcard_location type-sans">{!! $event->location !!}</p>
+
+                            <p class="eventcard_cost type-sans-b"> <span class="eventcard_price type-sans-b">&pound;{{get_cheapest($event)}}</span></p>
+                            <p class="eventcard_dates type-sans">{{$event->start->toFormattedDateString()}}   &ndash; {{$event->end->toFormattedDateString()}} </p>
                             <span class="eventcard_tentsleft type-sans">{!! $event->tentsLeft !!} tents left</span>
-                            @if($event->has_early_bird)
-                                <p class="eventcard_discount type-sans-b">{!! $event->percentDiscount !!}% Early Bird Discount</p>
+
+
+                            @if(is_early_bird($event))
+                                <p class="eventcard_discount type-sans-b">{!! $event->discount !!}% Early Bird Discount</p>
                             @endif
                             <!-- Pitches Left must be dynamic -->
                             <span class="eventcard_pitchesleft type-sans">21 pitches left</span>
@@ -102,42 +99,3 @@
 
 @stop
 
-{{--<div class="row">
-    <div class="col-xs-8">
-        <p class="lead">
-            @if (count($events) == 0)
-                There are currently no events.
-            @else
-                Here you may find our events:
-            @endif
-        </p>
-    </div>
-    @auth('edit')
-        <div class="col-xs-4">
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{!! URL::route('events.create') !!}"><i class="fa fa-calendar"></i> New Event</a>
-            </div>
-        </div>
-    @endauth
-</div>
-@foreach($events as $event)
-    <h2>{!! $event->title !!}</h2>
-    <p>
-        <strong>{!! $event->start_date->format('l jS F Y H:i') !!}</strong>
-    </p>
-    <p>
-        <a class="btn btn-success" href="{!! URL::route('events.show', array('events' => $event->slug)) !!}"><i class="fa fa-file-text"></i> Show Event</a>
-        @auth('edit')
-             <a class="btn btn-info" href="{!! URL::route('events.edit', array('events' => $event->id)) !!}"><i class="fa fa-pencil-square-o"></i> Edit Event</a> <a class="btn btn-danger" href="#delete_event_{!! $event->id !!}" data-toggle="modal" data-target="#delete_event_{!! $event->id !!}"><i class="fa fa-times"></i> Delete Event</a>
-        @endauth
-    </p>
-    <br>
-@endforeach
-@stop
-
-@section('bottom')
-@auth('edit')
-    @include('events.deletes')
-@endauth
-@stop
---}}

@@ -70,24 +70,26 @@
 				</div>
 			</a>
 		</div>
+
+		@if($earlyBirdFeature)
 		<!-- Selected earlybird deal -->
 		<div class="homegrid_item homegrid_item--short homegrid_item--early">
 			<a href="#" class="homegrid_earlydeals type-sans">View all Early Bird Deals</a>
             <div class="rounded"><span>£</span><br><p class="type-sans2">Earlybird Discount</p></div>
-			<p class="small-rounded"> Save Up To <span>{{$earlyBirdFeature['discount']}}%</span></p>
-			<a href="/events{{$earlyBirdFeature['slug']}}" class="homegrid_short-link">
-				<img src="/uploads/{{  $earlyBirdFeature['thumbnail'] }}" alt="{{$earlyBirdFeature['name']}}  header image" style="width: 100%;" class="homegrid_recent-img" />
+			<p class="small-rounded"> Save Up To <span>{{$earlyBirdFeature->discount}}%</span></p>
+			<a href="{{url('event/'.$earlyBirdFeature->slug)}}" class="homegrid_short-link">
+				<img src="/uploads/{{  $earlyBirdFeature->thumbnail }}" alt="{{$earlyBirdFeature->name}}  header image" style="width: 100%;" class="homegrid_recent-img" />
 				<div class="homegrid_short-footer">
 					<div class="homegrid_short-whatwhen type-sans">
-						<h2 class="homegrid_short-what"> {{$earlyBirdFeature['name']}}</h2>
+						<h2 class="homegrid_short-what"> {{$earlyBirdFeature->name}}</h2>
 						<p class="homegrid_short-when">
-							{{$earlyBirdFeature['start']}}
+							{{$earlyBirdFeature->start->toFormattedDateString()}}
                             &ndash;
-							{{$earlyBirdFeature['end']}} </p>
+							{{$earlyBirdFeature->end->toFormattedDateString()}} </p>
 					</div>
 					<div class="homegrid_short-howmuch">
                         <p class="how-much-text type-sans">SAVE</p>
-						<p class="homegrid_short-cost type-script">&pound;{{$earlyBirdFeature['saving']}}</p>
+						<p class="homegrid_short-cost type-script">&pound; {{get_event_saving($earlyBirdFeature)}}</p>
 					</div>
 				</div>
 			</a>
@@ -111,25 +113,25 @@
             <div class="rounded">
                 <img src="/assets/images/recent-star.svg" alt="Recent Star" />
                 <p class="type-sans2">Recently Added</p></div>
-			<a href="/events{{$recentlyAdded['slug']}}" class="homegrid_short-link">
-				<img src="/uploads/{{$recentlyAdded['thumbnail']}} " alt="{{$recentlyAdded['name']}}" style ="width: 100%;" class="homegrid_recent-img" />
+			<a href="{{url('event/'.$recentlyAdded->slug)}}" class="homegrid_short-link">
+				<img src="/uploads/{{$recentlyAdded->thumbnail}} " alt="{{$recentlyAdded->name}}" style ="width: 100%;" class="homegrid_recent-img" />
 				<div class="homegrid_short-footer">
 					<div class="homegrid_short-whatwhen type-sans">
-						<h2 class="homegrid_short-what">{{$recentlyAdded['name']}}</h2>
+						<h2 class="homegrid_short-what">{{$recentlyAdded->name}}</h2>
 						<p class="homegrid_short-when">
-							{{$recentlyAdded['start']}}
+							{{$recentlyAdded->start->toFormattedDateString()}}
                             &ndash;
-							{{$recentlyAdded['end']}}</p>
+							{{$recentlyAdded->end->toFormattedDateString()}}</p>
 					</div>
 					<div class="homegrid_short-howmuch">
-						<p class="homegrid_short-cost type-script">&pound;<span style="font-weight:700">{{$recentlyAdded['cheapest']}}</span></p>
+						<p class="homegrid_short-cost type-script">&pound;<span style="font-weight:700">{{get_cheapest($recentlyAdded)}}</span></p>
 					</div>
 				</div>
 			</a>
 		</div>
 	</section>
 
-
+@endif
 
 	<!-- Homepage Events Highlights List -->
 
@@ -147,17 +149,17 @@
 				<ul class="homehl_list">
 					@forelse($carousel as $event)
 
-						<li class="eventcard {!! $event['discount'] ? 'earlybird' : '' !!}">
+						<li class="eventcard @if(is_early_bird($event)) earlybird @endif">
 							<div class="eventcard_overview">
-								<a href="/events{!! $event['slug'] !!}" class="eventcard_link">
-									<img src="/uploads/{{$event['thumbnail']}}" alt="alt text" class="eventcard_img" />
-									<h3 class="eventcard_name type-sans-b">{!! $event['name'] !!}</h3>
-									<p class="eventcard_location type-sans">{!! $event['location'] !!}</p>
-									<p class="eventcard_cost type-sans-b">1 nights from <span class="eventcard_price type-sans-b">&pound;{!!$event['cheapest']!!}</span></p>
-									<p class="eventcard_dates type-sans">{{  $event['start'] }}  &ndash; {{  $event['end'] }}</p>
-									<span class="eventcard_tentsleft type-sans">{!! $event['tentsLeft'] !!} tents left</span>
-									@if($event['discount'])
-										<p class="eventcard_discount type-sans-b">{{  $event['discount'] }} % Early Bird Discount</p>
+								<a href="{{url('event/'.$event->slug)}}" class="eventcard_link">
+									<img src="/uploads/{{$event->thumbnail}}" alt="alt text" class="eventcard_img" />
+									<h3 class="eventcard_name type-sans-b">{!! $event->name!!}</h3>
+									<p class="eventcard_location type-sans">{!! $event->location !!}</p>
+									<p class="eventcard_cost type-sans-b">1 nights from <span class="eventcard_price type-sans-b">&pound; {{get_cheapest($event)}}</span></p>
+									<p class="eventcard_dates type-sans">{{  $event->start->toFormattedDateString()}}  &ndash; {{  $event->end }}</p>
+									<span class="eventcard_tentsleft type-sans">{!! $event->tentsLeft !!} tents left</span>
+									@if(is_early_bird($event))
+										<p class="eventcard_discount type-sans-b">{{  $event->discount}} % Early Bird Discount</p>
 									@endif
                                     <!-- Show the Hurry Up card -->
                                     <p class="eventcard_hurry type-sans-b">Hurry Selling Fast</p>
@@ -165,6 +167,9 @@
 							</div>
 						</li>
 					@empty
+
+						NO EVENTS
+
 					@endforelse
                 </ul>
 			</div>

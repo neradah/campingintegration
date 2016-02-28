@@ -196,8 +196,8 @@
 
                                         <p class="help-block">{{$tent->name}}</p>
 
-                                        @include('admin.includes.form.number', ['name' => 'pitch['.$pitch->id.']['.$tent->id.'][qty]', 'label' => 'Qty', 'value' => get_tent_qty($pitch->id,$tent->id )])
-                                        @include('admin.includes.form.text', ['name' => 'pitch['.$pitch->id.']['.$tent->id.'][cost]', 'label' => 'Cost', 'value' => get_tent_cost($pitch->id,$tent->id)])
+                                        @include('admin.includes.form.number', ['name' => 'pitch['.$pitch->id.']['.$tent->id.'][qty]', 'label' => 'Qty', 'value' => isset($model) ?  get_tent_qty($pitch->id,$tent->id, $model->id) : 0 ])
+                                        @include('admin.includes.form.text', ['name' => 'pitch['.$pitch->id.']['.$tent->id.'][cost]', 'label' => 'Cost', 'value' => isset($model) ?  get_tent_cost($pitch->id,$tent->id, $model->id) : 0 ])
 
                                     @endforeach
 
@@ -226,11 +226,11 @@
                                             <div class="col-sm-5">
                                                 <div class="input-group">
                                             <span class="input-group-addon">
-                                                    {!! Form::checkbox('product['.$pitch->id.']['.$product->id.'][status]', 1, get_event_product_status($pitch->id, $product->id)) !!}
+                                                    {!! Form::checkbox('product['.$pitch->id.']['.$product->id.'][status]', 1, isset($model) ? get_event_product_status($pitch->id, $product->id, $model->id)  : 0) !!}
                                                    </span>
 
 
-                                                    {!! Form::text('product['.$pitch->id.']['.$product->id.'][cost]', isset($model) ? get_event_product_cost($pitch->id, $product->id, $product->price) : $product->price, ['class' => 'form-control'] ) !!}
+                                                    {!! Form::text('product['.$pitch->id.']['.$product->id.'][cost]', isset($model) ? get_event_product_cost($pitch->id, $product->id, $model->id) : $product->price, ['class' => 'form-control'] ) !!}
                                                 </div>
                                             </div>
                                         </div>

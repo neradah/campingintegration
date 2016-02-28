@@ -1,6 +1,4 @@
-@extends(Config::get('core.default'))
-
-
+@extends('layout')
 @section('title')
 Book Your Pre-Pitched Tent And Extras For This Event Today
 @stop
@@ -16,10 +14,10 @@ Book Your Pre-Pitched Tent And Extras For This Event Today
     <div class="pageheader_purple">
         <div class="bookingheader_info container">
             <h1 class="pageheader_title type-sans2-l">
-                Book Your Pre-Pitched Tents For <span class="type-sans2-b">British Formula One Grand Prix 2015</span>
+                Book Your Pre-Pitched Tents For <span class="type-sans2-b">{{$event->name}}</span>
             </h1>
             <p class="bookingheader_date type-sans">
-                Wednesday 1st July - Monday 6th July 2014
+                {{$event->start->toFormattedDateString()}} - {{$event->end->toFormattedDateString()}}
             </p>
             {{--<div class="bookingheader_earlybadge"></div>--}}
         </div>
@@ -48,17 +46,21 @@ Book Your Pre-Pitched Tent And Extras For This Event Today
             </div>
         </div>
         <div class="event-main-info">
+
+            @foreach($event->campsites()->get() as $campsite)
+
+
             <div class="row event-main-container">
                 <div class="hidden-xs col-sm-3 event-img-container">
-                    <img src="/assets/images/event-img.jpg" alt="Event Image">
+                    <img src="{!! asset('uploads/'.$campsite->image) !!}" alt="Event Image">
                 </div>
                 <div class="col-xs-12 col-sm-9 camp-main-info">
                     <div class="event-list-header">
-                        <div class="camp-info camp-info1">Site 1 - Campiste Name</div>
+                        <div class="camp-info camp-info1">{{$campsite->name}}</div>
                         <div class="event-info event-info1"><a href="javacript:void(0)">Book Now</a></div>
                     </div>
                     <dl>
-                        <dt class="pitch-loc">0.8km from British Formula One Grand Prix 2015 Event</dt>
+                        <dt class="pitch-loc">0.8km from {{$campsite->name}} Event</dt>
                         <dd></dd>
                         <dt class="pitches-left">Remaining Pitches:</dt>
                         <dd></dd>
@@ -75,59 +77,8 @@ Book Your Pre-Pitched Tent And Extras For This Event Today
                 </div>
             </div>
             
-            <div class="row event-main-container">
-                <div class="hidden-xs col-sm-3 event-img-container">
-                    <img src="/assets/images/event-img.jpg" alt="Event Image">
-                </div>
-                <div class="col-xs-12 col-sm-9 camp-main-info">
-                    <div class="event-list-header">
-                        <div class="camp-info camp-info2">Site 1 - Campiste Name</div>
-                        <div class="event-info event-info2"><a href="javacript:void(0)">Book Now</a></div>
-                    </div>
-                    <dl>
-                        <dt class="pitch-loc">0.8km from British Formula One Grand Prix 2015 Event</dt>
-                        <dd></dd>
-                        <dt class="pitches-left">Remaining Pitches:</dt>
-                        <dd></dd>
-                        <dt>Pitch space only (Tents)</dt>
-                        <dd>10 LEFT</dd>
-                        <dt>Pitch space only (Caravans)</dt>
-                        <dd>12 LEFT</dd>
-                        <dt>Pre-pitched tents</dt>
-                        <dd class="hurry-up">5 LEFT</dd>
-                        <dt>Glamping</dt>
-                        <dd>14 LEFT</dd>
-                        <div style="clear:both"></div>
-                    </dl>
-                </div>
-            </div>
-            
-            <div class="row event-main-container">
-                <div class="hidden-xs col-sm-3 event-img-container">
-                    <img src="/assets/images/event-img.jpg" alt="Event Image">
-                </div>
-                <div class="col-xs-12 col-sm-9 camp-main-info">
-                    <div class="event-list-header">
-                        <div class="camp-info camp-info3">Site 1 - Campiste Name</div>
-                        <div class="event-info event-info3"><a href="javacript:void(0)">Book Now</a></div>
-                    </div>
-                    <dl>
-                        <dt class="pitch-loc">0.8km from British Formula One Grand Prix 2015 Event</dt>
-                        <dd></dd>
-                        <dt class="pitches-left">Remaining Pitches:</dt>
-                        <dd></dd>
-                        <dt>Pitch space only (Tents)</dt>
-                        <dd>10 LEFT</dd>
-                        <dt>Pitch space only (Caravans)</dt>
-                        <dd>12 LEFT</dd>
-                        <dt>Pre-pitched tents</dt>
-                        <dd class="hurry-up">5 LEFT</dd>
-                        <dt>Glamping</dt>
-                        <dd>14 LEFT</dd>
-                        <div style="clear:both"></div>
-                    </dl>
-                </div>
-            </div>
+    @endforeach
+
         </div>
     </div>
     
@@ -172,10 +123,4 @@ Book Your Pre-Pitched Tent And Extras For This Event Today
     }
     initMap();
     </script>
-@stop
-
-@section('bottom')
-@auth('edit')
-    @include('events.deletes')
-@endauth
 @stop

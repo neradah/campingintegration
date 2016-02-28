@@ -31,6 +31,7 @@ class Event extends Model
         'banner',
         'discount',
         'show_homepage',
+        'show_carousel',
         'about_info',
         'parking_info',
         'arrival_info',

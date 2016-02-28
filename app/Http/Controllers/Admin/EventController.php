@@ -154,13 +154,6 @@ class EventController extends AdminController
         $UpdateArray = $request->all();
 
 
-        foreach(['start', 'end', 'early_bird_start', 'early_bird_end'] as $field)
-        {
-            $UpdateArray[$field] = Carbon::createFromTimeStamp(strtotime($request->get($field)));
-        }
-
-
-
 
         $event = $event->find($id)->firstOrFail();
 

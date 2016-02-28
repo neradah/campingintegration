@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\PitchGroup;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -11,25 +12,20 @@ use App\Http\Controllers\Controller;
 
 class PageController extends Controller
 {
-    public function getIndex(Event $event)
+
+    function events(Event $event)
     {
-        $earlybird = $event
-            ->where('show_homepage', true)
-            ->where('homepage_expire', '>', Carbon::now())
-            ->orderBy('created_at', 'DESC')
-            ->first();
-
-        $images = new \stdClass();
-
-        return view('pages.home', compact('earlybird', 'images'));
-
+        $events = $event->all();
+        return view('events.index', compact('events'));
     }
 
-    public function postIndex(Request $request, Event $event)
-    {
-        $results = $event->where('catagory', $request->get('catagory'))->get();
 
-        return view('pages.results', compact('results'));
+    public function getShow($event, PitchGroup $pitchGroup)
+    {
+        $pitchGroups = $pitchGroup->all();
+        return view('pages.event', compact('event', 'pitchGroups'));
+
+
     }
 
 
