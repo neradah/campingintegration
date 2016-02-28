@@ -161,7 +161,7 @@
         <div class="bookingform_zones zone-radio-listen {!! ($errors->has('zone')) ? ' has-error' : '' !!}">
             @foreach($zones as $i => $zone)
             <label class="bookingform_zone">
-       
+
                 {!! Form::radio('zone_id', $zone->id, $checked, array('data-title' => str_replace(' Zone', '', $zone->title) )) !!}
                 <p class="bookingform_zone-text type-sans">
                     <span class="bookingform_zone-title type-sans-b">{!! $zone->title !!}</span>

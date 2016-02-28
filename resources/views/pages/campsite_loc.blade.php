@@ -57,7 +57,7 @@ Book Your Pre-Pitched Tent And Extras For This Event Today
                 <div class="col-xs-12 col-sm-9 camp-main-info">
                     <div class="event-list-header">
                         <div class="camp-info camp-info1">{{$campsite->name}}</div>
-                        <div class="event-info event-info1"><a href="javacript:void(0)">Book Now</a></div>
+                        <div class="event-info event-info1"><a href="{{route('booking.step2', $event->slug)}}">Book Now</a></div>
                     </div>
                     <dl>
                         <dt class="pitch-loc">0.8km from {{$campsite->name}} Event</dt>

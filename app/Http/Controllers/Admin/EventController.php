@@ -135,7 +135,7 @@ class EventController extends AdminController
         $pitches = $pitch->get();
         $campsites = $campSite->all();
         $categories = $category::lists('name', 'id');
-        $model = $event->find($id)->firstOrFail();
+        $model = $event->find($id);
 
 
         return view('admin.event.create', compact('pitches', 'campsites', 'zones', 'categories', 'model'));
