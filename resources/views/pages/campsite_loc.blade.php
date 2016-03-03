@@ -61,6 +61,18 @@ Book Your Pre-Pitched Tent And Extras For This Event Today
                     </div>
                     <dl>
                         <dt class="pitch-loc">0.8km from {{$campsite->name}} Event</dt>
+                        <dd></dd>
+                        <dt class="pitches-left">Remaining Pitches:</dt>
+                        <dd></dd>
+                        <dt>Pitch space only (Tents)</dt>
+                        <dd>10 LEFT</dd>
+                        <dt>Pitch space only (Caravans)</dt>
+                        <dd>12 LEFT</dd>
+                        <dt>Pre-pitched tents</dt>
+                        <dd class="hurry-up">5 LEFT</dd>
+                        <dt>Glamping</dt>
+                        <dd>14 LEFT</dd>
+                        <div style="clear:both"></div>
                     </dl>
                 </div>
             </div>

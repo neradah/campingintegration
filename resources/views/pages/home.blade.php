@@ -43,7 +43,7 @@
                             {!! Form::select(null, $categories, null, ['title' => 'Select Your Event', 'class' => 'eventsearch_select selectpicker', 'data-search-type' => 'category']) !!}
                         </div>
                         <div class="col-xs-2">
-                            <button type="submit" for="eventsearch_form" class="eventsearch_submit">Search all events</button>
+                            <button type="submit" for="eventsearch_form" class="eventsearch_submit">Search events</button>
                         </div>
                     </div>
                 </form>
@@ -65,7 +65,7 @@
 					<img src="{{asset('assets/images/music.png')}}" alt="Picture of a music festival" />
 				</div>
 				<div class="homegrid_square-footer">
-					<h1 class="homegrid_square-footertitle type-sans2-b"><span class="script type-script">Music festival</span> camping</h1>
+					<h1 class="homegrid_square-footertitle type-sans2"><span class="script type-script">Music festival</span> camping</h1>
 					<p class="homegrid_square-footercopy type-sans">If you're more of a glamper than a camper, our pre-pitched tents are perfect for you</p>
 				</div>
 			</a>
@@ -101,7 +101,7 @@
 					<img src="{{asset('assets/images/sport.png')}}" alt="Picture of a sporting event" />
 				</div>
 				<div class="homegrid_square-footer">
-					<h1 class="homegrid_square-footertitle type-sans2-b"><span class="script type-script">Sport event</span> camping</h1>
+					<h1 class="homegrid_square-footertitle type-sans2"><span class="script type-script">Sport event</span> camping</h1>
 					<p class="homegrid_square-footercopy type-sans">From Silverstone to Le Tour de France, we've got a pitch for you</p>
 				</div>
 			</a>
@@ -139,7 +139,7 @@
 
 	<section class="homehl" data-init="homehl">
 		<div class="container">
-			<h2 class="homehl_title type-sans2-b"><span class="type-script">Event</span> Camping Highlights</h2>
+			<h2 class="homehl_title type-sans2"><span class="type-script">Event</span> Camping Highlights</h2>
 			<p class="homehl_subtitle type-sans">Check out our selection of some of the best events happening around Europe - book early to avoid disappointment!</p>
 			<div class="homehl_nav">
 				<button class="homehl_nav-btn homehl_nav-btn--prev">&lt;</button>
