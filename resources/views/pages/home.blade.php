@@ -89,7 +89,7 @@
 					</div>
 					<div class="homegrid_short-howmuch">
                         <p class="how-much-text type-sans">SAVE</p>
-						<p class="homegrid_short-cost type-script">&pound; {{get_event_saving($earlyBirdFeature)}}</p>
+						<p class="homegrid_short-cost type-script">&pound;{{get_event_saving($earlyBirdFeature)}}</p>
 					</div>
 				</div>
 			</a>
