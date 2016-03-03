@@ -78,7 +78,7 @@
             <div class="rounded"><span>£</span><br><p class="type-sans2">Earlybird Discount</p></div>
 			<p class="small-rounded"> Save Up To <span> {!! $earlyBirdFeature->discount !!}%</span></p>
 			<a href="{!! url('event'.$earlyBirdFeature->slug) !!}" class="homegrid_short-link">
-				<img src="/uploads/ {!!   $earlyBirdFeature->thumbnail  !!}" alt=" {!! $earlyBirdFeature->name !!}  header image" style="width: 100%;" class="homegrid_recent-img" />
+				<img src="/uploads/{!!   $earlyBirdFeature->thumbnail  !!}" alt=" {!! $earlyBirdFeature->name !!}  header image" style="width: 100%;" class="homegrid_recent-img" />
 				<div class="homegrid_short-footer">
 					<div class="homegrid_short-whatwhen type-sans">
 						<h2 class="homegrid_short-what">  {!! $earlyBirdFeature->name !!}</h2>
