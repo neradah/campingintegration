@@ -77,7 +77,7 @@
 			<a href="#" class="homegrid_earlydeals type-sans">View all Early Bird Deals</a>
             <div class="rounded"><span>£</span><br><p class="type-sans2">Earlybird Discount</p></div>
 			<p class="small-rounded"> Save Up To <span>{{$earlyBirdFeature->discount}}%</span></p>
-			<a href="{{url('event/'.$earlyBirdFeature->slug)}}" class="homegrid_short-link">
+			<a href="{{url('event'.$earlyBirdFeature->slug)}}" class="homegrid_short-link">
 				<img src="/uploads/{{  $earlyBirdFeature->thumbnail }}" alt="{{$earlyBirdFeature->name}}  header image" style="width: 100%;" class="homegrid_recent-img" />
 				<div class="homegrid_short-footer">
 					<div class="homegrid_short-whatwhen type-sans">
@@ -113,7 +113,7 @@
             <div class="rounded">
                 <img src="/assets/images/recent-star.svg" alt="Recent Star" />
                 <p class="type-sans2">Recently Added</p></div>
-			<a href="{{url('event/'.$recentlyAdded->slug)}}" class="homegrid_short-link">
+			<a href="{{url('event'.$recentlyAdded->slug)}}" class="homegrid_short-link">
 				<img src="/uploads/{{$recentlyAdded->thumbnail}} " alt="{{$recentlyAdded->name}}" style ="width: 100%;" class="homegrid_recent-img" />
 				<div class="homegrid_short-footer">
 					<div class="homegrid_short-whatwhen type-sans">
@@ -151,7 +151,7 @@
 
 						<li class="eventcard @if(is_early_bird($event)) earlybird @endif">
 							<div class="eventcard_overview">
-								<a href="{{url('event/'.$event->slug)}}" class="eventcard_link">
+								<a href="{{url('event'.$event->slug)}}" class="eventcard_link">
 									<img src="/uploads/{{$event->thumbnail}}" alt="alt text" class="eventcard_img" />
 									<h3 class="eventcard_name type-sans-b">{!! $event->name!!}</h3>
 									<p class="eventcard_location type-sans">{!! $event->location !!}</p>
