@@ -1,4 +1,4 @@
-{!! Form::open(array('url' => '', 'class' => 'form-horizontal')) !!}
+{!! Form::open(array('url' => route('booking.step3', $event->slug), 'class' => 'form-horizontal')) !!}
 
 <div class="container">
     <div class="row">

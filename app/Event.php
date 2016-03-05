@@ -72,7 +72,7 @@ class Event extends Model
             ->where('event_tent_qty_cost.qty', '>', 0)
             ->groupBy('event_tent_qty_cost.id')
             ->select('event_tent_qty_cost.cost', 'tents.name', 'tents.id', 'event_tent_qty_cost.qty',
-                'pitches.id as pitch_id');
+                'pitches.id as pitch_id', 'tents.image');
     }
 
 
