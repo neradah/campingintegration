@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\CampSite;
+use App\PitchGroup;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -20,8 +22,10 @@ class BookingController extends Controller
         return view('pages.campsite_loc', compact('event'));
     }
 
-    public function step2($event)
+    public function step2($event, PitchGroup $pitchGroup, CampSite $campSite)
     {
-        return view('events.booking', compact('event'));
+        $campSite = $campSite->find(1);
+
+        return view('events.booking', compact('event', 'pitchGroup', 'campSite'));
     }
 }

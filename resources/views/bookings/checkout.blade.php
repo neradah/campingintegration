@@ -1,5 +1,3 @@
-@extends(Config::get('core.default'))
-
 @section('title')
 Shopping Bag
 @stop

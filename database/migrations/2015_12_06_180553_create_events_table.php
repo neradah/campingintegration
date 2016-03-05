@@ -17,7 +17,7 @@ class CreateEventsTable extends Migration
             $table->timestamps();
             $table->text('name')->nullable();
             $table->text('slug');
-            $table->text('type')->nullable();
+            $table->integer('category_id')->nullable();
             $table->text('location')->nullable();
             $table->date('start')->nullable();
             $table->date('end')->nullable();

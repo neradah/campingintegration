@@ -51,7 +51,7 @@ Route::get('/how-to', function(){
 
 
 
-Route::get('events', 'PageController@events');
+Route::get('events/{cat_id?}', 'PageController@events');
 Route::get('event/{slug}', ['as' => 'booking.step1', 'uses' => 'BookingController@step1']);
 Route::get('event/{slug}/step2', ['as' => 'booking.step2', 'uses' => 'BookingController@step2']);
 Route::get('/', 'HomeController@index');

@@ -29,7 +29,8 @@ class HomeController extends Controller
         $recentlyAdded = $event->orderBy('created_at', 'DESC')->first();
 
 
-        return view('pages.home', compact('categories', 'carousel', 'earlyBirdFeature', 'recentlyAdded'));
+
+        return view('pages.home', compact('categories', 'carousel', 'earlyBirdFeature', 'recentlyAdded', 'event'));
     }
 
 }

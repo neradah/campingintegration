@@ -32,5 +32,15 @@ class PitchGroupTableSeeder extends Seeder
             ['name' => 'Other', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
         ]);
 
+        DB::table('products')->insert([
+            ['name' => 'Breakfast', 'price' => '10.00', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['name' => 'Single Linen', 'price' => '5.00', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['name' => 'Double Linen', 'price' => '10.00', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['name' => 'Parking', 'price' => '20.00', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['name' => 'Single Air Bed', 'price' => '10.00', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['name' => 'Double Air Bed', 'price' => '20.00', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+        ]);
+
+
     }
 }

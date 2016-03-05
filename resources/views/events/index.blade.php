@@ -72,7 +72,7 @@
 
                 <li class="eventcard @if(is_early_bird($event)) earlybird @endif mix">
                     <div class="eventcard_overview">
-                        <a href="{!! URL::route('events.show', array('events' => $event->slug)) !!}" class="eventcard_link">
+                        <a href="{!! URL::route('booking.step1', array('events' => $event->slug)) !!}" class="eventcard_link">
                             <img src="/assets/uploads/{!! $event->thumbnail_image !!}" alt="alt text" class="eventcard_img" />
                             <h3 class="eventcard_name type-sans-b">{!! $event->name !!}</h3>
                             <p class="eventcard_location type-sans">{!! $event->location !!}</p>

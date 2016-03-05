@@ -27,20 +27,13 @@
 	        <div class="homeheader container">
 	            <p class="homeheader_search-title type-sans-b">Start by choosing an event below to book your accommodation</p>
 	            <form id="eventsearch_form" class="type-sans">
-	                <!--<select class="eventsearch_select selectpicker" data-search-type="country" title="Select a Country">
-	                    <option>United Kingdom</option>
-	                    <option>France</option>
-	                    <option>Iceland</option>
-	                    <option>Spain</option>
-	                    <option>Denmark</option>
-	                </select>-->
                     <div class="row">
                         <div class="col-xs-5">
-                            {!! Form::select(null, $categories, null, ['title' => 'Select Event Category', 'class' => 'eventsearch_select selectpicker', 'data-search-type' => 'category']) !!}
+                            {!! Form::select(null, $categories, null, ['title' => 'Select Event Category', 'class' => 'eventsearch_select cat_select selectpicker']) !!}
 
                         </div>
                         <div class="col-xs-5">
-                            {!! Form::select(null, $categories, null, ['title' => 'Select Your Event', 'class' => 'eventsearch_select selectpicker', 'data-search-type' => 'category']) !!}
+                            {!! Form::select(null, $event->lists('name', 'slug'), null, ['title' => 'Select Your Event', 'class' => 'eventsearch_select selectpicker']) !!}
                         </div>
                         <div class="col-xs-2">
                             <button type="submit" for="eventsearch_form" class="eventsearch_submit">Search all events</button>
@@ -50,6 +43,17 @@
 	        </div>
 	    </div>
 	</header>
+
+<script>
+	$('.eventsearch_select').on('change', function(e){
+		window.location.href = '/event/'+$(this).val();
+	});
+
+	$('.cat_select').on('change', function(e){
+		window.location.href = '/events/'+$(this).val();
+	});
+
+</script>
 
 
 

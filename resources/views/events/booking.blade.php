@@ -16,7 +16,7 @@ Book Your Pre-Pitched Tent And Extras For This Event Today
         <div class="bookingheader_info container">
             <img src="/assets/images/home_early.jpg" width="143" height="143" alt="Early bird badge">
             <h1 class="pageheader_title type-sans2-l">
-                Book Your Pre-Pitched Tents For <span class="type-sans2-b">{{ $event->title }}</span>
+                Book Your Pre-Pitched Tents For <span class="type-sans2-b">{{ $event->name }}</span>
             </h1>
             <p class="bookingheader_date type-sans">
                 {!!date('l jS F', strtotime($event->start_date)) !!} 
@@ -70,22 +70,6 @@ Book Your Pre-Pitched Tent And Extras For This Event Today
 <!-- - - - - - - - - - - - - -->
 
 <section class="bookingform" data-init="booking-form">
-
-    <h2 class="bookingform_banner type-sans2-l">
-        <span class="title">Book your pre-pitched tent or pitch and extras for this event below</h2>
-    </h2>
-	<div class="product-selector container">
-        <div class="row">
-            <div class="col-xs-12">
-                <h2 class="bookingform_title type-sans2-b">WHAT DO YOU WANT TO BOOK?</h2>
-                <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#home" aria-controls="pre-pitched" role="tab" data-toggle="tab">Pre-Pitched Tent</a><span>Select</span></li>
-                    <li role="presentation"><a href="#profile" aria-controls="pitch" role="tab" data-toggle="tab">Pitch Space<br>(for tent or caravan)</a><span>Select</span></li>
-                    <li role="presentation"><a href="#messages" aria-controls="glamping" role="tab" data-toggle="tab">Glamping<br>(Luxury Prepitched Tent)</a><span>Select</span></li>
-                </ul>
-            </div>
-        </div>
-    </div> 
 
     @include('bookings.form')
 

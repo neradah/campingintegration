@@ -94,7 +94,7 @@
                         <div class="form-group">
                             {!! Form::label('category', null, ['class' => 'col-sm-3 control-label']) !!}
                             <div class="col-sm-5">
-                                {!! form::select('category', $categories) !!}
+                                {!! form::select('category_id', $categories, null, ['class' => 'form-control']) !!}
                             </div>
                         </div>
 

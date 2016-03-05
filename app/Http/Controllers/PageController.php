@@ -13,9 +13,22 @@ use App\Http\Controllers\Controller;
 class PageController extends Controller
 {
 
-    function events(Event $event)
+    function events($categoryId, Event $event, Request $request)
     {
-        $events = $event->all();
+        if($categoryId)
+        {
+            $event = $event->where('category_id', '=', $categoryId);
+        }
+
+        if($request->has('early_bird'))
+        {
+            $event = $event->where('early_bird_start', '>', Carbon::now());
+            $event = $event->where('early_bird_end', '<', Carbon::now());
+
+        }
+
+        $events = $event->get();
+
         return view('events.index', compact('events'));
     }
 
