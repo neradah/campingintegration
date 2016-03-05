@@ -11682,6 +11682,9 @@ body {
   right: 0;
   bottom: 0; }
 
+.homegrid_recent-img {
+    min-height: 175px;
+}
 .homegrid_short-img {
   height: 173px;
   width: 100%; }
@@ -11696,7 +11699,7 @@ body {
   width: 100%; }
 
 .homegrid_short-whatwhen {
-  background: #fff;
+  background: #f5f4f3;
   display: table-cell;
   padding: 10px;
   vertical-align: middle; }
