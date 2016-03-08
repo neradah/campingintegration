@@ -5,7 +5,7 @@ Book Your Pre-Pitched Tent And Extras For This Event Today
 
 
 @section('content')
-
+@include('partials.site-nav')
 <!-- - - - - - - - - - - -->
 <!-- Booking Page Header -->
 <!-- - - - - - - - - - - -->
@@ -16,10 +16,10 @@ Book Your Pre-Pitched Tent And Extras For This Event Today
             <h1 class="pageheader_title type-sans2-l">
                 Book Your Pre-Pitched Tents For <span class="type-sans2-b">{{$event->name}}</span>
             </h1>
+            <img src="/assets/images/early_header.jpg" alt="Early bird header bagde">
             <p class="bookingheader_date type-sans">
                 {{$event->start->toFormattedDateString()}} - {{$event->end->toFormattedDateString()}}
             </p>
-            {{--<div class="bookingheader_earlybadge"></div>--}}
         </div>
     </div>
     <div class="pageheader_darkpurple">

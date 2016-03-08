@@ -9,7 +9,7 @@
                 <ul class="mainheader_mainnav-list">
                     <li class="mainheader_mainnav-item"><a href="/">Home</a></li>
                     <li class="mainheader_mainnav-item"><a href="/about">About</a></li>
-                    <li class="mainheader_mainnav-item"><a href="/events">Events</a></li>
+                    <li class="mainheader_mainnav-item"><a href="/events/1">Events</a></li>
                     <li class="mainheader_mainnav-item"><a href="/faqs">Faqs</a></li>
                     <li class="mainheader_mainnav-item"><a href="/contact">Contact</a></li>
                 </ul>

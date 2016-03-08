@@ -4,7 +4,7 @@
     <!-- - - - - - - - - - -->
     <!-- Event List Header -->
     <!-- - - - - - - - - - -->
-
+@include('partials.site-nav')
     <header class="pageheader">
         <div class="pageheader_darkpurple">
             <div class="container">
@@ -19,9 +19,9 @@
                     <div class="row">
                         <div class="col-xs-3">
                             <select class="eventsearch_select selectpicker" data-search-type="category" title="Select Event Category">
-                                <option>Music</option>
-                                <option>Sport</option>
-                                <option>Other</option>
+                                <option class="music_btn filter" data-filter="">Music</option>
+                                <option class="sport_btn filter" data-filter="">Sport</option>
+                                <option class="other_btn filter" data-filter="">Other</option>
                             </select>
                         </div>
                         <div class="col-xs-6">
@@ -38,7 +38,7 @@
                                 <select class="eventsort selectpicker type-sans">
                                     <option>Recently Added</option>
                                     <option>Forthcoming Events</option>
-                                    <option>Price (Low - High)</option>
+                                    <option class="lh_buttton filter data-filter=''">Price (Low - High)</option>
                                     <option>Price (High  -Low)</option>
                                 </select>
                             </div>
@@ -47,7 +47,6 @@
                     
 
                 </form>
-                
             </div>
         </div>
     </header>
@@ -73,11 +72,11 @@
                 <li class="eventcard @if(is_early_bird($event)) earlybird @endif mix">
                     <div class="eventcard_overview">
                         <a href="{!! URL::route('booking.step1', array('events' => $event->slug)) !!}" class="eventcard_link">
-                            <img src="/assets/uploads/{!! $event->thumbnail_image !!}" alt="alt text" class="eventcard_img" />
+                            <img src="/uploads/{{$event->thumbnail}}"  alt="alt text" class="eventcard_img" />
                             <h3 class="eventcard_name type-sans-b">{!! $event->name !!}</h3>
                             <p class="eventcard_location type-sans">{!! $event->location !!}</p>
+                            <p class="eventcard_cost type-sans-b">1 nights from <span class="eventcard_price type-sans-b">&pound;{!! get_cheapest($event) !!}</span></p>
 
-                            <p class="eventcard_cost type-sans-b"> <span class="eventcard_price type-sans-b">&pound;{{get_cheapest($event)}}</span></p>
                             <p class="eventcard_dates type-sans">{{$event->start->toFormattedDateString()}}   &ndash; {{$event->end->toFormattedDateString()}} </p>
                             <span class="eventcard_tentsleft type-sans">{!! $event->tentsLeft !!} tents left</span>
 

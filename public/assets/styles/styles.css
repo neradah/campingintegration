@@ -11165,7 +11165,6 @@ body {
   letter-spacing: 0.1em;
   line-height: 30px;
   margin: 40px 0;
-  float:left;
   text-transform: uppercase; }
   .pageheader_title.type-sans2-l .type-sans2-b {
     display: block; }
@@ -11379,18 +11378,15 @@ body {
   font-size: 11px;
   color:#636363;
   font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", sans-serif;
-  text-align:left;
-  width:150px;
-  margin:0 auto; }
+  text-align:center;}
 .eventcard_dates:before {
     content:'';
-    display:block;
-    float:left;
+    display:inline-block;
     margin-right:10px;
-    margin-top:-3px;
     width: 12px;
     height:13px;
     background-image:url('/assets/images/calendar-icon.svg');
+    background-repeat:no-repeat;
 }
 .eventcard_tentsleft, .eventcard_pitchesleft {
   background: #b8af6c;
@@ -11660,6 +11656,7 @@ body {
   text-transform: uppercase; }
   .homegrid_square-footertitle span {
     color: #e1793e;
+    font-weight:400;
     letter-spacing: 0;
     text-transform: none; }
 
@@ -11805,6 +11802,7 @@ body {
   text-transform: uppercase; }
   .homehl_title span {
     color: #e1793e;
+    font-weight:400;
     letter-spacing: 0;
     text-transform: none; }
 
@@ -11939,7 +11937,7 @@ body {
         font-family:'Roboto', sans-serif;
     }
 .bookingheader_info {
-  min-height: 145px; }
+  min-height: 140px; }
 
 .bookingheader_title {
   width: calc(100% - 165px); }
@@ -11948,7 +11946,6 @@ body {
   color: #fff;
   font-size: 18px;
   font-weight: 300;
-  float:left;
   margin-top: -35px; }
 
 .bookingheader_earlybadge {
@@ -11993,6 +11990,7 @@ body {
 
 .eventinfo_navlist {
   font-size: 0;
+  margin-top:10px;
   width: 100%; }
 
 .eventinfo_navitem {
@@ -12054,7 +12052,6 @@ body {
   .bookingform_banner .subtitle {
     font-size: 17px;
     padding: 10px 0 0; }
-
 .bookingform_label {
   font-size: 24px;
   letter-spacing: 0.1em;
@@ -12357,9 +12354,11 @@ body {
   margin: 0 7px 20px 0;
   vertical-align: top;
   width: 326px; }
-  .bookingform_extra:nth-child(3) {
+  .bookingform_extra:nth-child(3n) {
     margin: 0 0 20px; }
-
+.booking_form_extra:first-child {
+    margin-left:0;
+}
 .bookingform_extra-info {
   line-height: 1.3em;
   min-height: 130px;
@@ -13087,7 +13086,7 @@ body {
 }
 
 .pageheader_purple h1 {
-  float: left;
+  display:inline-block;
 }
 
 .pageheader_purple .faq-icon {
@@ -13494,9 +13493,12 @@ body {
 .location .event-main-info .event-main-container .camp-main-info dl {
   background: #f5f4f3;
   color: #636363;
+  min-height:231px;
   padding: 28px 25px;
 }
-
+.location .event-main-info .event-main-container .camp-main-info dl:last-child {
+  margin-bottom:35px;
+}
 .location .event-main-info .event-main-container .camp-main-info dl dt,
 .location .event-main-info .event-main-container .camp-main-info dl dd {
     margin:3px 0;
@@ -13549,9 +13551,9 @@ body {
   display: block;
   float: left;
   height: 35px;
-  margin-right: 10px;
-  margin-top:-3px;
-  width: 15px;
+  margin-right: 7px;
+  margin-top:-4px;
+  width: 18px;
 }
 
 @media only screen and (max-width: 992px) {
@@ -13732,4 +13734,12 @@ body {
     font-size:16px;
     line-height:14px;
     text-transform:uppercase;
+}
+
+section.instantiated-homehl {
+    clear:both;
+}
+
+.tent-selector radio {
+    display:block;
 }

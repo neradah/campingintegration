@@ -5,7 +5,7 @@ Book Your Pre-Pitched Tent And Extras For This Event Today
 
 
 @section('content')
-
+@include('partials.site-nav')
 <!-- - - - - - - - - - - -->
 <!-- Booking Page Header -->
 <!-- - - - - - - - - - - -->
@@ -14,17 +14,15 @@ Book Your Pre-Pitched Tent And Extras For This Event Today
     <div class="pageheader_purple">
         
         <div class="bookingheader_info container">
-            <img src="/assets/images/home_early.jpg" width="143" height="143" alt="Early bird badge">
             <h1 class="pageheader_title type-sans2-l">
                 Book Your Pre-Pitched Tents For <span class="type-sans2-b">{{ $event->name }}</span>
             </h1>
+            <img src="/assets/images/early_header.jpg" alt="Early bird header bagde">
             <p class="bookingheader_date type-sans">
                 {!!date('l jS F', strtotime($event->start_date)) !!} 
                 &ndash; 
                 {!! date('l jS F Y', strtotime($event->end_date)) !!}
             </p>
-            
-            {{--<div class="bookingheader_earlybadge"></div>--}}
         </div>
     </div>
     <div class="pageheader_darkpurple">
@@ -46,7 +44,7 @@ Book Your Pre-Pitched Tent And Extras For This Event Today
 <!-- - - - - - - - - - -->
 
 <section class="eventinfo container" data-init="event-info">
-    <img src="http://placehold.it/992x250?text=event+banner" alt="alt text" class="eventinfo_img" />
+    <img src="/uploads/{{$event->banner}}" alt="alt text" class="eventinfo_img" />
     <nav class="eventinfo_nav type-sans-l">
         <ul class="eventinfo_navlist">
             <li class="eventinfo_navitem active" data-info="about"><button class="eventinfo_navbtn">About the Campsite</button></li>
@@ -58,7 +56,7 @@ Book Your Pre-Pitched Tent And Extras For This Event Today
     <ul class="eventinfo_contentlist type-sans">
         <li class="eventinfo_contentitem active" data-info="about">{!! $event->campsite_info !!}</li>
         <li class="eventinfo_contentitem" data-info="map">
-            <img src="/assets/uploads/{!! $event->map_image !!}" class="eventinfo_map"/>
+            <img src="/uploads/{!! $event->map_image !!}" class="eventinfo_map"/>
         </li>
         <li class="eventinfo_contentitem" data-info="arrival">{!! $event->arrival_info !!}</li>
         <li class="eventinfo_contentitem" data-info="parking">{!! $event->parking_info !!}</li>
@@ -72,6 +70,7 @@ Book Your Pre-Pitched Tent And Extras For This Event Today
 <section class="bookingform" data-init="booking-form">
 
     @include('bookings.form')
+    
 
 </section>
 @stop
