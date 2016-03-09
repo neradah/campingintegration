@@ -11564,7 +11564,8 @@ body {
   .homegrid_item--early, .homegrid_item--sport {
     float: right; }
   .homegrid_item--recent {
-    background: #b8af6c; }
+    background: #b8af6c;
+    overflow-y:hidden; }
   .homegrid_item--early {
     background: #e2793f; }
   .homegrid_item--early .rounded,.homegrid_item--recent .rounded {
@@ -12305,6 +12306,10 @@ body {
   font-size: 16px;
   position: relative;
   width: 33.333%; }
+.bookingform_zone:hover {
+    background:#574d65;
+    color:#fff;
+}
   .bookingform_zone:nth-child(3) {
     margin: 0; }
   .bookingform_zone input {
@@ -12456,6 +12461,7 @@ body {
   position: relative; }
   .baskettbl_opt .desc .img {
     left: 15px;
+    max-width:35%;
     position: absolute;
     top: 20px; }
   .baskettbl_opt .desc .title {
@@ -13743,3 +13749,66 @@ section.instantiated-homehl {
 .tent-selector radio {
     display:block;
 }
+
+
+
+.tent-radios {
+    width:32.75%;
+    float:left;
+    margin-bottom: 15px !important;
+    margin-right:0.8773%;
+    box-sizing:border-box;
+    background:#898989;
+    display:table;
+    min-height:56px !important;
+    position:relative;
+    padding-top:0 !important;
+}
+.tent-radios:nth-child(3n) {
+    margin-right:0;
+}
+.tent-radios label, .tent-radios label span {
+    display:table-cell;
+    font-family: 'Roboto', sans-serif;
+    font-size:13px;
+    font-weight:300;
+    height:100%;
+    position:absolute;
+    text-transform:uppercase;
+    color:#fff;
+}
+.tent-radios label {
+    line-height:38px;
+    width:100%; 
+}
+.tent-radios label span {
+    background-color:#636363;
+    text-align:center;
+    pointer-events:none;
+    top:0;
+    right:0;
+    width:30%;
+    line-height:55px;
+}
+.tent-radios input[type="radio"] {
+    display:none;
+}
+
+.tent-radios input[type="radio"]:checked + span {
+    background-color:#443c4f;
+}
+.tent-radios:hover label {
+    background-color:#574D68;
+}
+
+.tent-radios:hover label span {
+    background-color:#443c4f;
+}
+
+.bookingform_banner .first-title {
+    font-size:23px;
+}
+
+/* Shopping bag styles */
+
+

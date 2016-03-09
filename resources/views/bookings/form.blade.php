@@ -1,29 +1,41 @@
 {!! Form::open(array('url' => route('booking.step3', $event->slug), 'class' => 'form-horizontal')) !!}
-
+<div>
+    <h2 class="bookingform_banner type-sans2-l">
+        <span class="title first-title">BOOK YOUR PRE-PITCHED TENT OR PITCH AND EXTRAS FOR THIS EVENT BELOW</span>
+    </h2>
+</div>
 <div class="container">
- 
-
-    <div class="row">
+     <div class="row">
         <div class="col-md-12">
             <h2 class="bookingform_title type-sans2-b">What do you want to Book?</h2>
         </div>
-        <div class="col-md-12">
-            <ul class="nav nav-tabs product-selector" role="tablist">
-                <li role="presentation" class="active"><a href="#home" aria-controls="pre-pitched" role="tab" data-toggle="tab" aria-expanded="true">Pre-Pitched Tent</a><span>Select</span></li>
-                <li role="presentation" class=""><a href="#profile" aria-controls="pitch" role="tab" data-toggle="tab" aria-expanded="false">Pitch Space<br>(for tent or caravan)</a><span>Select</span></li>
-                <li role="presentation" class=""><a href="#messages" aria-controls="glamping" role="tab" data-toggle="tab" aria-expanded="false">Glamping<br>(Luxury Prepitched Tent)</a><span>Select</span></li>
-            </ul>
+        <div class="col-md-12 tent-selector">
+            @foreach($pitchGroup->get() as $pitch)
+
+                <div class="radio tent-radios">
+                    
+                    <label>
+                        {!! Form::radio('pitch', $pitch->id, null) !!}
+                        {{$pitch->name}}
+                       <span>Select</span> 
+                    </label>
+                    
+                </div>
+
+            @endforeach
         </div>
     </div>
+   
+
+
     <div class="row">
         <div class="col-md-12">
             <h2 class="bookingform_title type-sans2-b">Select Your Tent</h2>
         </div>
-        <div class="col-md-12 tent-selector">
+        <div class="col-md-12">
             <ul class="bookingform_tents">
                 @foreach($event->tents()->get() as $tent)
                 <li class="bookingform_tent">
-                    <div class="tent-number">{{ $tent->capacity }}</div>
                     <div class="radio tents tent-pitch-{{$tent->pitch_id}}">
                         <div class="bookingform_tent-image">
                             <img src="/uploads/{{$tent->image}}" alt="Tent image">
@@ -44,13 +56,11 @@
                         </label>
                     </div>
                 </li>
-                @endforeach
+                    @endforeach
             </ul>
-         
-
         </div>
     </div>
-    <div class="row">
+     <div class="row">
         <div class="col-md-12">
             <h2 class="bookingform_title type-sans2-b">Select You Zone</h2>
         </div>
@@ -92,10 +102,12 @@
 
         </div>
     </div>
-        <h2 class="bookingform_banner type-sans2-l">
-            <span class="title">Your Booking</span>
-        </h2>
-    </div>
+ </div>
+ <div>
+    <h2 class="bookingform_banner type-sans2-l">
+        <span class="title">Your Booking</span>
+    </h2>
+</div>
     <div class="booking-summary container">
         <div class="row">
             <div class="col-xs-12">
@@ -122,29 +134,20 @@
             </div>
         </div>
     </div>
-    
+</div>
 
-</div>
-<div class="container">
-    
-</div>
 
 <script>
-    // $('.pitch-group-product').hide();
-
+    $('.tents').hide();
+    $('.pitch-group-product').hide();
     $('[name=pitch]').on('change', function(){
-        // $('.pitch-group-product').hide();
+        $('.pitch-group-product').hide();
         $('.tents').hide();
-        $('.tent-pitch-'+$(this).val()).show();
-        $('.pitch-group-product-'+$(this).val()).show();
+        $('.tent-pitch-'+$(this).val()).slideToggle(500);
+        $('.pitch-group-product-'+$(this).val()).slideToggle(500);
     });
-    $(document).ready(function() {
-       $('.product-selector li:first-child').on('click',function() {
-          if ($('.tent-selector').attr('display','none')) {
-              $('.tent-selector').slideDown();
-          }
-       });
-    });
+
+    
 </script>
 
         
